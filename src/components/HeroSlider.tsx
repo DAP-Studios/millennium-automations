@@ -79,18 +79,18 @@ const HeroSlider = () => {
           </div>
 
           {/* Content */}
-          <div className="relative container mx-auto px-6 h-full flex items-center">
-            <div className="max-w-3xl space-y-6 animate-fade-in text-white">
-              <h1 className="text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-2xl">
+          <div className="relative container mx-auto px-6 h-full flex items-center justify-center">
+            <div className="max-w-5xl text-center space-y-8 animate-fade-in">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light leading-tight text-white drop-shadow-2xl tracking-wide">
                 {slide.title}
               </h1>
-              <p className="text-xl md:text-2xl max-w-2xl drop-shadow-lg text-white/90">
+              <p className="text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto text-white/95 drop-shadow-lg font-light">
                 {slide.description}
               </p>
               <Button
                 onClick={() => scrollToSection(slide.ctaLink)}
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-lg px-8 py-6"
+                className="bg-white hover:bg-white/90 text-primary font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-base px-10 py-6 rounded-full mt-4"
               >
                 {slide.cta}
               </Button>

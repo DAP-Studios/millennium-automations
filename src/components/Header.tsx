@@ -33,17 +33,20 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-lg shadow-md"
-          : "bg-transparent"
+          ? "bg-white shadow-md"
+          : "bg-white shadow-sm"
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           <a
             href="#"
-            className="text-3xl font-extrabold text-primary tracking-tight"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            MAS<span className="text-accent">.</span>
+            <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
+              <span className="text-white font-bold text-xl">M</span>
+            </div>
+            <span className="text-2xl font-bold text-foreground">Millennium Automation</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -52,14 +55,14 @@ const Header = () => {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-muted-foreground hover:text-accent font-medium transition-colors duration-300"
+                className="text-foreground/60 hover:text-primary font-medium transition-colors duration-300 text-sm"
               >
                 {link.label}
               </button>
             ))}
             <Button
               onClick={() => scrollToSection("#contact")}
-              className="bg-accent hover:bg-accent/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-sm hover:shadow-md transition-all duration-300 text-sm"
             >
               Contact Us
             </Button>

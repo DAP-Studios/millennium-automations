@@ -5,42 +5,42 @@ const products = [
   {
     title: "AC Motor Drives (VFDs)",
     description: "Advanced vector control and high-performance drives for all motor types.",
-    color: "from-blue-500 to-cyan-500",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
   },
   {
     title: "AC Servo Motors & Drives",
     description: "High-precision, high-speed motion control for dynamic applications.",
-    color: "from-cyan-500 to-teal-500",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
   },
   {
     title: "Human Machine Interfaces",
     description: "Intuitive and high-resolution touch screens for smart monitoring.",
-    color: "from-teal-500 to-emerald-500",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
   },
   {
     title: "Motion Control (PLCs)",
     description: "Scalable and integrated controllers for complete machine automation.",
-    color: "from-emerald-500 to-green-500",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80",
   },
   {
     title: "Industrial Robots",
     description: "SCARA and Articulated robots for high-speed, precision assembly and handling.",
-    color: "from-violet-500 to-purple-500",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
   },
   {
     title: "Machine Vision Systems",
     description: "Smart cameras and vision sensors for quality inspection and guidance.",
-    color: "from-purple-500 to-pink-500",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
   },
   {
     title: "Industrial Power Supplies",
     description: "Reliable DIN rail and panel-mount power supplies for stable operation.",
-    color: "from-orange-500 to-red-500",
+    image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&q=80",
   },
   {
     title: "Sensors & Controllers",
     description: "Pressure sensors, temperature controllers, and timers for process control.",
-    color: "from-red-500 to-rose-500",
+    image: "https://images.unsplash.com/photo-1581092583537-20d51876c089?w=800&q=80",
   },
 ];
 
@@ -90,20 +90,24 @@ const Products = () => {
           {products.map((product, index) => (
             <Card
               key={index}
-              className="reveal group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+              className="reveal group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
             >
-              <div className={`h-2 bg-gradient-to-r ${product.color}`} />
-              <CardContent className="p-6">
-                <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${product.color} mb-4 group-hover:scale-110 transition-transform duration-300`}
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <h3 className="text-xl font-bold mb-3 text-primary">
-                  {product.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {product.description}
-                </p>
-              </CardContent>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3 className="text-lg font-bold mb-2 text-white transition-transform duration-300 group-hover:translate-y-[-4px]">
+                    {product.title}
+                  </h3>
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
+              </div>
             </Card>
           ))}
         </div>
