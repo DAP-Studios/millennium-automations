@@ -48,24 +48,31 @@ const About = () => {
           <div className="space-y-6">
             <div className="reveal">
               <span className="text-accent font-semibold text-sm tracking-wider uppercase">
-                Who We Are
+                About Us
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-primary mt-3 mb-6">
-                Driving Industrial Progress with Automation Excellence
+                Smart Systems, Better Solution
               </h2>
             </div>
             <div className="reveal space-y-4">
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Millennium Automation System is a premier provider of industrial
-                automation solutions and an authorized channel partner for Delta
-                Electronics. We empower industries by delivering a comprehensive
-                portfolio of high-quality automation products and integrated
-                systems.
+                Millennium Automation System (MAS) is an authorised channel partner 
+                for Delta Electronics, serving industries across Gujarat from our 
+                base in Vapi. We specialize in providing comprehensive automation 
+                solutions including VFDs, PLCs, HMIs, Servo Systems, and custom 
+                control panels.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Our mission is to engineer smart, reliable, and efficient
-                solutions that boost productivity and drive innovation for our
-                clients, ensuring they stay ahead in a competitive landscape.
+                With expert technical support and a complete range of Delta Electronics 
+                products, we deliver reliable automation systems that enhance efficiency, 
+                reduce operational costs, and drive industrial growth. Our experienced 
+                team is committed to engineering smart solutions tailored to your specific 
+                business needs.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                From initial consultation to final commissioning, we provide end-to-end 
+                support, ensuring seamless integration and optimal performance of your 
+                automation systems.
               </p>
             </div>
           </div>
