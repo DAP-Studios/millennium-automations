@@ -30,39 +30,37 @@ const HeroSlider = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f1629] via-[#1a2447] to-[#2d3561]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary to-primary/90"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/50"></div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 py-20 lg:py-32">
+      <div className="relative container mx-auto px-6 py-24 lg:py-32">
         <div className="max-w-6xl mx-auto">
           {/* Main Content */}
-          <div className="text-center space-y-8 mb-16 animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/90 text-sm font-medium mb-4">
-              Authorized Channel Partner of Delta Electronics
+          <div className="text-center space-y-8 mb-20">
+            <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/95 rounded-full border border-primary/10 shadow-sm">
+              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <span className="text-primary text-sm font-semibold tracking-wide">Authorized Channel Partner of Delta Electronics</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight text-white">
-              Smart Automation Solutions for{" "}
-              <span className="font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Growing Industries
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white tracking-tight">
+              Smart Automation Solutions
+              <br />
+              <span className="text-white/90">for Growing Industries</span>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto text-white/80 font-light leading-relaxed">
-              We build reliable automation systems that target your business needs with Delta Electronics products and expert engineering support.
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-white/85 leading-relaxed">
+              Reliable automation systems designed for your business needs with Delta Electronics products and expert engineering support.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
               <Button
                 onClick={() => scrollToSection("#contact")}
                 size="lg"
-                className="bg-white hover:bg-white/90 text-primary font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 text-base px-10 py-6 rounded-lg"
+                className="bg-white hover:bg-white/95 text-primary font-semibold shadow-lg hover:shadow-xl transition-all duration-200 text-base px-8 h-12"
               >
                 Schedule a Consultation
               </Button>
@@ -70,7 +68,7 @@ const HeroSlider = () => {
                 onClick={() => scrollToSection("#products")}
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold shadow-lg transition-all duration-300 px-10 py-6 rounded-lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold transition-all duration-200 px-8 h-12"
               >
                 View Products
               </Button>
@@ -82,20 +80,17 @@ const HeroSlider = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-200"
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-lg">
-                      <feature.icon className="w-6 h-6 text-white" />
-                    </div>
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center shadow-sm">
+                    <feature.icon className="w-7 h-7 text-white" strokeWidth={2} />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-white font-semibold text-lg mb-2">
+                  <div>
+                    <h3 className="text-foreground font-semibold text-lg mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-white/70 text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
