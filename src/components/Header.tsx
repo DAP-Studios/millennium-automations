@@ -15,10 +15,10 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#products", label: "Products" },
     { href: "#services", label: "Services" },
+    { href: "#products", label: "Products" },
+    { href: "#about", label: "About" },
+    { href: "#contact", label: "Contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -39,43 +39,24 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a
-            href="#"
-            className="flex items-center gap-3 hover:opacity-80 transition-all duration-300 group relative"
+          <button
+            onClick={() => scrollToSection("#home")}
+            className="text-3xl font-bold text-foreground tracking-tight hover:opacity-80 transition-opacity"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-lg blur-sm opacity-50 group-hover:opacity-70 transition-opacity"></div>
-              <div className="relative w-11 h-11 bg-gradient-to-br from-primary via-primary to-accent rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-foreground leading-none tracking-tight">Millennium</span>
-              <span className="text-[10px] text-muted-foreground font-semibold uppercase tracking-[0.15em] mt-0.5">Automation</span>
-            </div>
-          </a>
+            MAS
+          </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="relative px-5 py-2.5 text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 group"
+                className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors duration-200"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
-            <div className="ml-4">
-              <Button
-                onClick={() => scrollToSection("#contact")}
-                size="sm"
-                className="bg-gradient-to-r from-primary to-accent hover:shadow-[0_8px_20px_-4px_hsl(var(--primary)/0.4)] text-primary-foreground font-semibold shadow-md transition-all duration-300 px-7 py-5 rounded-lg hover:scale-[1.02]"
-              >
-                Contact Us
-              </Button>
-            </div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -105,14 +86,6 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
-              <div className="pt-2 px-4">
-                <Button
-                  onClick={() => scrollToSection("#contact")}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                >
-                  Contact Us
-                </Button>
-              </div>
             </div>
           </div>
         )}
