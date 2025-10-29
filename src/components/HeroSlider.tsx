@@ -23,26 +23,7 @@ const stats = [
   },
 ];
 
-const slides = [
-  {
-    image: heroImage1,
-    title: "Millennium Automation System",
-    subtitle: "Smart Systems, Better Solution",
-    tag: "Industry Leader in Automation",
-  },
-  {
-    image: heroImage2,
-    title: "Advanced Industrial Solutions",
-    subtitle: "Powering Gujarat's Manufacturing Excellence",
-    tag: "Trusted by Leading Industries",
-  },
-  {
-    image: heroImage3,
-    title: "Delta Electronics Partner",
-    subtitle: "World-Class Automation Technology",
-    tag: "Premium Quality Products",
-  },
-];
+const slides = [heroImage1, heroImage2, heroImage3];
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,16 +56,20 @@ const HeroSlider = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Carousel Images */}
-      {slides.map((slide, index) => (
+      {slides.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 transition-transform duration-700 ease-in-out ${
+            index === currentSlide 
+              ? "translate-x-0" 
+              : index < currentSlide 
+                ? "-translate-x-full" 
+                : "translate-x-full"
           }`}
         >
           <img
-            src={slide.image}
-            alt={slide.title}
+            src={image}
+            alt="Industrial Automation"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/80 to-slate-900/70"></div>
@@ -126,19 +111,19 @@ const HeroSlider = () => {
         <div className="max-w-6xl mx-auto">
           {/* Main Content */}
           <div className="space-y-8 mb-20">
-            <div className="inline-flex items-center gap-2 text-primary text-sm font-medium tracking-wide animate-fade-in">
-              {slides[currentSlide].tag}
+            <div className="inline-flex items-center gap-2 text-primary text-sm font-medium tracking-wide">
+              Industry Leader in Automation
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white animate-fade-in">
-              {slides[currentSlide].title}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
+              Millennium Automation System
             </h1>
             
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-light animate-fade-in">
-              {slides[currentSlide].subtitle}
+            <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-light">
+              Smart Systems, Better Solution
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 animate-fade-in">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Button
                 onClick={() => scrollToSection("#products")}
                 size="lg"
@@ -160,7 +145,7 @@ const HeroSlider = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
             {stats.map((stat, index) => (
-              <div key={index} className="flex items-center gap-4 text-white animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div key={index} className="flex items-center gap-4 text-white">
                 <div className="flex-shrink-0">
                   <stat.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
                 </div>
