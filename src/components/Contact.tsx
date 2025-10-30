@@ -38,88 +38,134 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's Build the Future of Your Factory
+            Get In Touch
           </h2>
-          <p className="text-white/80 text-lg max-w-2xl mx-auto">
-            Ready to optimize your operations? Contact our experts today for a
-            personalized quote or consultation.
+          <p className="text-white/90 text-lg max-w-3xl mx-auto">
+            Ready to automate your operations? Contact us today to discuss your project requirements and discover how we can help transform your business.
           </p>
         </div>
-        <div className="max-w-5xl mx-auto">
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20 shadow-2xl">
-            <CardContent className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-12">
-                <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Contact Info Cards */}
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 rounded-lg p-3">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
                   <div>
-                    <Label htmlFor="name" className="text-white mb-2 block">
-                      Name
+                    <h3 className="text-lg font-semibold mb-2">Office Address</h3>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat, India
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 rounded-lg p-3">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Email</h3>
+                    <p className="text-white/80 text-sm">
+                      millenniumautomationsystem@gmail.com
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 rounded-lg p-3">
+                    <Phone className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Phone / WhatsApp</h3>
+                    <p className="text-white/80 text-sm">
+                      +91 9904003445
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-white/20 rounded-lg p-3">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2">Business Hours</h3>
+                    <p className="text-white/80 text-sm">
+                      Monday - Saturday: 9:00 AM - 6:00 PM
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Form */}
+          <Card className="bg-white/10 backdrop-blur-lg border-white/20 shadow-2xl">
+            <CardContent className="p-8 md:p-10">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="name" className="text-white mb-2 block font-medium">
+                      Full Name *
                     </Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-accent"
+                      className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-white h-11"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-white mb-2 block">
-                      Email
+                    <Label htmlFor="email" className="text-white mb-2 block font-medium">
+                      Email Address *
                     </Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-accent"
+                      className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-white h-11"
                       required
                     />
-                  </div>
-                  <div>
-                    <Label htmlFor="message" className="text-white mb-2 block">
-                      Message
-                    </Label>
-                    <Textarea
-                      id="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-accent"
-                      required
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    className="w-full bg-accent hover:bg-accent/90 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                    size="lg"
-                  >
-                    Send Inquiry
-                  </Button>
-                </form>
-                <div className="space-y-8">
-                  <h3 className="text-2xl font-bold mb-6">
-                    Contact Information
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                      <span className="text-white/90">
-                        123 Automation Lane, Industry City, 45678
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                      <span className="text-white/90">+1 (234) 567-890</span>
-                    </div>
-                    <div className="flex items-start gap-4">
-                      <Mail className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                      <span className="text-white/90">
-                        contact@millenniumautomation.com
-                      </span>
-                    </div>
                   </div>
                 </div>
-              </div>
+                <div>
+                  <Label htmlFor="message" className="text-white mb-2 block font-medium">
+                    Message *
+                  </Label>
+                  <Textarea
+                    id="message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="bg-white/10 border-white/30 text-white placeholder:text-white/50 focus:border-white resize-none"
+                    required
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full md:w-auto bg-white text-primary hover:bg-white/90 font-bold shadow-lg hover:shadow-xl transition-all duration-300 px-12"
+                  size="lg"
+                >
+                  Send Message
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </div>

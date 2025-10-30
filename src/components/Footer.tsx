@@ -12,10 +12,10 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-sm">Powered by</span>
+            <span className="text-sm">Developed by </span>
             <img
-              src="https://www.deltaww.com/images/logo.svg"
-              alt="Delta Electronics"
+              src="dap.png"
+              alt="DAP Tech"
               className="h-6 opacity-80"
             />
           </div>

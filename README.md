@@ -1,73 +1,88 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: https://lovable.dev/projects/02b800ed-31d9-45dc-80b6-7b796ff9701c
+# Millennium Automations — Frontend
 
-## How can I edit this code?
+This repository contains the frontend for the Millennium Automation System marketing/demo site built with Vite, React and Tailwind CSS.
 
-There are several ways of editing your application.
+Quick start
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/02b800ed-31d9-45dc-80b6-7b796ff9701c) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+1. Install dependencies
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Run the dev server
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. Build for production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run build
+```
 
-**Use GitHub Codespaces**
+# Millennium Automations — Frontend
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This repository contains the frontend for the Millennium Automation System marketing/demo site built with Vite, React and Tailwind CSS.
 
-## What technologies are used for this project?
+Quick start
 
-This project is built with:
+1. Install dependencies
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```sh
+npm install
+```
 
-## How can I deploy this project?
+2. Run the dev server
 
-Simply open [Lovable](https://lovable.dev/projects/02b800ed-31d9-45dc-80b6-7b796ff9701c) and click on Share -> Publish.
+```sh
+npm run dev
+```
 
-## Can I connect a custom domain to my Lovable project?
+3. Build for production
 
-Yes, you can!
+```sh
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Millennium Automations — Frontend
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This repository contains the frontend for the Millennium Automation System marketing/demo site built with Vite, React and Tailwind CSS.
+
+Quick start
+
+1. Install dependencies
+
+```sh
+npm install
+```
+
+2. Run the dev server
+
+```sh
+npm run dev
+```
+
+3. Build for production
+
+```sh
+npm run build
+```
+
+Repository notes
+
+- Framework: Vite + React + TypeScript
+- Styling: Tailwind CSS
+
+References to external helper tools were removed to keep this repo self-contained.
+
+Contributing
+
+- Make a branch, implement changes, run the dev server locally and open a PR with a concise description.
+
+Contact
+
+- For questions about this repo, contact the project owner or consult the internal documentation.

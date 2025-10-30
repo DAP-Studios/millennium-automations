@@ -4,53 +4,59 @@ import ProductModal from "./ProductModal";
 
 const products = [
   {
-    title: "AC Motor Drives (VFDs)",
-    description: "Advanced vector control and high-performance drives for all motor types.",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
+    title: "Variable Frequency Drives",
+    description: "Comprehensive range of VFD series including E, EL, EL-W, ME, MS 300, C200, C2000, and CP2000 for precise motor control",
+    specs: ["Multiple Series", "Energy Efficient", "Vector Control", "Built-in Functions"],
+    applications: ["Industrial Motors", "HVAC Systems", "Pumps & Fans", "Conveyors"],
+    image: "https://images.unsplash.com/photo-1647427146263-c3562a03b5b6?w=800&q=80",
     category: "drives",
+    badge: "Delta Electronics"
   },
   {
-    title: "AC Servo Motors & Drives",
-    description: "High-precision, high-speed motion control for dynamic applications.",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
+    title: "Servo Systems",
+    description: "High-precision servo motors and drives for demanding motion control applications",
+    specs: ["AC Servo Motors", "Servo Drives", "High Precision", "Fast Response"],
+    applications: ["CNC Machines", "Robotics", "Packaging", "Textile Machinery"],
+    image: "https://images.unsplash.com/photo-1621996346566-2679d033e2f6?w=800&q=80",
     category: "drives",
+    badge: "Delta Electronics"
   },
   {
-    title: "Human Machine Interfaces",
-    description: "Intuitive and high-resolution touch screens for smart monitoring.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    title: "Human Machine Interface",
+    description: "Intuitive HMI panels for operator interface and process visualization",
+    specs: ["Touch Screen", "Multiple Sizes", "Color Display", "Communication Ports"],
+    applications: ["Process Monitoring", "Machine Control", "Data Visualization", "System Management"],
+    image: "https://images.unsplash.com/photo-1571172834739-121f14d71e6f?w=800&q=80",
     category: "interface",
+    badge: "Delta Electronics"
   },
   {
-    title: "Motion Control (PLCs)",
-    description: "Scalable and integrated controllers for complete machine automation.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80",
+    title: "Programmable Logic Controllers",
+    description: "DVP and AS200 series PLCs for reliable automation control and monitoring",
+    specs: ["DVP Series", "AS200 Series", "Modular Design", "Multiple I/O"],
+    applications: ["Manufacturing", "Process Control", "Building Automation", "Machine Control"],
+    image: "https://images.unsplash.com/photo-1569770020320-331006a86c96?w=800&q=80",
     category: "control",
+    badge: "Delta Electronics"
   },
   {
-    title: "Industrial Robots",
-    description: "SCARA and Articulated robots for high-speed, precision assembly and handling.",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
-    category: "robotics",
+    title: "Encoders & Couplings",
+    description: "Precision encoders and mechanical couplings for accurate position feedback",
+    specs: ["Rotary Encoders", "Flexible Couplings", "High Accuracy", "Durable Design"],
+    applications: ["Position Sensing", "Speed Detection", "Motion Control", "Servo Systems"],
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80",
+    category: "control",
+    badge: "Delta Electronics"
   },
   {
-    title: "Machine Vision Systems",
-    description: "Smart cameras and vision sensors for quality inspection and guidance.",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
-    category: "interface",
-  },
-  {
-    title: "Industrial Power Supplies",
-    description: "Reliable DIN rail and panel-mount power supplies for stable operation.",
-    image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&q=80",
+    title: "Control & Power Components",
+    description: "SMPS, transformers, timers, counters, sensors, and synchronizing cards for complete automation solutions",
+    specs: ["SMPS Units", "Transformers", "Timers & Counters", "Various Sensors"],
+    applications: ["Power Supply", "Control Circuits", "Timing Applications", "Sensing & Detection"],
+    image: "https://images.unsplash.com/photo-1581092918056-0c9c4e33b526?w=800&q=80",
     category: "power",
-  },
-  {
-    title: "Sensors & Controllers",
-    description: "Pressure sensors, temperature controllers, and timers for process control.",
-    image: "https://images.unsplash.com/photo-1581092583537-20d51876c089?w=800&q=80",
-    category: "control",
-  },
+    badge: "Delta Electronics"
+  }
 ];
 
 const Products = () => {
@@ -97,51 +103,71 @@ const Products = () => {
       <section
         id="products"
         ref={sectionRef}
-        className="py-24 bg-gradient-to-b from-white to-secondary/30 overflow-hidden"
+        className="py-24 bg-white overflow-hidden"
       >
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 reveal">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-              Our Core Delta Products
+              Core Products
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              As authorized partners, we provide the full range of Delta Industrial
-              Automation solutions.
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              As an authorized distributor of Delta Electronics, we supply industry-leading automation components backed by comprehensive technical support and genuine warranties.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <Card
                 key={index}
                 onClick={() => handleProductClick(product)}
-                className="reveal group overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                className="reveal group overflow-hidden border border-slate-200 hover:border-primary/30 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={product.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-lg font-bold mb-2 text-white transition-transform duration-300 group-hover:translate-y-[-4px]">
-                      {product.title}
-                    </h3>
-                    <p className="text-sm text-white/90 leading-relaxed">
-                      {product.description}
-                    </p>
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-white/95 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                      {product.badge}
+                    </span>
                   </div>
                 </div>
+                <CardContent className="p-6 space-y-4">
+                  <h3 className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
+                    {product.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+                    {product.description}
+                  </p>
+                  
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="text-xs font-semibold text-primary mb-2">Key Specifications:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {product.specs.slice(0, 4).map((spec, idx) => (
+                          <span key={idx} className="text-xs bg-secondary/50 text-muted-foreground px-2 py-1 rounded">
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-xs font-semibold text-primary mb-2">Applications:</h4>
+                      <ul className="text-xs text-muted-foreground space-y-1">
+                        {product.applications.slice(0, 4).map((app, idx) => (
+                          <li key={idx} className="flex items-center gap-1">
+                            <span className="w-1 h-1 bg-primary rounded-full"></span>
+                            {app}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
               </Card>
             ))}
-          </div>
-          <div className="text-center mt-12 reveal">
-            <p className="text-muted-foreground text-lg">
-              And many more, including{" "}
-              <span className="font-semibold text-primary">
-                Industrial PCs, Power Quality Filters, and Ethernet Solutions.
-              </span>
-            </p>
           </div>
         </div>
       </section>
