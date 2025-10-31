@@ -198,4 +198,29 @@ All colors MUST be HSL.
     filter: blur(0);
     transform: translateY(0);
   }
+
+  /* Subtle site background overlay used for sections with white background.
+     Keeps hero untouched while adding a light radial tint + soft texture. */
+  .site-bg {
+    position: relative;
+    background-color: hsl(var(--background));
+    overflow: visible;
+  }
+
+  .site-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* two soft radial tints for gentle color variation */
+    background-image: radial-gradient(circle at 10% 10%, rgba(59,130,246,0.04), transparent 10%),
+                      radial-gradient(circle at 90% 90%, rgba(14,165,233,0.03), transparent 15%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* keep children above the overlay */
+  .site-bg > * {
+    position: relative;
+    z-index: 10;
+  }
 }
