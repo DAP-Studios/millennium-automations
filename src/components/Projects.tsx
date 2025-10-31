@@ -94,11 +94,19 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-24 bg-secondary/20 overflow-hidden"
+      className="py-24 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden relative"
     >
-      <div className="container mx-auto px-6">
+      {/* Decorative Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 reveal">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+          <div className="inline-block mb-4">
+            <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+              Our Work
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-4">
             Featured Projects
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">

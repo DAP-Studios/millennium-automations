@@ -31,9 +31,13 @@ const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="py-24 bg-white overflow-hidden"
+      className="py-24 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden relative"
     >
-      <div className="container mx-auto px-6">
+      {/* Animated Background Elements */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="reveal order-2 md:order-1">
             <div className="relative">
@@ -43,11 +47,17 @@ const About = () => {
                 className="rounded-2xl shadow-2xl w-full relative z-10"
               />
               <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/5 rounded-2xl -z-10" />
+              <div className="absolute top-6 -left-6 w-24 h-24 border-2 border-primary/20 rounded-lg"></div>
             </div>
           </div>
           <div className="space-y-8 order-1 md:order-2">
             <div className="reveal">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              <div className="inline-block mb-4">
+                <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+                  Who We Are
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-6">
                 About MAS
               </h2>
             </div>
@@ -64,22 +74,22 @@ const About = () => {
             </div>
             
             <div className="reveal grid grid-cols-2 gap-6 pt-4">
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/30 rounded-xl hover:bg-secondary/40 transition-all duration-300">
                 <div className="text-3xl font-bold text-primary mb-2">🏆</div>
                 <div className="text-sm font-semibold text-primary">Authorized</div>
                 <div className="text-xs text-muted-foreground mt-1">Delta Partner</div>
               </div>
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/30 rounded-xl hover:bg-secondary/40 transition-all duration-300">
                 <div className="text-3xl font-bold text-primary mb-2">📍</div>
                 <div className="text-sm font-semibold text-primary">Vapi</div>
                 <div className="text-xs text-muted-foreground mt-1">Gujarat, India</div>
               </div>
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/30 rounded-xl hover:bg-secondary/40 transition-all duration-300">
                 <div className="text-3xl font-bold text-primary mb-2">⭐</div>
                 <div className="text-sm font-semibold text-primary">Premium</div>
                 <div className="text-xs text-muted-foreground mt-1">Quality Products</div>
               </div>
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/30 rounded-xl hover:bg-secondary/40 transition-all duration-300">
                 <div className="text-3xl font-bold text-primary mb-2">🕐</div>
                 <div className="text-sm font-semibold text-primary">24/7</div>
                 <div className="text-xs text-muted-foreground mt-1">Support Available</div>
@@ -90,7 +100,14 @@ const About = () => {
 
         {/* Core Values Section */}
         <div className="mt-24">
-          <h3 className="text-3xl font-bold text-primary text-center mb-12 reveal">Our Core Values</h3>
+          <div className="text-center mb-12 reveal">
+            <div className="inline-block mb-4">
+              <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+                Our Values
+              </span>
+            </div>
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent">Our Core Values</h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: "🎯", title: "Excellence", desc: "Committed to delivering the highest quality solutions that exceed industry standards" },
@@ -98,8 +115,8 @@ const About = () => {
               { icon: "💡", title: "Innovation", desc: "Continuously adopting cutting-edge technologies to solve complex challenges" },
               { icon: "✨", title: "Integrity", desc: "Operating with transparency, honesty, and ethical business practices" }
             ].map((value, index) => (
-              <div key={index} className="reveal text-center p-6 bg-secondary/20 rounded-xl hover:bg-secondary/30 transition-colors duration-300">
-                <div className="text-4xl mb-4">{value.icon}</div>
+              <div key={index} className="reveal text-center p-6 bg-secondary/20 rounded-xl hover:bg-secondary/30 hover:border-primary/30 transition-all duration-300 group">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{value.icon}</div>
                 <h4 className="text-lg font-bold text-primary mb-3">{value.title}</h4>
                 <p className="text-sm text-muted-foreground leading-relaxed">{value.desc}</p>
               </div>
