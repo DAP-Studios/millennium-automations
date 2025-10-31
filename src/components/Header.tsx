@@ -42,14 +42,14 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <button
             onClick={() => scrollToSection("#home")}
-            className="flex items-center gap-3 hover:opacity-80 transition-all duration-500"
+            className="flex flex-col items-center hover:opacity-80 transition-all duration-500"
           >
-            <img src="/logo.png" alt="Logo" className="h-8" />
-            <span className={`text-5xl font-normal tracking-wider ${
+            <img src="/logo.png" alt="Logo" className="h-8 mb-0.5" />
+            <p className={`text-2xl font-normal tracking-wider ${
               isScrolled ? "text-primary" : "text-primary"
             }`}>
               MAS
-            </span>
+            </p>
           </button>
 
           {/* Desktop Navigation */}
