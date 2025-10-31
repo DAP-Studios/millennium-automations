@@ -32,7 +32,6 @@ const stats = [
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(true);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -41,20 +40,10 @@ const HeroSlider = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true);
-      setCurrentSlide((prev) => prev + 1);
-    }, 3000);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    if (currentSlide === slides.length) {
-      setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentSlide(0);
-      }, 5000);
-    }
-  }, [currentSlide]);
 
   const contentStyles = {
     badge: "inline-flex items-center gap-2 text-primary/90 text-sm font-medium tracking-wider uppercase",
@@ -66,22 +55,25 @@ const HeroSlider = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
-      {/* Background Carousel - Sliding */}
+      {/* Background Carousel - Fade */}
       <div className="absolute inset-0">
-        <div 
-          className="flex h-full"
-          style={{ 
-            transform: `translateX(-${currentSlide * 100}%)`,
-            transition: isTransitioning ? 'transform 1000ms ease-in-out' : 'none',
-            width: `${(slides.length + 1) * 100}%`
-          }}
-        >
-          {[...slides, slides[0]].map((image, index) => (
-            <div key={index} className="w-full h-full flex-shrink-0">
-              <img src={image} alt="Industrial Automation" className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </div>
+        {slides.map((image, index) => (
+          <div
+            key={index}
+            className={cn(
+              "absolute inset-0 transition-opacity duration-1000",
+              currentSlide === index ? "opacity-100" : "opacity-0"
+            )}
+          >
+            <img
+              src={image}
+              alt="Industrial Automation"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-navy-900/60" />
       </div>
       
       {/* Main Content */}
@@ -121,11 +113,11 @@ const HeroSlider = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className="flex items-center gap-4"
+                className="flex flex-col items-center text-center gap-3"
                 style={{ animation: `slideUp 0.8s ease-out forwards ${0.8 + index * 0.1}s`, opacity: 0 }}
               >
                 <div className="flex-shrink-0">
-                  <stat.icon className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                  <stat.icon className="w-10 h-10 text-secondary" strokeWidth={2} />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-white">{stat.title}</div>
