@@ -99,7 +99,9 @@ const Services = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
                 />
               </div>
               <div className="p-6 space-y-4">

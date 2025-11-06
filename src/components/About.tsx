@@ -41,11 +41,13 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="reveal order-2 md:order-1">
             <div className="relative">
-              <img
-                src={aboutTeam}
-                alt="Our Team"
-                className="rounded-2xl shadow-2xl w-full relative z-10"
-              />
+                <img
+                  src={aboutTeam}
+                  alt="Our Team"
+                  loading="lazy"
+                  decoding="async"
+                  className="rounded-2xl shadow-md w-full relative z-10 border-2 border-primary/10"
+                />
               <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/5 rounded-2xl -z-10" />
               <div className="absolute top-6 -left-6 w-24 h-24 border-2 border-primary/20 rounded-lg"></div>
             </div>

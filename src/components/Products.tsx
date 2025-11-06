@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import ProductModal from "./ProductModal";
+import type { Product } from "./ProductModal";
+import { pickImageForCategory } from "@/lib/productImages";
 
 const products = [
   {
@@ -8,8 +10,8 @@ const products = [
     description: "Comprehensive range of VFD series including E, EL, EL-W, ME, MS 300, C200, C2000, and CP2000 for precise motor control",
     specs: ["Multiple Series", "Energy Efficient", "Vector Control", "Built-in Functions"],
     applications: ["Industrial Motors", "HVAC Systems", "Pumps & Fans", "Conveyors"],
-    image: "https://images.unsplash.com/photo-1647427146263-c3562a03b5b6?w=800&q=80",
-    category: "drives",
+    image: pickImageForCategory("vfd", 0),
+    category: "vfd",
     badge: "Delta Electronics"
   },
   {
@@ -17,8 +19,8 @@ const products = [
     description: "High-precision servo motors and drives for demanding motion control applications",
     specs: ["AC Servo Motors", "Servo Drives", "High Precision", "Fast Response"],
     applications: ["CNC Machines", "Robotics", "Packaging", "Textile Machinery"],
-    image: "https://images.unsplash.com/photo-1621996346566-2679d033e2f6?w=800&q=80",
-    category: "drives",
+    image: pickImageForCategory("servo", 0),
+    category: "servo",
     badge: "Delta Electronics"
   },
   {
@@ -26,8 +28,8 @@ const products = [
     description: "Intuitive HMI panels for operator interface and process visualization",
     specs: ["Touch Screen", "Multiple Sizes", "Color Display", "Communication Ports"],
     applications: ["Process Monitoring", "Machine Control", "Data Visualization", "System Management"],
-    image: "https://images.unsplash.com/photo-1571172834739-121f14d71e6f?w=800&q=80",
-    category: "interface",
+    image: pickImageForCategory("hmi", 0),
+    category: "hmi",
     badge: "Delta Electronics"
   },
   {
@@ -35,8 +37,8 @@ const products = [
     description: "DVP and AS200 series PLCs for reliable automation control and monitoring",
     specs: ["DVP Series", "AS200 Series", "Modular Design", "Multiple I/O"],
     applications: ["Manufacturing", "Process Control", "Building Automation", "Machine Control"],
-    image: "https://images.unsplash.com/photo-1569770020320-331006a86c96?w=800&q=80",
-    category: "control",
+    image: pickImageForCategory("plc", 0),
+    category: "plc",
     badge: "Delta Electronics"
   },
   {
@@ -44,8 +46,8 @@ const products = [
     description: "Precision encoders and mechanical couplings for accurate position feedback",
     specs: ["Rotary Encoders", "Flexible Couplings", "High Accuracy", "Durable Design"],
     applications: ["Position Sensing", "Speed Detection", "Motion Control", "Servo Systems"],
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80",
-    category: "control",
+    image: pickImageForCategory("plc", 1),
+    category: "plc",
     badge: "Delta Electronics"
   },
   {
@@ -53,15 +55,15 @@ const products = [
     description: "SMPS, transformers, timers, counters, sensors, and synchronizing cards for complete automation solutions",
     specs: ["SMPS Units", "Transformers", "Timers & Counters", "Various Sensors"],
     applications: ["Power Supply", "Control Circuits", "Timing Applications", "Sensing & Detection"],
-    image: "https://images.unsplash.com/photo-1581092918056-0c9c4e33b526?w=800&q=80",
-    category: "power",
+    image: pickImageForCategory("smps", 0),
+    category: "smps",
     badge: "Delta Electronics"
   }
 ];
 
 const Products = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -87,12 +89,12 @@ const Products = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleProductClick = (product: typeof products[0]) => {
+  const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
-  const getSimilarProducts = (product: typeof products[0]) => {
+  const getSimilarProducts = (product: Product) => {
     return products
       .filter((p) => p.category === product.category && p.title !== product.title)
       .slice(0, 3);
@@ -127,13 +129,15 @@ const Products = () => {
               <Card
                 key={index}
                 onClick={() => handleProductClick(product)}
-                className="reveal group overflow-hidden border border-slate-200 hover:border-primary/30 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
+                className="reveal group overflow-hidden border border-slate-200 hover:border-primary/30 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={product.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
                   />
                   <div className="absolute top-4 right-4">
                     <span className="bg-white/95 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
@@ -185,6 +189,11 @@ const Products = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         similarProducts={selectedProduct ? getSimilarProducts(selectedProduct) : []}
+        onSelectSimilar={(p) => {
+          // replace modal content with selected similar product
+          setSelectedProduct(p);
+          setIsModalOpen(true);
+        }}
       />
     </>
   );

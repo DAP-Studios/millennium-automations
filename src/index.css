@@ -188,9 +188,9 @@ All colors MUST be HSL.
   
   .reveal {
     opacity: 0;
-    filter: blur(4px);
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+    filter: blur(3px);
+    transform: translateY(18px);
+    transition: all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1);
   }
   
   .reveal.active {
@@ -222,5 +222,49 @@ All colors MUST be HSL.
   .site-bg > * {
     position: relative;
     z-index: 10;
+  }
+
+  /* Very subtle noise/paper texture overlay using placeholder.svg in public/ */
+  .site-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/placeholder.svg');
+    background-repeat: repeat;
+    background-size: 240px 240px;
+    opacity: 0.03; /* very low so it only adds subtle grain */
+    pointer-events: none;
+    z-index: 5;
+    mix-blend-mode: normal;
+  }
+
+  /* Alternate white / soft-blue backgrounds for each top-level section inside .site-bg
+     This creates an even/odd striping effect. Sections remain independent; use specific
+     overrides in components when a different background is required. */
+  .site-bg > section:nth-of-type(odd) {
+    background-color: hsl(0 0% 100%); /* white */
+    color: hsl(var(--foreground));
+  }
+
+  /* configurable blue shades for even sections */
+  :root {
+    --section-blue: rgba(59,130,246,0.08);
+    --section-blue-2: rgba(14,165,233,0.06);
+  }
+
+  .site-bg > section:nth-of-type(even) {
+    /* light blue tint to keep the site airy while adding separation */
+    background-color: var(--section-blue);
+    color: hsl(var(--foreground));
+  }
+
+  /* every 4th section slightly different blue to add subtle variety */
+  .site-bg > section:nth-of-type(4n) {
+    background-color: var(--section-blue-2);
+  }
+
+  /* Smooth transition when theme or styles change */
+  .site-bg > section {
+    transition: background-color 260ms var(--transition-smooth), color 260ms var(--transition-smooth);
   }
 }
