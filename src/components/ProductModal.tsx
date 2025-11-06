@@ -38,7 +38,7 @@ const ProductModal = ({ product, isOpen, onClose, similarProducts, onSelectSimil
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Embla carousel setup
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, draggable: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
 
   const scrollTo = useCallback((index: number) => {
     if (emblaApi) emblaApi.scrollTo(index);
@@ -50,7 +50,9 @@ const ProductModal = ({ product, isOpen, onClose, similarProducts, onSelectSimil
     emblaApi.on("select", onSelect);
     // initialize
     onSelect();
-    return () => emblaApi.off("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi]);
 
   // Keyboard navigation: left/right arrows to navigate carousel when modal is open

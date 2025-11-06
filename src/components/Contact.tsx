@@ -210,31 +210,16 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold mb-2">Office Address</h3>
-                      <p className="text-slate-700 text-sm leading-relaxed">
-                        6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat, India
-                      </p>
                       <a
-                        className="text-primary text-sm inline-flex items-center gap-2 mt-2 hover:underline"
-                        href={`https://maps.google.com/maps?q=${encodeURIComponent(
-                          "6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat, India"
-                        )}&z=15&output=embed`}
+                        href="https://www.google.com/maps/place/9W7F+3FR,+Silvasa+Rd,+near+Via+Char+Rasta+Road,+Phase+2,+GIDC,+Vapi,+Gujarat+396195"
                         target="_blank"
                         rel="noreferrer"
+                        onClick={() => trackContactClick("google_maps")}
+                        className="text-slate-700 text-sm leading-relaxed hover:text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary/30 rounded transition-colors"
+                        aria-label="Open office location in Google Maps"
                       >
-                        View on Google Maps
+                        6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat, India
                       </a>
-                      <div className="mt-4 rounded overflow-hidden h-40 w-full">
-                        <iframe
-                          title="Office location map"
-                          src={`https://maps.google.com/maps?q=${encodeURIComponent(
-                            "6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat, India"
-                          )}&z=15&output=embed`}
-                          width="100%"
-                          height="100%"
-                          className="border-0 w-full h-full"
-                          loading="lazy"
-                        />
-                      </div>
                     </div>
                   </div>
                 </CardContent>

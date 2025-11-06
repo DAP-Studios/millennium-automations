@@ -60,7 +60,7 @@ const projects = [
     client: "Large Textile Manufacturer",
     duration: "14 months",
     location: "Tamil Nadu, India",
-    image: "https://images.unsplash.com/photo-1604762524889-8f0de44d3ae5?w=800&q=80"
+    image: "src/assets/image.png"
   }
 ];
 

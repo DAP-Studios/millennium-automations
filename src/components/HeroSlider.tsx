@@ -46,15 +46,15 @@ const HeroSlider = () => {
   }, []);
 
   const contentStyles = {
-    badge: "inline-flex items-center gap-2 text-primary/90 text-sm font-medium tracking-wider uppercase",
-    heading: "text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/70",
-    subtitle: "text-xl md:text-2xl text-white/80 max-w-2xl font-light leading-relaxed",
-    buttonPrimary: "bg-primary hover:bg-primary/90 text-white font-semibold px-8 h-14 rounded-lg transition-all duration-500 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transform hover:translate-y-[-2px]",
-    buttonSecondary: "border-2 border-primary text-primary hover:bg-white hover:text-slate-900 font-semibold px-8 h-14 rounded-lg transition-all duration-500 backdrop-blur-sm transform hover:translate-y-[-2px]"
+    badge: "inline-flex items-center gap-2 text-white text-sm font-medium tracking-wider uppercase [text-shadow:0_2px_16px_rgba(0,0,0,0.9),0_4px_32px_rgba(0,0,0,0.7),0_0_40px_rgba(0,0,0,0.8)]",
+    heading: "text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] text-white [text-shadow:0_4px_20px_rgba(0,0,0,0.95),0_8px_40px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.7),0_2px_4px_rgba(0,0,0,1)]",
+    subtitle: "text-xl md:text-2xl text-white max-w-2xl font-light leading-relaxed [text-shadow:0_2px_20px_rgba(0,0,0,0.95),0_4px_32px_rgba(0,0,0,0.8),0_0_48px_rgba(0,0,0,0.7)]",
+    buttonPrimary: "bg-primary hover:bg-primary/90 text-white font-semibold px-8 h-14 rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:translate-y-[-2px]",
+    buttonSecondary: "border-2 border-white bg-white/15 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 font-semibold px-8 h-14 rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] transform hover:translate-y-[-2px]"
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
       {/* Background Carousel - Fade */}
       <div className="absolute inset-0">
         {slides.map((image, index) => (
@@ -72,14 +72,15 @@ const HeroSlider = () => {
             />
           </div>
         ))}
-        {/* Blue Overlay */}
-        <div className="absolute inset-0 bg-navy-900/60" />
+        {/* Strong gradient overlay for text visibility on all backgrounds */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-transparent to-slate-900/60" />
       </div>
       
       {/* Main Content */}
       <div className="relative container mx-auto px-6 py-24 lg:py-32 z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-8 mb-24">
+          <div className="space-y-3 mb-24">
             {/* Badge */}
             <div className={contentStyles.badge} style={{ animation: "slideDown 0.6s ease-out forwards", opacity: 0 }}>
               <div className="h-px w-8 bg-primary/60" />
@@ -98,7 +99,7 @@ const HeroSlider = () => {
             </p>
             
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-8" style={{ animation: "slideUp 0.8s ease-out forwards 0.6s", opacity: 0 }}>
+            <div className="flex flex-col sm:flex-row gap-9 pt-8" style={{ animation: "slideUp 0.8s ease-out forwards 0.6s", opacity: 0 }}>
               <Button onClick={() => scrollToSection("#products")} size="lg" className={contentStyles.buttonPrimary}>
                 Explore Solutions →
               </Button>
@@ -131,7 +132,7 @@ const HeroSlider = () => {
 
       {/* Scroll Indicator */}
       <div 
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer group"
+        className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer group"
         onClick={() => scrollToSection("#about")}
         style={{ animation: "fadeIn 1s ease-out forwards 1.2s", opacity: 0 }}
       >
