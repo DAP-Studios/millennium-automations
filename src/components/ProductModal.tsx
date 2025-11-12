@@ -1,17 +1,15 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Card } from "@/components/ui/card";
-import { X } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { pickImageForCategory } from "@/lib/productImages";
-import { useState, useEffect, useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
 
 export interface Product {
   title: string;
   description: string;
-  image: string | string[];
-  category?: string;
   specs?: string[];
   applications?: string[];
+  image: string;
+  category?: string;
   badge?: string;
 }
 
@@ -19,148 +17,139 @@ interface ProductModalProps {
   product: Product | null;
   isOpen: boolean;
   onClose: () => void;
-  similarProducts: Product[];
-  onSelectSimilar?: (p: Product) => void;
 }
 
-const ProductModal = ({ product, isOpen, onClose, similarProducts, onSelectSimilar }: ProductModalProps) => {
+const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   if (!product) return null;
 
-  // Build an images array: support product.image as string | string[]; if string, augment with category images up to 5
-  const rawImages: string[] = Array.isArray(product.image) ? product.image : [product.image];
-  const extras: string[] = [];
-  for (let i = 0; i < 5 && rawImages.length + extras.length < 5; i++) {
-    const candidate = pickImageForCategory(product.category, i + 1);
-    if (candidate && !rawImages.includes(candidate) && !extras.includes(candidate)) extras.push(candidate);
-  }
-  const images = [...rawImages, ...extras].slice(0, 5);
+  const images = [
+    pickImageForCategory(product.category, 0),
+    pickImageForCategory(product.category, 1),
+    pickImageForCategory(product.category, 2),
+    pickImageForCategory(product.category, 3),
+    pickImageForCategory(product.category, 4),
+    pickImageForCategory(product.category, 5),
+  ].filter((img, idx, arr) => arr.indexOf(img) === idx);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const currentImage = images[currentImageIndex] || product.image;
 
-  // Embla carousel setup
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
 
-  const scrollTo = useCallback((index: number) => {
-    if (emblaApi) emblaApi.scrollTo(index);
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setActiveIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
-    // initialize
-    onSelect();
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
-  // Keyboard navigation: left/right arrows to navigate carousel when modal is open
-  useEffect(() => {
-    if (!isOpen || !emblaApi) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        emblaApi.scrollPrev();
-      } else if (e.key === "ArrowRight") {
-        emblaApi.scrollNext();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [isOpen, emblaApi]);
+  const handleNextImage = () => {
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
-        <DialogHeader>
-          <DialogTitle className="text-xl sm:text-2xl font-bold text-primary pr-8">
-            {product.title}
-          </DialogTitle>
-        </DialogHeader>
-
-        <div className="space-y-4 sm:space-y-6">
-          {/* Main Product: left vertical thumbnails + right carousel + info */}
-          {/* Use a fixed left column on md+ and keep thumbnails visible; thumbnails scroll if many */}
-          <div className="grid grid-cols-1 md:grid-cols-[96px_1fr] gap-4 sm:gap-6 items-start">
-            {/* Left: vertical thumbnail list */}
-            <div className="flex md:flex-col flex-row gap-2 overflow-x-auto md:overflow-y-auto md:overflow-x-visible max-h-none md:max-h-[520px] pr-1 pb-2 md:pb-0">
-                {images.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => scrollTo(i)}
-                    className={`h-16 w-16 md:h-20 md:w-full flex-shrink-0 overflow-hidden rounded-md border flex items-center justify-center bg-white ${i === activeIndex ? 'ring-2 ring-primary/20 border-primary' : 'border-slate-200'}`}
-                    aria-label={`Show image ${i + 1}`}
-                    aria-selected={i === activeIndex}
-                    tabIndex={0}
-                  >
-                    <img src={img} alt={`${product.title} thumb ${i + 1}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-                  </button>
-                ))}
+      <DialogContent className="max-w-[95vw] lg:max-w-[90vw] max-h-[95vh] overflow-hidden p-0 bg-secondary">
+        <div className="flex flex-col lg:flex-row h-[95vh] rounded-lg overflow-hidden">
+          {/* Sidebar - 40% Square Image Carousel */}
+          <aside className="w-full lg:w-[40%] bg-secondary/80 backdrop-blur-sm p-6 flex flex-col gap-4 shadow-xl border-r border-border">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-base font-semibold text-foreground tracking-wide">Product Gallery</h3>
+              <button 
+                onClick={onClose}
+                className="p-2 hover:bg-accent rounded-full transition-all duration-200"
+              >
+                <X className="w-5 h-5 text-foreground" />
+              </button>
             </div>
+            
+            <div className="flex-1 overflow-y-auto pr-2 space-y-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+              {images.map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentImageIndex(idx)}
+                  className={`w-full aspect-square rounded-xl overflow-hidden transition-all duration-300 border-2 ${
+                    currentImageIndex === idx
+                      ? "border-primary shadow-lg shadow-primary/30 scale-[1.02] ring-2 ring-primary/20"
+                      : "border-border hover:border-primary/50 opacity-70 hover:opacity-100 hover:scale-[1.01]"
+                  }`}
+                >
+                  <img 
+                    src={img} 
+                    alt={`${product.title} ${idx + 1}`} 
+                    className="w-full h-full object-contain bg-muted p-2"
+                  />
+                </button>
+              ))}
+            </div>
+            
+            <div className="text-sm text-muted-foreground text-center pt-3 border-t border-border font-medium">
+              Image {currentImageIndex + 1} of {images.length}
+            </div>
+          </aside>
 
-            {/* Right: large carousel and product info */}
-            <div className="space-y-4">
-              <div className="border border-slate-200 rounded-lg overflow-hidden shadow-sm bg-white">
-                <div className="embla" ref={emblaRef as any} role="region" aria-roledescription="carousel" aria-label={`${product.title} images`}>
-                  <div className="embla__container flex">
-                    {images.map((img, i) => (
-                      <div key={i} className="embla__slide flex-[0_0_100%] h-48 sm:h-64 md:h-[480px] relative overflow-hidden rounded-lg">
-                        <img src={img} alt={`${product.title} (${i + 1})`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+          {/* Product Details Section - 60% */}
+          <main className="flex-1 lg:w-[60%] flex flex-col p-8 overflow-y-auto bg-background">
+            <div className="max-w-3xl mx-auto w-full space-y-6">
+              {/* Header */}
+              <div className="border-b border-border pb-6">
+                <h2 className="text-3xl font-bold text-foreground mb-3">{product.title}</h2>
+                <span className="px-4 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-lg inline-block border border-primary/20">
+                  {product.badge}
+                </span>
+              </div>
+
+              {/* Overview */}
+              <div className="space-y-3">
+                <h3 className="text-lg font-bold text-primary uppercase tracking-wide">Overview</h3>
+                <p className="text-muted-foreground text-base leading-relaxed">{product.description}</p>
+              </div>
+
+              {/* Key Specifications */}
+              {product.specs && product.specs.length > 0 && (
+                <div className="space-y-4 bg-secondary/50 rounded-lg p-6">
+                  <h3 className="text-lg font-bold text-primary uppercase tracking-wide">Key Specifications</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {product.specs.map((spec, idx) => (
+                      <div key={idx} className="flex items-start gap-3 bg-background/50 p-3 rounded-md">
+                        <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-2"></span>
+                        <span className="text-foreground text-sm font-medium">{spec}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                {/* Live region for screen readers to announce slide changes */}
-                <div className="sr-only" aria-live="polite">Slide {activeIndex + 1} of {images.length}</div>
-              </div>
+              )}
 
-              <div>
-                <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
-                  {product.description}
-                </p>
-                <div className="space-y-2 mt-3">
-                  <h3 className="font-semibold text-base sm:text-lg">Key Features:</h3>
-                  <ul className="list-disc list-inside space-y-1 text-muted-foreground text-sm sm:text-base">
-                    <li>High reliability and performance</li>
-                    <li>Easy integration with existing systems</li>
-                    <li>Comprehensive technical support</li>
-                    <li>Industry-standard compliance</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Similar Products */}
-          {similarProducts.length > 0 && (
-            <div className="border-t pt-4 sm:pt-6">
-              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-foreground">Similar Products</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-                {similarProducts.map((similar, index) => (
-                  <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group" onClick={() => onSelectSimilar ? onSelectSimilar(similar) : undefined}>
-                    <div className="relative h-36 sm:h-48 overflow-hidden">
-                      <img
-                        src={Array.isArray(similar.image) ? similar.image[0] : similar.image}
-                        alt={similar.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3">
-                        <h4 className="text-white font-semibold text-xs sm:text-sm mb-1">
-                          {similar.title}
-                        </h4>
-                        <p className="text-white/80 text-[10px] sm:text-xs line-clamp-2">
-                          {similar.description}
-                        </p>
+              {/* Applications */}
+              {product.applications && product.applications.length > 0 && (
+                <div className="space-y-4 bg-secondary/50 rounded-lg p-6">
+                  <h3 className="text-lg font-bold text-primary uppercase tracking-wide">Applications</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {product.applications.map((app, idx) => (
+                      <div key={idx} className="flex items-start gap-3 bg-background/50 p-3 rounded-md">
+                        <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 10 10.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-foreground text-sm font-medium">{app}</span>
                       </div>
-                    </div>
-                  </Card>
-                ))}
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Action Buttons */}
+              <div className="flex gap-3 pt-6 border-t border-border">
+                <a 
+                  href={`mailto:sales@mas-automation.com?subject=${encodeURIComponent(`Product Inquiry: ${product.title}`)}&body=${encodeURIComponent(`Hi,\n\nI'm interested in the ${product.title}.\n\nPlease send me more details and pricing information.\n\nThank you`)}`} 
+                  className="flex-1 px-6 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-200 text-center shadow-lg hover:shadow-xl"
+                >
+                  Request Information
+                </a>
+                <button 
+                  onClick={onClose} 
+                  className="px-6 py-4 bg-secondary hover:bg-secondary/80 border-2 border-border text-foreground font-semibold rounded-lg transition-all duration-200"
+                >
+                  Close
+                </button>
               </div>
             </div>
-          )}
+          </main>
         </div>
       </DialogContent>
     </Dialog>

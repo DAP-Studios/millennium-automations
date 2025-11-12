@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import justLogo from "@/assets/justlogo.png";
+import masLogo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,14 +48,14 @@ const Header = () => {
           >
             {/* Logo and text are hidden at the top and revealed when user scrolls */}
             <img
-    src={justLogo}
+    src={masLogo}
     alt="MAS logo"
-    className={`h-14 md:h-18 transition-all duration-300 transform ${
+    className={`h-16 md:h-18 transition-all duration-300 transform ${
       isScrolled ? "opacity-100 scale-100" : "opacity-0 scale-90"
     }`}
     aria-hidden={!isScrolled}
   />
-  <div className={`transition-all duration-300 text-left ${
+  {/* <div className={`transition-all duration-300 text-left ${
     isScrolled ? "opacity-100" : "opacity-0"
   }`}>
     <p className="text-3xl sm:text-3xl font-bold leading-tight text-primary [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">
@@ -66,7 +66,7 @@ const Header = () => {
     <p className="text-sm sm:text-base text-red-600 font-light mt-1 [text-shadow:0_1px_5px_rgba(0,0,0,0.2)]">
       Smart System...... Better Solution
     </p>
-  </div>
+  </div> */}
 </button>
 
           {/* Desktop Navigation */}
