@@ -28,3 +28,27 @@
     opacity: 1;
   }
 }
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-2rem);
+  }
+  50% {
+    transform: translateY(-2.5rem);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}

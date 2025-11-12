@@ -11,13 +11,29 @@ const Footer = () => {
               Built with excellence for the future of industry.
             </p>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm">Developed by </span>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <img
               src="dap.png"
               alt="DAP Tech"
-              className="h-6 opacity-80"
+              className="h-8 sm:h-10 opacity-90"
             />
+            <div className="text-center sm:text-left">
+              <p className="text-sm mb-1">
+                Website by{" "}
+                <span className="text-[#471202] font-bold">
+                  DAP Tech Solutions
+                </span>
+              </p>
+              <p className="text-xs sm:text-sm">
+                Created by Deep Parmar{" "}
+                <a
+                  href="tel:+919725362234"
+                  className="text-[#020748] font-bold hover:underline transition-colors"
+                >
+                  +91 9725362234
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

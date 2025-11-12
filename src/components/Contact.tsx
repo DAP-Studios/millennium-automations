@@ -93,23 +93,23 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 text-white overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">Get In Touch</h2>
-          <p className="text-slate-700 text-lg max-w-3xl mx-auto">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 text-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">Get In Touch</h2>
+          <p className="text-slate-700 text-base sm:text-lg max-w-3xl mx-auto">
             Ready to automate your operations? Contact us today to discuss your project requirements and discover how we can help transform your business.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start">
             {/* Left: Contact Form */}
             <div>
               <Card className="bg-white text-slate-900 border border-slate-200 shadow-lg">
-                <CardContent className="p-8 md:p-10">
-                  <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <CardContent className="p-6 sm:p-8 md:p-10">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" aria-label="Contact form">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <Label htmlFor="name" className="text-slate-700 mb-2 block font-medium text-sm">
                           Full Name *
@@ -184,16 +184,16 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                       <Button
                         type="submit"
-                        className="w-full md:w-auto bg-primary text-white hover:bg-primary/90 font-bold shadow-md transition-all duration-200 px-8"
+                        className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 font-bold shadow-md transition-all duration-200 px-6 sm:px-8"
                         size="lg"
                       >
                         Send Message
                       </Button>
 
-                      <p className="text-sm text-slate-500 hidden md:block">Or email us at <a href="mailto:millenniumautomationsystem@gmail.com" className="text-primary underline">millenniumautomationsystem@gmail.com</a></p>
+                      <p className="text-xs sm:text-sm text-slate-500 text-center sm:text-left">Or email us at <a href="mailto:millenniumautomationsystem@gmail.com" className="text-primary underline break-all">millenniumautomationsystem@gmail.com</a></p>
                     </div>
                   </form>
                 </CardContent>
@@ -201,7 +201,7 @@ const Contact = () => {
             </div>
 
             {/* Right: Contact Info (cards stacked) */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <Card className="bg-white border border-slate-200 text-slate-900 shadow-sm">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">

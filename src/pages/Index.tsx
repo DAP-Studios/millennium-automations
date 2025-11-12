@@ -15,9 +15,10 @@ const Index = () => {
       <main>
         <HeroSlider />
         <div className="site-bg">
+          <Products />
           <About />
           <Services />
-          <Products />
+          
           <Projects />
           <WhyChooseUs />
           <Contact />

@@ -1,18 +1,42 @@
 User-agent: *
 Allow: /
 
-# Sitemap reference (update DOMAIN to your production domain if different)
-Sitemap: https://example.com/sitemap.xml
+# Sitemap reference
+Sitemap: https://millenniumautomationsystem.com/sitemap.xml
 
-# Specific bot rules (kept permissive but listed for clarity)
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Specific bot rules
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

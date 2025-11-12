@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import justLogo from "@/assets/justlogo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,11 +16,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#products", label: "Products" },
-    { href: "#projects", label: "Projects" },
-    { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" },
+        { href: "#about", label: "About" },
+        { href: "#services", label: "Services" },
+        { href: "#products", label: "Products" },
+        { href: "#projects", label: "Projects" },
+        { href: "#contact", label: "Contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -39,18 +40,34 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-left h-20">
           <button
             onClick={() => scrollToSection("#home")}
-            className="flex flex-col items-center hover:opacity-80 transition-all duration-500"
+            className="flex items-center gap-3 hover:opacity-80 transition-all duration-500"
+            aria-label="Go to home"
           >
-            <img src="/logo.png" alt="Logo" className="h-8 mb-0.5" />
-            <p className={`text-2xl font-normal tracking-wider ${
-              isScrolled ? "text-primary" : "text-primary"
-            }`}>
-              MAS
-            </p>
-          </button>
+            {/* Logo and text are hidden at the top and revealed when user scrolls */}
+            <img
+    src={justLogo}
+    alt="MAS logo"
+    className={`h-14 md:h-18 transition-all duration-300 transform ${
+      isScrolled ? "opacity-100 scale-100" : "opacity-0 scale-90"
+    }`}
+    aria-hidden={!isScrolled}
+  />
+  <div className={`transition-all duration-300 text-left ${
+    isScrolled ? "opacity-100" : "opacity-0"
+  }`}>
+    <p className="text-3xl sm:text-3xl font-bold leading-tight text-primary [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">
+      Millennium
+      <br className="sm:hidden" />
+      {" "}Automation System
+    </p>
+    <p className="text-sm sm:text-base text-red-600 font-light mt-1 [text-shadow:0_1px_5px_rgba(0,0,0,0.2)]">
+      Smart System...... Better Solution
+    </p>
+  </div>
+</button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
