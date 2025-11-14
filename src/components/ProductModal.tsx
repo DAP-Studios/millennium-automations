@@ -1,5 +1,5 @@
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X } from "lucide-react";
 import { useState } from "react";
 import { pickImageForCategory } from "@/lib/productImages";
 
@@ -32,16 +32,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
     pickImageForCategory(product.category, 4),
     pickImageForCategory(product.category, 5),
   ].filter((img, idx, arr) => arr.indexOf(img) === idx);
-
-  const currentImage = images[currentImageIndex] || product.image;
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

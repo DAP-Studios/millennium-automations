@@ -120,33 +120,6 @@ const products = [
     category: "plc",
     badge: "Delta Electronics"
   },
-  // {
-  //   title: "Encoders & Motion Sensors",
-  //   description: "Precision rotary encoders and position sensors designed for accurate feedback in servo systems and automation equipment. These components provide reliable position, speed, and direction detection with high resolution and excellent noise immunity for demanding industrial environments.",
-  //   specs: [
-  //     "Rotary Encoders: Incremental & Absolute Types",
-  //     "Resolution: Up to 10,000 PPR",
-  //     "Multiple Output Formats (TTL, HTL, SSI)",
-  //     "High-Speed Response up to 300,000 RPM",
-  //     "Shaft Diameters: 6mm to 15mm",
-  //     "IP54/IP65 Protection Rating",
-  //     "Operating Temperature: -10°C to +70°C",
-  //     "Long Service Life > 100,000 hours"
-  //   ],
-  //   applications: [
-  //     "Servo Motor Position Feedback",
-  //     "CNC Machine Tool Systems",
-  //     "Elevator & Escalator Control",
-  //     "Printing & Textile Machinery",
-  //     "Packaging Equipment",
-  //     "Robotic Systems",
-  //     "Conveyor Speed Monitoring",
-  //     "Material Handling Systems"
-  //   ],
-  //   image: getCoverImageForCategory("plc"),
-  //   category: "encoder",
-  //   badge: "Industrial Sensors"
-  // },
   {
     title: "Power Supply (SMPS) & Components",
     description: "Industrial-grade Switch Mode Power Supplies (SMPS) and related power components including transformers, timers, counters, and synchronizing cards. These reliable power solutions ensure stable operation of automation equipment with high efficiency, compact design, and comprehensive protection features.",
