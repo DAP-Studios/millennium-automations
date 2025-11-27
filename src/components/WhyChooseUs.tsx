@@ -71,32 +71,32 @@ const WhyChooseUs = () => {
       <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 reveal">
-          <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16 reveal">
+          <div className="inline-block mb-3 sm:mb-4">
+            <span className="text-xs sm:text-sm font-semibold text-primary bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               Our Advantages
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-3 sm:mb-4">
             Why Choose MAS?
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="reveal bg-white border border-slate-200 rounded-xl p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+              className="reveal bg-white border border-slate-200 rounded-lg sm:rounded-xl p-4 sm:p-5 lg:p-6 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
             >
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 text-primary rounded-lg w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                  <feature.icon className="w-6 h-6" strokeWidth={2} />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="bg-primary/10 text-primary rounded-lg w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-base font-semibold mb-2 text-primary leading-tight">
+                  <h3 className="text-sm sm:text-base font-semibold mb-1.5 sm:mb-2 text-primary leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

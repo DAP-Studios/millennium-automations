@@ -187,17 +187,17 @@ const Products = () => {
         {/* Decorative Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-16 reveal">
-            <div className="inline-block mb-4">
-              <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-16 reveal">
+            <div className="inline-block mb-3 sm:mb-4">
+              <span className="text-xs sm:text-sm font-semibold text-primary bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
                 Our Products
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-3 sm:mb-4">
               Core Products
             </h2>
-            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-3xl mx-auto px-4">
               As an authorized distributor of Delta Electronics, we supply industry-leading automation components backed by comprehensive technical support and genuine warranties.
             </p>
           </div>
@@ -211,9 +211,9 @@ const Products = () => {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="-ml-3 sm:-ml-4">
                 {products.map((product, index) => (
-                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="pl-3 sm:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                     <Card
                       onClick={() => {
                         setSelectedProduct(product);
@@ -221,7 +221,7 @@ const Products = () => {
                       }}
                       className="group overflow-hidden border border-slate-500 hover:border-primary/30 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer h-full"
                     >
-                      <div className="relative h-80 overflow-hidden">
+                      <div className="relative h-48 sm:h-64 lg:h-80 overflow-hidden">
                         <img 
                           src={product.image} 
                           alt={product.title}
@@ -229,26 +229,26 @@ const Products = () => {
                           decoding="async"
                           className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
                         />
-                        <div className="absolute top-4 right-4">
-                          <span className="bg-white/95 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                        <div className="absolute top-2 right-2 sm:top-4 sm:right-4">
+                          <span className="bg-white/95 backdrop-blur-sm text-primary text-[10px] sm:text-xs font-semibold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full shadow-md">
                             {product.badge}
                           </span>
                         </div>
                       </div>
-                      <CardContent className="p-8 space-y-5">
-                        <h3 className="text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
+                      <CardContent className="p-4 sm:p-6 lg:p-8 space-y-3 sm:space-y-4 lg:space-y-5">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
                           {product.title}
                         </h3>
-                        <p className="text-muted-foreground text-base leading-relaxed line-clamp-3">
+                        <p className="text-muted-foreground text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-2 sm:line-clamp-3">
                           {product.description}
                         </p>
                         
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                           <div>
-                            <h4 className="text-sm font-semibold text-primary mb-3">Key Specifications:</h4>
-                            <div className="flex flex-wrap gap-2">
+                            <h4 className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">Key Specifications:</h4>
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
                               {product.specs.slice(0, 4).map((spec, idx) => (
-                                <span key={idx} className="text-sm bg-secondary/50 text-muted-foreground px-3 py-1.5 rounded">
+                                <span key={idx} className="text-[10px] sm:text-xs bg-secondary/50 text-muted-foreground px-2 py-1 sm:px-3 sm:py-1.5 rounded">
                                   {spec}
                                 </span>
                               ))}
@@ -256,11 +256,11 @@ const Products = () => {
                           </div>
                           
                           <div>
-                            <h4 className="text-sm font-semibold text-primary mb-3">Applications:</h4>
-                            <ul className="text-sm text-muted-foreground space-y-2">
+                            <h4 className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">Applications:</h4>
+                            <ul className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground space-y-1 sm:space-y-2">
                               {product.applications.slice(0, 4).map((app, idx) => (
-                                <li key={idx} className="flex items-center gap-2">
-                                  <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                                <li key={idx} className="flex items-center gap-1.5 sm:gap-2">
+                                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                                   {app}
                                 </li>
                               ))}
@@ -272,8 +272,8 @@ const Products = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-0 -translate-x-4 lg:-translate-x-12" />
-              <CarouselNext className="right-0 translate-x-4 lg:translate-x-12" />
+              <CarouselPrevious className="left-0 -translate-x-2 sm:-translate-x-4 lg:-translate-x-12 w-8 h-8 sm:w-10 sm:h-10" />
+              <CarouselNext className="right-0 translate-x-2 sm:translate-x-4 lg:translate-x-12 w-8 h-8 sm:w-10 sm:h-10" />
             </Carousel>
           </div>
         </div>

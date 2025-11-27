@@ -39,18 +39,18 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-left h-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <button
             onClick={() => scrollToSection("#home")}
-            className="flex items-center gap-3 hover:opacity-80 transition-all duration-500"
+            className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-all duration-500"
             aria-label="Go to home"
           >
             {/* Logo and text are hidden at the top and revealed when user scrolls */}
             <img
     src={masLogo}
     alt="MAS logo"
-    className={`h-16 md:h-18 transition-all duration-300 transform ${
+    className={`h-12 sm:h-14 md:h-16 lg:h-18 transition-all duration-300 transform ${
       isScrolled ? "opacity-100 scale-100" : "opacity-0 scale-90"
     }`}
     aria-hidden={!isScrolled}

@@ -49,13 +49,13 @@ const HeroSlider = () => {
   // Tailwind-based style definitions for content
   const contentStyles = {
     heading:
-      "text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-white [text-shadow:0_4px_20px_rgba(0,0,0,0.95),0_8px_40px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.7),0_2px_4px_rgba(0,0,0,1)]",
+      "text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white [text-shadow:0_4px_20px_rgba(0,0,0,0.95),0_8px_40px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.7),0_2px_4px_rgba(0,0,0,1)]",
     subtitle:
-      "text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl font-light leading-relaxed [text-shadow:0_2px_20px_rgba(0,0,0,0.95),0_4px_32px_rgba(0,0,0,0.8),0_0_48px_rgba(0,0,0,0.7)]",
+      "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white max-w-2xl font-light leading-relaxed [text-shadow:0_2px_20px_rgba(0,0,0,0.95),0_4px_32px_rgba(0,0,0,0.8),0_0_48px_rgba(0,0,0,0.7)]",
     buttonPrimary:
-      "bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:-translate-y-0.5",
+      "bg-primary hover:bg-primary/90 text-white font-semibold px-5 sm:px-6 lg:px-8 h-11 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:-translate-y-0.5",
     buttonSecondary:
-      "border-2 border-white bg-white/15 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 font-semibold px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] transform hover:-translate-y-0.5",
+      "border-2 border-white bg-white/15 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 font-semibold px-5 sm:px-6 lg:px-8 h-11 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] transform hover:-translate-y-0.5",
   };
 
   return (
@@ -86,9 +86,9 @@ const HeroSlider = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative container mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24 z-10">
+      <div className="relative container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20 xl:py-24 z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-3 sm:space-y-4 mb-12 sm:mb-20">
+          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12 lg:mb-16 xl:mb-20">
             {/* Heading */}
             <h1
               className={contentStyles.heading}
@@ -97,16 +97,17 @@ const HeroSlider = () => {
                 opacity: 0,
               }}
             >
-              <span className="inline-flex items-center gap-3 sm:gap-4">
+              <span className="inline-flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 lg:gap-4">
                 {/* MAS Logo with glow highlight */}
                 <img
                   src={masLogo}
                   alt="MAS logo"
-                  className="h-20 sm:h-24 md:h-28 hidden sm:inline drop-shadow-[0_0_20px_rgba(0,0,0,0.6)] filter brightness-110"
+                  className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 drop-shadow-[0_0_20px_rgba(0,0,0,0.6)] filter brightness-110"
                 />
-                <span className="leading-tight">
+                <span className="leading-tight text-center sm:text-left">
                   Millennium
-                  <br />
+                  <br className="hidden sm:block" />
+                  <span className="sm:hidden"> </span>
                   Automation System
                 </span>
               </span>
@@ -125,7 +126,7 @@ const HeroSlider = () => {
 
             {/* Buttons */}
             <div
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4 sm:pt-6"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.6s",
                 opacity: 0,
@@ -151,7 +152,7 @@ const HeroSlider = () => {
 
           {/* Stats Grid */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 max-w-5xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto"
             style={{
               animation: "fadeIn 1s ease-out forwards 0.8s",
               opacity: 0,
@@ -167,32 +168,32 @@ const HeroSlider = () => {
                 }}
               >
                 {stat.useDeltaLogo ? (
-                  <div className="flex flex-col items-center justify-center -space-y-10">
+                  <div className="flex flex-col items-center justify-center -space-y-8 sm:-space-y-10">
                     <img
                       src={deltaLogo}
                       alt="Delta logo"
-                      className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] object-contain drop-shadow-[0_0_25px_rgba(100,200,255,0.8)] animate-float-slow"
+                      className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] object-contain drop-shadow-[0_0_25px_rgba(100,200,255,0.8)] animate-float-slow"
                     />
                     <div>
-                      <div className="text-xl sm:text-2xl font-bold text-white">
+                      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                         {stat.title}
                       </div>
-                      <div className="text-sm sm:text-base text-white/80">
+                      <div className="text-xs sm:text-sm lg:text-base text-white/80">
                         {stat.subtitle}
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center justify-center gap-3">
+                  <div className="flex flex-col items-center justify-center gap-2 sm:gap-3">
                     <stat.icon
-                      className="w-10 h-10 text-secondary"
+                      className="w-8 h-8 sm:w-10 sm:h-10 text-secondary"
                       strokeWidth={2}
                     />
                     <div>
-                      <div className="text-xl sm:text-2xl font-bold text-white">
+                      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                         {stat.title}
                       </div>
-                      <div className="text-sm sm:text-base text-white/80 mt-1">
+                      <div className="text-xs sm:text-sm lg:text-base text-white/80 mt-1">
                         {stat.subtitle}
                       </div>
                     </div>

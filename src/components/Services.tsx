@@ -75,27 +75,27 @@ const Services = () => {
       <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 reveal">
-          <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16 reveal">
+          <div className="inline-block mb-3 sm:mb-4">
+            <span className="text-xs sm:text-sm font-semibold text-primary bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               What We Do
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-3 sm:mb-4">
             Our Expertise
           </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-3xl mx-auto px-4">
             We provide end-to-end industrial automation services, from initial design and engineering to deployment, commissioning, and ongoing support. Our comprehensive approach ensures your automation systems deliver maximum value.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="reveal group bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary/30 shadow-md hover:shadow-xl transition-all duration-500"
+              className="reveal group bg-white rounded-lg sm:rounded-xl overflow-hidden border border-slate-200 hover:border-primary/30 shadow-md hover:shadow-xl transition-all duration-500"
             >
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-40 sm:h-48 lg:h-52 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -104,18 +104,18 @@ const Services = () => {
                   className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
                 />
               </div>
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
+              <div className="p-4 sm:p-5 lg:p-6 space-y-3 sm:space-y-4">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
                   {service.description}
                 </p>
-                <div className="pt-2">
-                  <ul className="space-y-2">
+                <div className="pt-1 sm:pt-2">
+                  <ul className="space-y-1.5 sm:space-y-2">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="text-primary mt-1">✓</span>
+                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <span className="text-primary mt-0.5 sm:mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
