@@ -245,15 +245,15 @@ const Products = () => {
         </p>
       </div>
 
-      {/* Category Capsules at Bottom - Horizontal */}
-      <div className="absolute bottom-20 sm:bottom-24 left-0 right-0 px-4 sm:px-6 md:px-8 z-20">
-        <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+      {/* Category Capsules at Bottom - Horizontal on desktop, stacked on mobile */}
+      <div className="absolute bottom-20 sm:bottom-24 md:bottom-28 left-0 right-0 px-4 sm:px-6 md:px-8 z-20">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 max-h-[calc(100vh-250px)] sm:max-h-none overflow-y-auto sm:overflow-y-visible overflow-x-visible sm:overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
           {allProductsData.map((category) => {
             return (
               <button
                 key={category.categoryId}
                 onClick={() => handleCategoryClick(category.categoryId)}
-                className="group relative flex-shrink-0 overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 bg-white/10 hover:bg-primary text-white shadow-lg hover:shadow-xl hover:shadow-primary/50"
+                className="group relative w-full sm:w-auto flex-shrink-0 overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 bg-white/10 hover:bg-primary text-white shadow-lg hover:shadow-xl hover:shadow-primary/50"
               >
                 {/* Capsule Content */}
                 <div className="relative px-3 sm:px-4 py-2 sm:py-2.5">

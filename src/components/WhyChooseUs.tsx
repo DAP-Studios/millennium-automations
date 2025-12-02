@@ -72,14 +72,14 @@ const WhyChooseUs = () => {
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 h-full flex flex-col justify-center py-6 sm:py-8">
-        <div className="text-center mb-6 sm:mb-8 reveal">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col justify-center py-4 sm:py-6 md:py-8">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 reveal">
           <div className="inline-block mb-2 sm:mb-3">
             <span className="text-xs sm:text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               Our Advantages
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-2xl mb-2 sm:mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl mb-1.5 sm:mb-2 md:mb-3">
             Why Choose MAS?
           </h2>
         </div>

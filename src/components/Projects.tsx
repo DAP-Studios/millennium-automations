@@ -108,26 +108,26 @@ const Projects = () => {
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-h-screen overflow-y-auto py-8 sm:py-12">
-        <div className="text-center mb-6 sm:mb-8 lg:mb-10 reveal">
-          <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 max-h-screen overflow-y-auto py-6 sm:py-8 md:py-12">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 reveal">
+          <div className="inline-block mb-2 sm:mb-3 md:mb-4">
+            <span className="text-xs sm:text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               Our Work
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-2xl mb-3 sm:mb-4">
             Featured Projects
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
               onClick={() => handleProjectClick(project)}
               className="reveal flex flex-col items-center gap-3 cursor-pointer group"
             >
-              <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white/30 group-hover:border-primary/80 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:scale-110">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-3 sm:border-4 border-white/30 group-hover:border-primary/80 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:scale-110">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -136,7 +136,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-white text-center drop-shadow-lg group-hover:text-primary/90 transition-colors line-clamp-2">
+              <h3 className="text-xs sm:text-sm md:text-base font-bold text-white text-center drop-shadow-lg group-hover:text-primary/90 transition-colors line-clamp-2">
                 {project.title}
               </h3>
             </div>

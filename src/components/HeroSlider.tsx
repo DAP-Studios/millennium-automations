@@ -81,8 +81,8 @@ const HeroSlider = () => {
           </div>
         ))}
         {/* Gradient overlays for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-transparent to-slate-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/30 to-slate-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/30 via-transparent to-slate-900/30" />
       </div>
 
       {/* Main Content */}
@@ -102,20 +102,25 @@ const HeroSlider = () => {
                 <img
                   src={masLogo}
                   alt="MAS logo"
-                  className="h-12 sm:h-16 md:h-20 lg:h-24 xl:h-28 drop-shadow-[0_0_20px_rgba(0,0,0,0.6)] filter brightness-110"
+                  className="h-16 sm:h-16 md:h-20 lg:h-24 xl:h-28 filter brightness-110"
+                  style={{
+                    filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.95)) drop-shadow(0 8px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 60px rgba(0,0,0,0.7)) drop-shadow(0 2px 4px rgba(0,0,0,1)) brightness(1.1)'
+                  }}
                 />
                 <span className="leading-tight text-center sm:text-left">
-                  Millennium
-                  <br className="hidden sm:block" />
-                  <span className="sm:hidden"> </span>
-                  Automation System
+                  <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
+                    Millennium
+                  </span>
+                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold">
+                    Automation System
+                  </span>
                 </span>
               </span>
             </h1>
 
             {/* Subtitle */}
             <p
-              className={contentStyles.subtitle}
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto sm:mx-0 font-light leading-relaxed [text-shadow:0_2px_20px_rgba(0,0,0,0.95),0_4px_32px_rgba(0,0,0,0.8),0_0_48px_rgba(0,0,0,0.7)] text-center sm:text-left"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.4s",
                 opacity: 0,
@@ -126,7 +131,7 @@ const HeroSlider = () => {
 
             {/* Buttons */}
             <div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 justify-center sm:justify-start"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.6s",
                 opacity: 0,
