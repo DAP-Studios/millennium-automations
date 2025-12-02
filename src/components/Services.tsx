@@ -1,21 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import industrialBg from "@/assets/hero-3.jpg";
+import ServiceModal from "./ServiceModal";
 
 const services = [
   {
     title: "Custom Control Panels",
-    description: "Engineering and manufacturing of custom control panels tailored to your exact specifications and industry standards. We design, build, and test comprehensive solutions for any industrial application.",
-    features: ["IEC Standards Compliance", "UL Listed Components", "Custom Configurations", "Complete Documentation"],
+    description: "Engineering and manufacturing of custom control panels tailored to your specifications.",
+    features: ["IEC Standards", "UL Listed", "Custom Config", "Full Documentation"],
     image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1000",
   },
   {
     title: "System Integration",
-    description: "Seamless integration of PLCs, VFDs, HMIs, and robotics into one cohesive, efficient, and data-driven system. Our experts ensure all components work together flawlessly.",
-    features: ["Multi-Protocol Support", "SCADA Integration", "IoT Connectivity", "Real-time Monitoring"],
+    description: "Seamless integration of PLCs, VFDs, HMIs, and robotics into efficient systems.",
+    features: ["Multi-Protocol", "SCADA Integration", "IoT Connected", "Real-time Monitoring"],
     image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1000",
   },
   {
     title: "24/7 Technical Support",
-    description: "Rapid-response support to minimize downtime and keep your critical operations running smoothly around the clock. Our expert team is always available when you need us.",
+    description: "Rapid-response support to minimize downtime and keep operations running smoothly.",
     features: ["Emergency Response", "Remote Diagnostics", "On-site Service", "Preventive Maintenance"],
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000",
   },
@@ -40,7 +42,14 @@ const services = [
 ];
 
 const Services = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const handleServiceClick = (service: typeof services[0]) => {
+    setSelectedService(service);
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -69,33 +78,34 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 overflow-hidden relative"
+      className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always flex items-center justify-center"
+      style={{ backgroundImage: `url(${industrialBg})` }}
     >
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16 reveal">
-          <div className="inline-block mb-3 sm:mb-4">
-            <span className="text-xs sm:text-sm font-semibold text-primary bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 h-full flex flex-col justify-center py-6 sm:py-8">
+        <div className="text-center mb-6 sm:mb-8 reveal">
+          <div className="inline-block mb-2 sm:mb-3">
+            <span className="text-xs sm:text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               What We Do
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-2xl mb-2 sm:mb-3">
             Our Expertise
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-3xl mx-auto px-4">
-            We provide end-to-end industrial automation services, from initial design and engineering to deployment, commissioning, and ongoing support. Our comprehensive approach ensures your automation systems deliver maximum value.
+          <p className="text-white/90 drop-shadow-lg text-sm sm:text-base max-w-3xl mx-auto">
+            Complete industrial automation services from design to support.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
+          {services.slice(0, 3).map((service, index) => (
             <div
               key={index}
-              className="reveal group bg-white rounded-lg sm:rounded-xl overflow-hidden border border-slate-200 hover:border-primary/30 shadow-md hover:shadow-xl transition-all duration-500"
+              onClick={() => handleServiceClick(service)}
+              className="reveal group bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden border border-white/20 hover:border-white/40 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer"
             >
-              <div className="relative h-40 sm:h-48 lg:h-52 overflow-hidden">
+              <div className="relative h-32 sm:h-40 lg:h-48 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
@@ -104,18 +114,18 @@ const Services = () => {
                   className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
                 />
               </div>
-              <div className="p-4 sm:p-5 lg:p-6 space-y-3 sm:space-y-4">
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
+              <div className="p-3 sm:p-4 lg:p-5 space-y-2 sm:space-y-3 bg-white/10 backdrop-blur-sm">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-white/80 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
                   {service.description}
                 </p>
                 <div className="pt-1 sm:pt-2">
                   <ul className="space-y-1.5 sm:space-y-2">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
-                        <span className="text-primary mt-0.5 sm:mt-1">✓</span>
+                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-white/80">
+                        <span className="text-white mt-0.5 sm:mt-1">✓</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -126,6 +136,13 @@ const Services = () => {
           ))}
         </div>
       </div>
+      
+      {/* Service Modal */}
+      <ServiceModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        service={selectedService}
+      />
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import industrialBg from "@/assets/hero-3.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -93,25 +94,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-24 text-white overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-slate-900">Get In Touch</h2>
-          <p className="text-slate-700 text-base sm:text-lg max-w-3xl mx-auto">
-            Ready to automate your operations? Contact us today to discuss your project requirements and discover how we can help transform your business.
-          </p>
+    <section id="contact" className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always text-white flex items-center justify-center" style={{ backgroundImage: `url(${industrialBg})` }}>
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 h-full flex flex-col justify-center py-4">
+        <div className="text-center mb-3 sm:mb-4 animate-fade-in">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white drop-shadow-2xl">Get In Touch</h2>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start">
+        <div className="max-w-6xl mx-auto flex-1 flex flex-col">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-4 items-start flex-1">
             {/* Left: Contact Form */}
             <div>
-              <Card className="bg-white text-slate-900 border border-slate-200 shadow-lg">
-                <CardContent className="p-6 sm:p-8 md:p-10">
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6" aria-label="Contact form">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <Card className="bg-white/95 backdrop-blur-sm text-slate-900 border border-white/30 shadow-lg h-full">
+                <CardContent className="p-4 sm:p-5">
+                  <form onSubmit={handleSubmit} className="space-y-3" aria-label="Contact form">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       <div>
-                        <Label htmlFor="name" className="text-slate-700 mb-2 block font-medium text-sm">
+                        <Label htmlFor="name" className="text-slate-700 mb-1 block font-medium text-xs">
                           Full Name *
                         </Label>
                         <Input
@@ -119,15 +119,13 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="e.g. Rahul Patel"
-                          aria-describedby="name-help"
-                          className="bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 h-11 rounded-md px-3"
+                          className="bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 h-9 rounded-md px-3 text-sm"
                           required
                         />
-                        <p id="name-help" className="text-slate-500 text-xs mt-2">Please provide the full name for follow-up.</p>
                       </div>
 
                       <div>
-                        <Label htmlFor="email" className="text-slate-700 mb-2 block font-medium text-sm">
+                        <Label htmlFor="email" className="text-slate-700 mb-1 block font-medium text-xs">
                           Email Address *
                         </Label>
                         <Input
@@ -136,128 +134,118 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="you@company.com"
-                          aria-describedby="email-help"
-                          className="bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 h-11 rounded-md px-3"
+                          className="bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 h-9 rounded-md px-3 text-sm"
                           required
                         />
-                        <p id="email-help" className="text-slate-500 text-xs mt-2">We'll use this email to reply — expected response within 1 business day.</p>
                       </div>
 
                       <div className="md:col-span-2">
-                        <Label htmlFor="category" className="text-slate-700 mb-2 block font-medium text-sm">
-                          Product Category (optional)
+                        <Label htmlFor="category" className="text-slate-700 mb-1 block font-medium text-xs">
+                          Product Category
                         </Label>
                         <select
                           id="category"
                           value={formData.category}
                           onChange={handleChange}
-                          aria-describedby="category-help"
-                          className="w-full bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 h-11 rounded-md px-3"
+                          className="w-full bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 h-9 rounded-md px-3 text-sm"
                         >
                           <option value="">-- Select a category --</option>
-                          <option value="drives">Variable Frequency Drives</option>
-                          <option value="servo">Servo Systems</option>
-                          <option value="interface">Human Machine Interface (HMI)</option>
-                          <option value="control">Programmable Logic Controllers (PLC)</option>
-                          <option value="encoders">Encoders & Couplings</option>
-                          <option value="power">Control & Power Components</option>
-                          <option value="other">Other / Not sure</option>
+                          <option value="drives">VFD</option>
+                          <option value="servo">Servo</option>
+                          <option value="interface">HMI</option>
+                          <option value="control">PLC</option>
+                          <option value="other">Other</option>
                         </select>
-                        <p id="category-help" className="text-slate-500 text-xs mt-2">Selecting a category helps us route your request to the right specialist.</p>
                       </div>
 
                       <div className="md:col-span-2">
-                        <Label htmlFor="message" className="text-slate-700 mb-2 block font-medium text-sm">
+                        <Label htmlFor="message" className="text-slate-700 mb-1 block font-medium text-xs">
                           Message *
                         </Label>
                         <Textarea
                           id="message"
-                          rows={6}
+                          rows={3}
                           value={formData.message}
                           onChange={handleChange}
-                          placeholder="Tell us about your project — timelines, quantities, and key specs are helpful."
-                          aria-describedby="message-help"
-                          className="bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 resize-none rounded-md px-3 py-2"
+                          placeholder="Tell us about your project"
+                          className="bg-white text-slate-900 border border-slate-200 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 resize-none rounded-md px-3 py-2 text-sm"
                           required
                         />
-                        <p id="message-help" className="text-slate-500 text-xs mt-2">Include any relevant details so our team can prepare an accurate response.</p>
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-                      <Button
-                        type="submit"
-                        className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 font-bold shadow-md transition-all duration-200 px-6 sm:px-8"
-                        size="lg"
-                      >
-                        Send Message
-                      </Button>
-
-                      <p className="text-xs sm:text-sm text-slate-500 text-center sm:text-left">Or email us at <a href="mailto:millenniumautomationsystem@gmail.com" className="text-primary underline break-all">millenniumautomationsystem@gmail.com</a></p>
-                    </div>
+                    <Button
+                      type="submit"
+                      className="w-full bg-primary text-white hover:bg-primary/90 font-bold shadow-md transition-all duration-200 h-9"
+                    >
+                      Send Message
+                    </Button>
                   </form>
                 </CardContent>
               </Card>
             </div>
 
             {/* Right: Contact Info (cards stacked) */}
-            <div className="space-y-4 sm:space-y-6">
-              <Card className="bg-white border border-slate-200 text-slate-900 shadow-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 rounded-lg p-3">
-                      <MapPin className="w-6 h-6 text-primary" />
+            <div className="space-y-2 sm:space-y-3 h-full flex flex-col">
+            {/* Right: Contact Info (cards stacked) */}
+            <div className="space-y-2 sm:space-y-3 h-full flex flex-col">
+              <Card className="bg-white/95 backdrop-blur-sm border border-white/30 text-slate-900 shadow-sm flex-1">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 rounded-lg p-2">
+                      <MapPin className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Office Address</h3>
+                      <h3 className="text-sm font-semibold mb-1">Office Address</h3>
                       <a
                         href="https://www.google.com/maps/place/9W7F+3FR,+Silvasa+Rd,+near+Via+Char+Rasta+Road,+Phase+2,+GIDC,+Vapi,+Gujarat+396195"
                         target="_blank"
                         rel="noreferrer"
                         onClick={() => trackContactClick("google_maps")}
-                        className="text-slate-700 text-sm leading-relaxed hover:text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary/30 rounded transition-colors"
-                        aria-label="Open office location in Google Maps"
+                        className="text-slate-700 text-xs leading-relaxed hover:text-primary hover:underline"
                       >
-                        6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat, India
+                        6A, 1st Floor, Globe Chamber, Near V.I.A Char Rasta, G.I.D.C., Vapi - 396195, Gujarat
                       </a>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white border border-slate-200 text-slate-900 shadow-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 rounded-lg p-3">
-                      <Mail className="w-6 h-6 text-primary" />
+              <Card className="bg-white/95 backdrop-blur-sm border border-white/30 text-slate-900 shadow-sm">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 rounded-lg p-2">
+                      <Mail className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Email</h3>
-                      <p className="text-slate-700 text-sm">
+                      <h3 className="text-sm font-semibold mb-1">Email</h3>
+                      <p className="text-slate-700 text-xs">
                         <a href="mailto:millenniumautomationsystem@gmail.com" className="hover:underline text-primary">millenniumautomationsystem@gmail.com</a>
+                        <a href="mailto:info.millenniumautomation@gmail.com" className="hover:underline text-primary">info.millenniumautomation@gmail.com</a>
+                     
                       </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white border border-slate-200 text-slate-900 shadow-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 rounded-lg p-3">
-                      <Phone className="w-6 h-6 text-primary" />
+              <Card className="bg-white/95 backdrop-blur-sm border border-white/30 text-slate-900 shadow-sm">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 rounded-lg p-2">
+                      <Phone className="w-4 h-4 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold mb-2">Phone / WhatsApp</h3>
-                      <div className="flex items-center gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold mb-1">Phone / WhatsApp</h3>
+                      <div className="flex items-center gap-2 flex-wrap">
                         <a
                           href="tel:+919904003445"
                           onClick={() => trackContactClick("phone")}
-                          className="inline-flex items-center gap-2 text-slate-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 rounded-md px-2 py-1"
-                          aria-label="Call Millennium Automation"
+                          className="inline-flex items-center gap-1 text-slate-700 hover:text-primary text-xs"
                         >
-                          <Phone className="w-4 h-4 text-primary" />
-                          <span className="text-sm">+91 9904003445</span>
+                          <Phone className="w-3 h-3 text-primary" />
+                          <span>+91 9904003445</span>
+                          <span>+91 99742 53445</span>
                         </a>
 
                         <a
@@ -265,11 +253,10 @@ const Contact = () => {
                           target="_blank"
                           rel="noreferrer"
                           onClick={() => trackContactClick("whatsapp")}
-                          className="inline-flex items-center gap-2 bg-cyan-50 text-green-700 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-200 rounded-full px-3 py-1"
-                          aria-label="Chat on WhatsApp"
+                          className="inline-flex items-center gap-1 bg-green-50 text-green-700 hover:bg-green-100 rounded-full px-2 py-1 text-xs"
                         >
-                          <img src="/whatsapp.png" alt="WhatsApp" className="w-10 h-10" />
-                          <span className="text-sm">WhatsApp</span>
+                          <img src="/whatsapp.png" alt="WhatsApp" className="w-4 h-4" />
+                          <span>WhatsApp</span>
                         </a>
                       </div>
                     </div>
@@ -277,17 +264,17 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white border border-slate-200 text-slate-900 shadow-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 rounded-lg p-3">
-                      <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <Card className="bg-white/95 backdrop-blur-sm border border-white/30 text-slate-900 shadow-sm">
+                <CardContent className="p-3 sm:p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-primary/10 rounded-lg p-2">
+                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">Business Hours</h3>
-                      <p className="text-slate-700 text-sm">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                      <h3 className="text-sm font-semibold mb-1">Business Hours</h3>
+                      <p className="text-slate-700 text-xs">Mon - Sat: 9:00 AM - 6:00 PM</p>
                     </div>
                   </div>
                 </CardContent>
@@ -295,7 +282,43 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
+        {/* Footer Section */}
+        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2 sm:gap-3">
+            <div className="text-center md:text-left">
+              <p className="text-[10px] sm:text-xs text-white/80">
+                &copy; 2024 Millennium Automation System. All Rights Reserved.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <img
+                src="dap.png"
+                alt="DAP Tech"
+                className="h-6 sm:h-7 opacity-90"
+              />
+              <div className="text-center sm:text-left">
+                <p className="text-[10px] sm:text-xs text-white/80">
+                  Website by{" "}
+                  <span className="text-white font-bold">
+                    DAP Tech Solutions
+                  </span>
+                </p>
+                <p className="text-[9px] sm:text-[10px] text-white/70">
+                  Created by Deep Parmar{" "}
+                  <a
+                    href="tel:+919725362234"
+                    className="text-white font-bold hover:underline"
+                  >
+                    +91 9725362234
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      </div>  
     </section>
   );
 };

@@ -1,158 +1,206 @@
-import { useEffect, useRef, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { getCoverImageForCategory } from "@/lib/productImages";
-import ProductModal from "./ProductModal";
-import type { Product } from "./ProductModal";
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import industrialBg from "@/assets/hero-1.jpg";
+import vfdImage from "@/assets/hero-1.jpg";
 
-const products = [
+// Product data
+const allProductsData = [
   {
-    title: "Variable Frequency Drives (VFD)",
-    description: "Delta's comprehensive VFD lineup includes ME300, REG2000, CP2000, C2000-HS, and VFD-EL-W series. These drives provide precise motor speed control, energy savings, and advanced vector control for industrial applications. Features include built-in PLC functionality, multiple communication protocols, and comprehensive motor protection.",
-    specs: [
-      "Power Range: 0.2kW to 3700kW",
-      "Voltage: 200V-480V (Single/Three Phase)",
-      "Advanced Vector Control & V/F Control",
-      "Built-in PLC & Multiple Communication Protocols",
-      "Energy Saving up to 30-50%",
-      "IP20/IP54 Protection Options",
-      "Overload, Overvoltage & Overcurrent Protection",
-      "Support for Multiple Motors"
-    ],
-    applications: [
-      "HVAC Systems - Fans, Pumps, Air Handling Units",
-      "Industrial Motors & Conveyors",
-      "Machine Tools & CNC Equipment",
-      "Textile & Printing Machinery",
-      "Food & Beverage Processing",
-      "Water Treatment Plants",
-      "Material Handling Systems",
-      "Packaging Equipment"
-    ],
-    image: getCoverImageForCategory("vfd"),
-    category: "vfd",
-    badge: "Delta Electronics"
+    category: "Variable Frequency Drives",
+    categoryId: "vfd",
+    description: "Precise motor speed control with advanced vector control and energy-saving capabilities.",
+    image: vfdImage,
+    products: [
+      {
+        model: "ME300 Series",
+        specs: "0.2kW - 110kW, 200-480V",
+        image: vfdImage,
+        features: ["Built-in PLC", "Energy saving 30-50%", "Multiple protocols"],
+        applications: "General purpose machinery, pumps, fans, conveyors"
+      },
+      {
+        model: "REG2000 Series",
+        specs: "1.5kW - 630kW, High Performance",
+        image: vfdImage,
+        features: ["Vector control", "Regenerative braking", "IP54 protection"],
+        applications: "Heavy-duty industrial applications, high dynamic response"
+      },
+      {
+        model: "CP2000 Series",
+        specs: "0.75kW - 3700kW, Modular Design",
+        image: vfdImage,
+        features: ["Cabinet type", "Advanced cooling", "Remote monitoring"],
+        applications: "Large scale industrial systems, process control"
+      },
+      {
+        model: "C2000-HS Series",
+        specs: "0.75kW - 630kW, High Speed",
+        image: vfdImage,
+        features: ["200kHz switching", "Low noise", "Compact design"],
+        applications: "High-speed spindles, precision machinery"
+      },
+      {
+        model: "VFD-EL-W Series",
+        specs: "0.2kW - 2.2kW, Wall Mount",
+        image: vfdImage,
+        features: ["IP66 outdoor", "Easy installation", "Cost effective"],
+        applications: "Outdoor applications, water pumps, ventilation"
+      }
+    ]
   },
   {
-    title: "Servo Motor Systems",
-    description: "Delta's ASDA-A2, ASDA-A3, and ASDA-B2 servo systems deliver exceptional precision and performance for demanding motion control applications. Featuring high-resolution encoders, advanced control algorithms, and superior dynamic response for seamless integration into automated machinery.",
-    specs: [
-      "Power Range: 100W to 15kW",
-      "Resolution: 17-bit to 23-bit Encoders",
-      "Response Time: < 0.5ms",
-      "Speed Control Accuracy: ±0.01%",
-      "Position Control Accuracy: ±1 Pulse",
-      "Multiple Control Modes (Position, Speed, Torque)",
-      "Advanced Auto-Tuning Functions",
-      "EtherCAT & MECHATROLINK-III Support"
-    ],
-    applications: [
-      "CNC Machines & Machine Tools",
-      "Robotic Arms & Automation Systems",
-      "Electronic Assembly Equipment",
-      "Semiconductor Manufacturing",
-      "Packaging & Labeling Machines",
-      "Textile & Printing Equipment",
-      "Medical Equipment & Devices",
-      "Food Processing Automation"
-    ],
-    image: getCoverImageForCategory("servo"),
-    category: "servo",
-    badge: "Delta Electronics"
+    category: "Servo Motor Systems",
+    categoryId: "servo",
+    description: "High-precision motion control systems with exceptional performance for automation.",
+    image: vfdImage,
+    products: [
+      {
+        model: "ASDA-A2 Series",
+        specs: "100W - 3kW, 17-bit Encoder",
+        image: vfdImage,
+        features: ["Fast response <0.5ms", "Auto-tuning", "Multi-axis sync"],
+        applications: "Packaging machines, textile machinery, robotics"
+      },
+      {
+        model: "ASDA-A3 Series",
+        specs: "100W - 15kW, 23-bit Encoder",
+        image: vfdImage,
+        features: ["EtherCAT support", "±0.01% accuracy", "Advanced control"],
+        applications: "CNC machines, semiconductor equipment, precision positioning"
+      },
+      {
+        model: "ASDA-B2 Series",
+        specs: "200W - 3kW, 20-bit Encoder",
+        image: vfdImage,
+        features: ["Low inertia", "Compact size", "Easy setup"],
+        applications: "Small automated equipment, pick and place, conveyors"
+      },
+      {
+        model: "ASDA-M Series",
+        specs: "10W - 400W, Micro Servo",
+        image: vfdImage,
+        features: ["Ultra compact", "RS485 control", "Cost efficient"],
+        applications: "Medical devices, laboratory equipment, small automation"
+      }
+    ]
   },
   {
-    title: "Human Machine Interface (HMI)",
-    description: "Delta's DOP-100 series HMI panels provide intuitive touchscreen interfaces for industrial automation. Available in multiple sizes with high-resolution color displays, these panels offer seamless communication with PLCs, excellent visualization capabilities, and user-friendly programming software for efficient system monitoring and control.",
-    specs: [
-      "Screen Sizes: 4.3\" to 15.6\" TFT LCD",
-      "Resolution: Up to 1920×1080 Full HD",
-      "Multi-Touch Capacitive/Resistive Touch",
-      "Multiple Communication Ports (RS232/RS485/Ethernet)",
-      "Recipe & Data Logging Functions",
-      "Alarm Management System",
-      "Support 65,536 Colors",
-      "IP65 Front Panel Protection"
-    ],
-    applications: [
-      "Industrial Process Monitoring & Control",
-      "Machine Tool Operator Interfaces",
-      "Building Management Systems",
-      "HVAC Control & Monitoring",
-      "Production Line Visualization",
-      "Packaging Machine Control",
-      "Water Treatment Plant SCADA",
-      "Manufacturing Execution Systems (MES)"
-    ],
-    image: getCoverImageForCategory("hmi"),
-    category: "hmi",
-    badge: "Delta Electronics"
+    category: "Human Machine Interface",
+    categoryId: "hmi",
+    description: "Intuitive touchscreen panels for seamless industrial automation monitoring.",
+    image: vfdImage,
+    products: [
+      {
+        model: "DOP-107 Series",
+        specs: "7\" TFT LCD, 800×480",
+        image: vfdImage,
+        features: ["Resistive touch", "Recipe function", "Alarm management"],
+        applications: "Machine control panels, process monitoring"
+      },
+      {
+        model: "DOP-110 Series",
+        specs: "10.1\" TFT LCD, 1024×600",
+        image: vfdImage,
+        features: ["Multi-touch", "Data logging", "USB connectivity"],
+        applications: "Industrial HMI, production monitoring, SCADA systems"
+      },
+      {
+        model: "DOP-115 Series",
+        specs: "15.6\" TFT LCD, 1920×1080",
+        image: vfdImage,
+        features: ["Full HD display", "Ethernet support", "IP65 front"],
+        applications: "Large scale control rooms, complex visualization"
+      },
+      {
+        model: "DOP-103 Series",
+        specs: "4.3\" TFT LCD, 480×272",
+        image: vfdImage,
+        features: ["Compact design", "65,536 colors", "Multiple ports"],
+        applications: "Small machines, embedded control, simple HMI"
+      }
+    ]
   },
   {
-    title: "Programmable Logic Controllers (PLC)",
-    description: "Delta's DVP and AS200 series PLCs offer reliable, high-performance control solutions for industrial automation. The DVP series provides versatile, cost-effective control while the AS200 series delivers advanced motion control and networking capabilities. Both feature extensive I/O options and multiple communication protocols.",
-    specs: [
-      "Processing Speed: 0.24μs to 0.54μs per instruction",
-      "Program Memory: 16K to 256K steps",
-      "I/O Points: 14 to 480 points (Expandable)",
-      "Built-in High-Speed Counters & PWM outputs",
-      "Multiple Communication Ports (RS232/RS485/Ethernet)",
-      "Support Modbus, CANopen, EtherCAT protocols",
-      "Motion Control up to 8 Axes",
-      "Free Programming Software (WPLSoft/ISPSoft)"
-    ],
-    applications: [
-      "Manufacturing Process Automation",
-      "Assembly Line Control Systems",
-      "Building HVAC & Lighting Control",
-      "Water & Wastewater Treatment",
-      "Packaging & Material Handling",
-      "Food & Beverage Processing",
-      "Textile Industry Automation",
-      "Energy Management Systems"
-    ],
-    image: getCoverImageForCategory("plc"),
-    category: "plc",
-    badge: "Delta Electronics"
+    category: "Programmable Logic Controllers",
+    categoryId: "plc",
+    description: "Reliable, high-performance control solutions with extensive I/O options.",
+    image: vfdImage,
+    products: [
+      {
+        model: "DVP-SE Series",
+        specs: "14-60 I/O, 0.54μs/step",
+        image: vfdImage,
+        features: ["Cost effective", "Compact design", "Easy programming"],
+        applications: "Simple automation, small machines, educational purposes"
+      },
+      {
+        model: "DVP-SS2 Series",
+        specs: "24-60 I/O, 0.24μs/step",
+        image: vfdImage,
+        features: ["High speed", "Built-in Ethernet", "Motion control"],
+        applications: "Medium automation, motion control, networked systems"
+      },
+      {
+        model: "AS200 Series",
+        specs: "128-256K steps, Multi-axis",
+        image: vfdImage,
+        features: ["EtherCAT master", "8-axis control", "Advanced HMI"],
+        applications: "Complex automation, multi-axis motion, integrated systems"
+      },
+      {
+        model: "AH500 Series",
+        specs: "Large capacity, Modular",
+        image: vfdImage,
+        features: ["Redundancy support", "SCADA ready", "Hot swap I/O"],
+        applications: "Critical infrastructure, large factories, redundant systems"
+      }
+    ]
   },
   {
-    title: "Power Supply (SMPS) & Components",
-    description: "Industrial-grade Switch Mode Power Supplies (SMPS) and related power components including transformers, timers, counters, and synchronizing cards. These reliable power solutions ensure stable operation of automation equipment with high efficiency, compact design, and comprehensive protection features.",
-    specs: [
-      "Output Power: 15W to 960W",
-      "Input Voltage: 85-264VAC Universal",
-      "Output Voltage: 5V, 12V, 24V, 48V DC",
-      "Efficiency: Up to 89%",
-      "Protection: Overload, Overvoltage, Short Circuit",
-      "DIN Rail Mounting",
-      "Operating Temperature: -10°C to +70°C",
-      "UL, CE, TUV Certified"
-    ],
-    applications: [
-      "Industrial Control Panel Power Supply",
-      "PLC & Automation Equipment",
-      "LED Lighting Systems",
-      "Communication Equipment",
-      "Security & CCTV Systems",
-      "Medical Equipment",
-      "Building Automation",
-      "Test & Measurement Instruments"
-    ],
-    image: getCoverImageForCategory("smps"),
-    category: "smps",
-    badge: "Power Solutions"
+    category: "Power Supply Components",
+    categoryId: "smps",
+    description: "Industrial-grade SMPS ensuring stable operation with comprehensive protection.",
+    image: vfdImage,
+    products: [
+      {
+        model: "DRP-24V Series",
+        specs: "24VDC, 60-960W",
+        image: vfdImage,
+        features: ["DIN rail mount", "89% efficiency", "Wide input range"],
+        applications: "Industrial control panels, automation systems"
+      },
+      {
+        model: "PMT-12V Series",
+        specs: "12VDC, 15-100W",
+        image: vfdImage,
+        features: ["Compact size", "Low ripple", "Overload protection"],
+        applications: "Small devices, embedded systems, sensors"
+      },
+      {
+        model: "PMC-48V Series",
+        specs: "48VDC, 120-480W",
+        image: vfdImage,
+        features: ["High reliability", "Active PFC", "Parallel operation"],
+        applications: "Telecom equipment, server systems, high-power devices"
+      },
+      {
+        model: "DRL-24V Series",
+        specs: "24VDC, 240-480W",
+        image: vfdImage,
+        features: ["Ultra slim", "Metal case", "CE/UL certified"],
+        applications: "Space-constrained installations, control cabinets"
+      }
+    ]
   }
 ];
 
 const Products = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryId: string) => {
+    navigate(`/product-list?category=${categoryId}`);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -163,7 +211,7 @@ const Products = () => {
               setTimeout(() => {
                 el.classList.add("active");
               }, index * 80);
-            });
+            });              
           }
         });
       },
@@ -178,113 +226,60 @@ const Products = () => {
   }, []);
 
   return (
-    <>
-      <section
-        id="products"
-        ref={sectionRef}
-        className="py-24 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden relative"
-      >
-        {/* Decorative Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
-        <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="text-center mb-10 sm:mb-12 lg:mb-16 reveal">
-            <div className="inline-block mb-3 sm:mb-4">
-              <span className="text-xs sm:text-sm font-semibold text-primary bg-primary/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                Our Products
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-3 sm:mb-4">
-              Core Products
-            </h2>
-            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-3xl mx-auto px-4">
-              As an authorized distributor of Delta Electronics, we supply industry-leading automation components backed by comprehensive technical support and genuine warranties.
-            </p>
-          </div>
-          
-          {/* Carousel */}
-          <div className="reveal">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-3 sm:-ml-4">
-                {products.map((product, index) => (
-                  <CarouselItem key={index} className="pl-3 sm:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                    <Card
-                      onClick={() => {
-                        setSelectedProduct(product);
-                        setIsModalOpen(true);
-                      }}
-                      className="group overflow-hidden border border-slate-500 hover:border-primary/30 shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer h-full"
-                    >
-                      <div className="relative h-48 sm:h-64 lg:h-80 overflow-hidden">
-                        <img 
-                          src={product.image} 
-                          alt={product.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
-                        />
-                        <div className="absolute top-2 right-2 sm:top-4 sm:right-4">
-                          <span className="bg-white/95 backdrop-blur-sm text-primary text-[10px] sm:text-xs font-semibold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full shadow-md">
-                            {product.badge}
-                          </span>
-                        </div>
-                      </div>
-                      <CardContent className="p-4 sm:p-6 lg:p-8 space-y-3 sm:space-y-4 lg:space-y-5">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300">
-                          {product.title}
-                        </h3>
-                        <p className="text-muted-foreground text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-2 sm:line-clamp-3">
-                          {product.description}
-                        </p>
-                        
-                        <div className="space-y-3 sm:space-y-4">
-                          <div>
-                            <h4 className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">Key Specifications:</h4>
-                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                              {product.specs.slice(0, 4).map((spec, idx) => (
-                                <span key={idx} className="text-[10px] sm:text-xs bg-secondary/50 text-muted-foreground px-2 py-1 sm:px-3 sm:py-1.5 rounded">
-                                  {spec}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">Applications:</h4>
-                            <ul className="text-[10px] sm:text-xs lg:text-sm text-muted-foreground space-y-1 sm:space-y-2">
-                              {product.applications.slice(0, 4).map((app, idx) => (
-                                <li key={idx} className="flex items-center gap-1.5 sm:gap-2">
-                                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                                  {app}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0 -translate-x-2 sm:-translate-x-4 lg:-translate-x-12 w-8 h-8 sm:w-10 sm:h-10" />
-              <CarouselNext className="right-0 translate-x-2 sm:translate-x-4 lg:translate-x-12 w-8 h-8 sm:w-10 sm:h-10" />
-            </Carousel>
-          </div>
-        </div>
-      </section>
+    <section
+      id="products"
+      ref={sectionRef}
+      className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always"
+      style={{ backgroundImage: `url(${industrialBg})` }}
+    >
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+      
+      {/* Title at Top Center */}
+      <div className="absolute top-8 sm:top-12 md:top-16 left-1/2 -translate-x-1/2 text-center px-4 z-20">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-2xl mb-3 sm:mb-4">
+          Our Products
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
+          Click any category to explore our Delta Electronics automation solutions
+        </p>
+      </div>
 
-      <ProductModal
-        product={selectedProduct}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
-    </>
+      {/* Category Capsules at Bottom - Horizontal */}
+      <div className="absolute bottom-20 sm:bottom-24 left-0 right-0 px-4 sm:px-6 md:px-8 z-20">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+          {allProductsData.map((category) => {
+            return (
+              <button
+                key={category.categoryId}
+                onClick={() => handleCategoryClick(category.categoryId)}
+                className="group relative flex-shrink-0 overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 bg-white/10 hover:bg-primary text-white shadow-lg hover:shadow-xl hover:shadow-primary/50"
+              >
+                {/* Capsule Content */}
+                <div className="relative px-3 sm:px-4 py-2 sm:py-2.5">
+                  <div className="flex flex-col items-center text-center">
+                    {/* Category Name */}
+                    <h3 className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
+                      {category.category}
+                    </h3>
+                  </div>
+
+                  {/* Hover Effect Border */}
+                  <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 border-transparent group-hover:border-white/30 transition-all duration-300" />
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Delta Electronics Badge */}
+      <div className="absolute top-8 sm:top-12 md:top-16 right-4 sm:right-6 md:right-8 z-10">
+        <div className="backdrop-blur-md bg-primary/90 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border-2 border-primary shadow-lg shadow-primary/50">
+          <span className="text-xs sm:text-sm font-bold text-white">Delta Electronics</span>
+        </div>
+      </div>
+    </section>
   );
 };
 

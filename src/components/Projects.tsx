@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useRef, useState } from "react";
+import industrialBg from "@/assets/hero-2.jpg";
+import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
@@ -65,7 +66,14 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const handleProjectClick = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -94,95 +102,54 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-white via-slate-50/50 to-white overflow-hidden relative"
+      className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always flex items-center justify-center"
+      style={{ backgroundImage: `url(${industrialBg})` }}
     >
-      {/* Decorative Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 reveal">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-h-screen overflow-y-auto py-8 sm:py-12">
+        <div className="text-center mb-6 sm:mb-8 lg:mb-10 reveal">
           <div className="inline-block mb-4">
-            <span className="text-sm font-semibold text-primary bg-primary/10 px-4 py-2 rounded-full">
+            <span className="text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
               Our Work
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl mb-4">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Our portfolio spans diverse industries, delivering innovative automation solutions that drive measurable results and exceed client expectations.
-          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
-            <Card
+            <div
               key={index}
-              className="reveal group overflow-hidden border border-slate-200 hover:border-primary/30 shadow-md hover:shadow-xl transition-all duration-500"
+              onClick={() => handleProjectClick(project)}
+              className="reveal flex flex-col items-center gap-3 cursor-pointer group"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white/30 group-hover:border-primary/80 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:scale-110">
                 <img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                  <span className="bg-white/95 backdrop-blur-sm text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
-                    {project.client}
-                  </span>
-                  <span className="bg-primary/95 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
-                    {project.duration}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>
-              <CardContent className="p-6 space-y-4">
-                <div>
-                  <h3 className="text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-300 mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground flex items-center gap-1">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                    </svg>
-                    {project.location}
-                  </p>
-                </div>
-                
-                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                  {project.description}
-                </p>
-                
-                <div className="space-y-3 pt-2">
-                  <div>
-                    <h4 className="text-xs font-semibold text-primary mb-2">Project Scope:</h4>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.scope.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-1">
-                          <span className="w-1 h-1 bg-primary rounded-full"></span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-xs font-semibold text-primary mb-2">Key Results:</h4>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {project.results.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-1">
-                          <span className="text-primary">✓</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              <h3 className="text-sm sm:text-base font-bold text-white text-center drop-shadow-lg group-hover:text-primary/90 transition-colors line-clamp-2">
+                {project.title}
+              </h3>
+            </div>
           ))}
         </div>
       </div>
+      
+      {/* Project Modal */}
+      <ProjectModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={selectedProject}
+      />
     </section>
   );
 };

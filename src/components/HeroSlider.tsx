@@ -60,8 +60,8 @@ const HeroSlider = () => {
 
   return (
     <section
-      id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950"
+      id="hero"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950 snap-start snap-always"
     >
       {/* Background Carousel */}
       <div className="absolute inset-0">
@@ -98,7 +98,7 @@ const HeroSlider = () => {
               }}
             >
               <span className="inline-flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 lg:gap-4">
-                {/* MAS Logo with glow highlight */}
+                {/* MAS Logo     with glow highlight */}
                 <img
                   src={masLogo}
                   alt="MAS logo"
