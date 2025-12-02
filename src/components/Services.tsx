@@ -159,31 +159,19 @@ const Services = () => {
             </div>
           </div>
         </div>
-        {/* Diagonal Hexagonal Layout - All 6 Services */}
-        <div className="relative w-full max-w-6xl mx-auto overflow-hidden">
-          {/* Diagonal arrangement container */}
-          <div className="relative flex items-center justify-center min-h-80 sm:min-h-96">
+        {/* Compact Grid Layout - All 6 Services */}
+        <div className="w-full max-w-6xl mx-auto">
+          {/* Services Grid - Compact 3x2 Layout */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
             {services.map((service, index) => {
-              // Calculate tighter diagonal positions with better alignment
-              const positions = [
-                { x: 15, y: 15 },  // Service 1 - Top left
-                { x: 30, y: 45 },  // Service 2 - Bottom left
-                { x: 45, y: 20 },  // Service 3 - Top center
-                { x: 60, y: 55 },  // Service 4 - Bottom center
-                { x: 75, y: 25 },  // Service 5 - Top right
-                { x: 90, y: 50 }   // Service 6 - Bottom right
-              ];
-              
-              const position = positions[index];
-              
               // Color schemes for each service
               const colorSchemes = [
-                { from: 'from-blue-500/30', to: 'to-purple-500/30', border: 'group-hover:border-blue-400/80', shadow: 'group-hover:shadow-blue-500/40', badge: 'from-blue-500 to-purple-500', text: 'group-hover:text-blue-200' },
-                { from: 'from-green-500/30', to: 'to-teal-500/30', border: 'group-hover:border-green-400/80', shadow: 'group-hover:shadow-green-500/40', badge: 'from-green-500 to-teal-500', text: 'group-hover:text-green-200' },
-                { from: 'from-purple-500/30', to: 'to-pink-500/30', border: 'group-hover:border-purple-400/80', shadow: 'group-hover:shadow-purple-500/40', badge: 'from-purple-500 to-pink-500', text: 'group-hover:text-purple-200' },
-                { from: 'from-orange-500/30', to: 'to-red-500/30', border: 'group-hover:border-orange-400/80', shadow: 'group-hover:shadow-orange-500/40', badge: 'from-orange-500 to-red-500', text: 'group-hover:text-orange-200' },
-                { from: 'from-cyan-500/30', to: 'to-blue-500/30', border: 'group-hover:border-cyan-400/80', shadow: 'group-hover:shadow-cyan-500/40', badge: 'from-cyan-500 to-blue-500', text: 'group-hover:text-cyan-200' },
-                { from: 'from-yellow-500/30', to: 'to-orange-500/30', border: 'group-hover:border-yellow-400/80', shadow: 'group-hover:shadow-yellow-500/40', badge: 'from-yellow-500 to-orange-500', text: 'group-hover:text-yellow-200' }
+                { accent: 'blue', hover: 'hover:border-blue-400', shadow: 'hover:shadow-blue-500/20', gradient: 'from-blue-500/10 to-blue-600/5' },
+                { accent: 'green', hover: 'hover:border-green-400', shadow: 'hover:shadow-green-500/20', gradient: 'from-green-500/10 to-green-600/5' },
+                { accent: 'purple', hover: 'hover:border-purple-400', shadow: 'hover:shadow-purple-500/20', gradient: 'from-purple-500/10 to-purple-600/5' },
+                { accent: 'orange', hover: 'hover:border-orange-400', shadow: 'hover:shadow-orange-500/20', gradient: 'from-orange-500/10 to-orange-600/5' },
+                { accent: 'cyan', hover: 'hover:border-cyan-400', shadow: 'hover:shadow-cyan-500/20', gradient: 'from-cyan-500/10 to-cyan-600/5' },
+                { accent: 'yellow', hover: 'hover:border-yellow-400', shadow: 'hover:shadow-yellow-500/20', gradient: 'from-yellow-500/10 to-yellow-600/5' }
               ];
               
               const colors = colorSchemes[index];
@@ -192,112 +180,44 @@ const Services = () => {
                 <div
                   key={index}
                   onClick={() => handleServiceClick(service)}
-                  className="reveal group absolute w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 cursor-pointer"
+                  className={`reveal group relative bg-white/5 backdrop-blur-sm border border-white/20 ${colors.hover} ${colors.shadow} rounded-xl p-4 cursor-pointer transition-all duration-300 hover:transform hover:scale-102 hover:-translate-y-1`}
                   style={{
-                    left: `${position.x}%`,
-                    top: `${position.y}%`,
-                    transform: 'translate(-50%, -50%)',
-                    animationDelay: `${index * 150}ms`
+                    animationDelay: `${index * 80}ms`
                   }}
                 >
-                  {/* Hexagon Shape with Image */}
-                  <div className={`absolute inset-0 backdrop-blur-sm border-2 border-white/40 ${colors.border} shadow-lg group-hover:shadow-2xl ${colors.shadow} transition-all duration-500 transform group-hover:scale-105 group-hover:rotate-6 overflow-hidden`}
-                       style={{
-                         clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-                       }}>
-                    
-                    {/* Background Image */}
-                    <div className="absolute inset-0"
-                         style={{
-                           clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-                         }}>
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-110 transition-all duration-500"
-                      />
-                      {/* Image Overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${colors.from} ${colors.to} mix-blend-multiply`}></div>
-                    </div>
+                  {/* Service Image */}
+                  <div className="relative w-full h-24 sm:h-28 mb-3 rounded-lg overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Image Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} group-hover:opacity-80 transition-opacity duration-300`}></div>
                     
                     {/* Service Number Badge */}
-                    <div className={`absolute top-1 right-1 sm:top-2 sm:right-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r ${colors.badge} rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg group-hover:scale-110 transition-transform duration-300 z-10`}>
+                    <div className={`absolute top-2 right-2 w-6 h-6 bg-${colors.accent}-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-md group-hover:scale-105 transition-transform duration-300`}>
                       {index + 1}
                     </div>
-                    
-                    {/* Pulse Ring Effect */}
-                    <div className="absolute inset-1 border border-white/30 opacity-0 group-hover:opacity-80 transition-opacity duration-500 animate-pulse z-10"
-                         style={{
-                           clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-                         }}>
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="relative flex flex-col items-center justify-center h-full p-1 sm:p-2 text-center z-10">
-                      <h3 className={`text-xs sm:text-sm font-bold text-white ${colors.text} transition-colors duration-300 leading-tight drop-shadow-lg`}>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="space-y-2">
+                    <div>
+                      <h3 className={`text-sm sm:text-base font-bold text-white text-center group-hover:text-${colors.accent}-300 transition-colors duration-300 leading-tight`}>
                         {service.title}
                       </h3>
-                      <div className="mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-4 h-0.5 bg-white/60 mx-auto"></div>
-                      </div>
                     </div>
                     
-                    {/* Hover Glow Effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-500 z-5"
-                         style={{
-                           background: `radial-gradient(circle at center, ${colors.badge.includes('blue') ? '#3b82f650' : colors.badge.includes('green') ? '#10b98150' : colors.badge.includes('purple') ? '#8b5cf650' : colors.badge.includes('orange') ? '#f9731650' : colors.badge.includes('cyan') ? '#06b6d450' : '#eab30850'}, transparent 70%)`,
-                           clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'
-                         }}>
-                    </div>
+                    {/* Bottom Accent Line */}
+                    <div className={`w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-${colors.accent}-500 to-${colors.accent}-300 transition-all duration-400 ease-out mx-auto`}></div>
                   </div>
+                  
+                  {/* Subtle Glow Effect */}
+                  <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-15 bg-gradient-to-br from-${colors.accent}-500/20 to-transparent pointer-events-none transition-opacity duration-300`}></div>
                 </div>
               );
             })}
-          </div>
-
-          {/* Diagonal Connection Lines */}
-          <div className="absolute inset-0 pointer-events-none">
-            <svg className="w-full h-full opacity-25">
-              <defs>
-                <linearGradient id="diagonalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8"/>
-                  <stop offset="20%" stopColor="#10b981" stopOpacity="0.7"/>
-                  <stop offset="40%" stopColor="#8b5cf6" stopOpacity="0.7"/>
-                  <stop offset="60%" stopColor="#f97316" stopOpacity="0.7"/>
-                  <stop offset="80%" stopColor="#06b6d4" stopOpacity="0.7"/>
-                  <stop offset="100%" stopColor="#eab308" stopOpacity="0.8"/>
-                </linearGradient>
-              </defs>
-              {/* Main diagonal flow connecting all hexagons */}
-              <path d="M 15% 15% Q 30% 30% 45% 20% Q 60% 37% 75% 25% Q 82% 37% 90% 50%" 
-                    stroke="url(#diagonalGradient)" 
-                    strokeWidth="2.5" 
-                    fill="none" 
-                    strokeDasharray="8,4"
-                    opacity="0.7">
-                <animate attributeName="stroke-dashoffset" values="0;12" dur="4s" repeatCount="indefinite"/>
-              </path>
-              
-              {/* Secondary connection between bottom hexagons */}
-              <path d="M 30% 45% Q 45% 40% 60% 55% Q 75% 45% 90% 50%" 
-                    stroke="url(#diagonalGradient)" 
-                    strokeWidth="1.8" 
-                    fill="none" 
-                    strokeDasharray="6,3"
-                    opacity="0.5">
-                <animate attributeName="stroke-dashoffset" values="12;0" dur="3.5s" repeatCount="indefinite" begin="0.8s"/>
-              </path>
-              
-              {/* Subtle connecting arc */}
-              <path d="M 45% 20% Q 52% 35% 60% 55%" 
-                    stroke="url(#diagonalGradient)" 
-                    strokeWidth="1.5" 
-                    fill="none" 
-                    strokeDasharray="4,2"
-                    opacity="0.3">
-                <animate attributeName="stroke-dashoffset" values="0;6" dur="2.8s" repeatCount="indefinite" begin="1.2s"/>
-              </path>
-            </svg>
           </div>
         </div>
       </div>
