@@ -101,22 +101,9 @@ const Services = () => {
       className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always flex items-center justify-center"
       style={{ backgroundImage: `url(${industrialBg})` }}
     >
-      {/* Floating Particles Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-float opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          >
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-          </div>
-        ))}
+      {/* Subtle Background Pattern - Removed floating particles for cleaner web look */}
+      <div className="absolute inset-0 overflow-hidden opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5"></div>
       </div>
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
@@ -128,10 +115,10 @@ const Services = () => {
               ⚡ What We Do ⚡
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl mb-1.5 sm:mb-2 md:mb-3 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-md mb-1.5 sm:mb-2 md:mb-3 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
             Our Expertise
           </h2>
-          <p className="text-white/90 drop-shadow-lg text-xs sm:text-sm md:text-base max-w-3xl mx-auto mb-4">
+          <p className="text-white/90 drop-shadow-sm text-xs sm:text-sm md:text-base max-w-3xl mx-auto mb-4">
             Complete industrial automation services from design to support.
           </p>
           

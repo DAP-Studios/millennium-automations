@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Zap, Cog, Monitor, Cpu, Battery } from "lucide-react";
 import industrialBg from "@/assets/hero-1.jpg";
 import vfdImage from "@/assets/hero-1.jpg";
 
@@ -237,35 +238,63 @@ const Products = () => {
       
       {/* Title at Top Center */}
       <div className="absolute top-8 sm:top-12 md:top-16 left-1/2 -translate-x-1/2 text-center px-4 z-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-2xl mb-3 sm:mb-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md mb-3 sm:mb-4">
           Our Products
         </h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 drop-shadow-sm max-w-3xl mx-auto">
           Click any category to explore our Delta Electronics automation solutions
         </p>
       </div>
 
-      {/* Category Capsules at Bottom - Horizontal on desktop, stacked on mobile */}
+      {/* Enhanced Category Capsules at Bottom */}
       <div className="absolute bottom-20 sm:bottom-24 md:bottom-28 left-0 right-0 px-4 sm:px-6 md:px-8 z-20">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 max-h-[calc(100vh-250px)] sm:max-h-none overflow-y-auto sm:overflow-y-visible overflow-x-visible sm:overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
-          {allProductsData.map((category) => {
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-h-[calc(100vh-250px)] sm:max-h-none overflow-y-auto sm:overflow-y-visible overflow-x-visible sm:overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+          {allProductsData.map((category, index) => {
+            // Icon mapping for each product category
+            const categoryIcons = [
+              { icon: Zap, color: "from-blue-500 to-cyan-500", glow: "shadow-blue-500/30" },
+              { icon: Cog, color: "from-green-500 to-emerald-500", glow: "shadow-green-500/30" },
+              { icon: Monitor, color: "from-purple-500 to-violet-500", glow: "shadow-purple-500/30" },
+              { icon: Cpu, color: "from-orange-500 to-red-500", glow: "shadow-orange-500/30" },
+              { icon: Battery, color: "from-yellow-500 to-amber-500", glow: "shadow-yellow-500/30" }
+            ];
+            
+            const iconData = categoryIcons[index] || categoryIcons[0];
+            const IconComponent = iconData.icon;
+            
             return (
               <button
                 key={category.categoryId}
                 onClick={() => handleCategoryClick(category.categoryId)}
-                className="group relative w-full sm:w-auto flex-shrink-0 overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 bg-white/10 hover:bg-primary text-white shadow-lg hover:shadow-xl hover:shadow-primary/50"
+                className={`group relative w-full sm:w-auto flex-shrink-0 overflow-hidden backdrop-blur-md rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 bg-gradient-to-br from-white/15 to-white/5 hover:from-white/25 hover:to-white/10 text-white shadow-lg hover:shadow-2xl ${iconData.glow} border border-white/20 hover:border-white/40`}
               >
+                {/* Animated Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${iconData.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                
+                {/* Pulsing Ring Effect */}
+                <div className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-white/0 group-hover:border-white/30 group-hover:animate-pulse transition-all duration-300"></div>
+                
                 {/* Capsule Content */}
-                <div className="relative px-3 sm:px-4 py-2 sm:py-2.5">
-                  <div className="flex flex-col items-center text-center">
+                <div className="relative px-4 sm:px-6 py-3 sm:py-4">
+                  <div className="flex flex-col items-center text-center gap-2">
+                    {/* Icon with Glow Effect */}
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br ${iconData.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-white" strokeWidth={2.5} />
+                    </div>
+                    
                     {/* Category Name */}
-                    <h3 className="text-xs sm:text-sm font-bold text-white whitespace-nowrap">
+                    <h3 className="text-xs sm:text-sm font-bold text-white group-hover:text-gray-100 transition-colors duration-300 whitespace-nowrap leading-tight">
                       {category.category}
                     </h3>
+                    
+                    {/* Subtle Description */}
+                    <p className="text-[10px] sm:text-xs text-white/70 group-hover:text-white/90 transition-colors duration-300 opacity-80 group-hover:opacity-100">
+                      {category.products.length} Models
+                    </p>
                   </div>
 
-                  {/* Hover Effect Border */}
-                  <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 border-transparent group-hover:border-white/30 transition-all duration-300" />
+                  {/* Shimmer Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
                 </div>
               </button>
             );

@@ -79,7 +79,7 @@ const WhyChooseUs = () => {
               Our Advantages
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl mb-1.5 sm:mb-2 md:mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-md mb-1.5 sm:mb-2 md:mb-3">
             Why Choose MAS?
           </h2>
         </div>

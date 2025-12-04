@@ -101,7 +101,7 @@ const Contact = () => {
         
         {/* Large Title at Top - Centered */}
         <div className="text-center mb-2 sm:mb-3 md:mb-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-md">
             Get In Touch
           </h1>
         </div>

@@ -49,9 +49,9 @@ const HeroSlider = () => {
   // Tailwind-based style definitions for content
   const contentStyles = {
     heading:
-      "text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white [text-shadow:0_4px_20px_rgba(0,0,0,0.95),0_8px_40px_rgba(0,0,0,0.8),0_0_60px_rgba(0,0,0,0.7),0_2px_4px_rgba(0,0,0,1)]",
+      "text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white",
     subtitle:
-      "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white max-w-2xl font-light leading-relaxed [text-shadow:0_2px_20px_rgba(0,0,0,0.95),0_4px_32px_rgba(0,0,0,0.8),0_0_48px_rgba(0,0,0,0.7)]",
+      "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white max-w-2xl font-light leading-relaxed",
     buttonPrimary:
       "bg-primary hover:bg-primary/90 text-white font-semibold px-5 sm:px-6 lg:px-8 h-11 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:-translate-y-0.5",
     buttonSecondary:
@@ -102,10 +102,7 @@ const HeroSlider = () => {
                 <img
                   src={masLogo}
                   alt="MAS logo"
-                  className="h-16 sm:h-16 md:h-20 lg:h-24 xl:h-28 filter brightness-110"
-                  style={{
-                    filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.95)) drop-shadow(0 8px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 60px rgba(0,0,0,0.7)) drop-shadow(0 2px 4px rgba(0,0,0,1)) brightness(1.1)'
-                  }}
+                  className="h-12 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105"
                 />
                 <span className="leading-tight text-center sm:text-left">
                   <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
@@ -120,7 +117,7 @@ const HeroSlider = () => {
 
             {/* Subtitle */}
             <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto sm:mx-0 font-light leading-relaxed [text-shadow:0_2px_20px_rgba(0,0,0,0.95),0_4px_32px_rgba(0,0,0,0.8),0_0_48px_rgba(0,0,0,0.7)] text-center sm:text-left"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto sm:mx-0 font-light leading-relaxed text-center sm:text-left"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.4s",
                 opacity: 0,
@@ -177,7 +174,7 @@ const HeroSlider = () => {
                     <img
                       src={deltaLogo}
                       alt="Delta logo"
-                      className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] object-contain drop-shadow-[0_0_25px_rgba(100,200,255,0.8)] animate-float-slow"
+                      className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] object-contain"
                     />
                     <div>
                       <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">

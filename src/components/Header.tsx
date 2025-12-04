@@ -69,12 +69,12 @@ const Header = () => {
   {/* <div className={`transition-all duration-300 text-left ${
     isScrolled ? "opacity-100" : "opacity-0"
   }`}>
-    <p className="text-3xl sm:text-3xl font-bold leading-tight text-primary [text-shadow:0_2px_10px_rgba(0,0,0,0.3)]">
+    <p className="text-3xl sm:text-3xl font-bold leading-tight text-primary">
       Millennium
       <br className="sm:hidden" />
       {" "}Automation System
     </p>
-    <p className="text-sm sm:text-base text-red-600 font-light mt-1 [text-shadow:0_1px_5px_rgba(0,0,0,0.2)]">
+    <p className="text-sm sm:text-base text-red-600 font-light mt-1">
       Smart System...... Better Solution
     </p>
   </div> */}

@@ -115,7 +115,7 @@ const Projects = () => {
               Our Work
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-2xl mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-md mb-3 sm:mb-4">
             Featured Projects
           </h2>
         </div>
@@ -136,7 +136,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>
-              <h3 className="text-xs sm:text-sm md:text-base font-bold text-white text-center drop-shadow-lg group-hover:text-primary/90 transition-colors line-clamp-2">
+              <h3 className="text-xs sm:text-sm md:text-base font-bold text-white text-center drop-shadow-sm group-hover:text-primary/90 transition-colors line-clamp-2">
                 {project.title}
               </h3>
             </div>
