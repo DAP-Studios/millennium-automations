@@ -233,22 +233,22 @@ const Products = () => {
       className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always"
       style={{ backgroundImage: `url(${industrialBg})` }}
     >
-      {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
       
-      {/* Title at Top Center */}
-      <div className="absolute top-8 sm:top-12 md:top-16 left-1/2 -translate-x-1/2 text-center px-4 z-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md mb-3 sm:mb-4">
-          Our Products
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 drop-shadow-sm max-w-3xl mx-auto">
-          Click any category to explore our Delta Electronics automation solutions
-        </p>
-      </div>
+      {/* Left Side Layout */}
+      <div className="absolute left-6 sm:left-8 md:left-12 top-8 sm:top-12 md:top-16 bottom-8 sm:bottom-12 md:bottom-16 z-20 flex flex-col justify-between max-w-sm lg:max-w-md">
+        
+        {/* Title and Description - Left Aligned */}
+        <div className="text-left">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md mb-3 sm:mb-4">
+            Our Products
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-100 drop-shadow-sm mb-6 sm:mb-8">
+            Click any category to explore our Delta Electronics automation solutions
+          </p>
+        </div>
 
-      {/* Enhanced Category Capsules at Bottom */}
-      <div className="absolute bottom-20 sm:bottom-24 md:bottom-28 left-0 right-0 px-4 sm:px-6 md:px-8 z-20">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-h-[calc(100vh-250px)] sm:max-h-none overflow-y-auto sm:overflow-y-visible overflow-x-visible sm:overflow-x-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent pb-2">
+        {/* Vertical Category List */}
+        <div className="flex-1 flex flex-col justify-center gap-3 sm:gap-4">
           {allProductsData.map((category, index) => {
             // Icon mapping for each product category
             const categoryIcons = [
@@ -266,31 +266,41 @@ const Products = () => {
               <button
                 key={category.categoryId}
                 onClick={() => handleCategoryClick(category.categoryId)}
-                className={`group relative w-full sm:w-auto flex-shrink-0 overflow-hidden backdrop-blur-md rounded-xl sm:rounded-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 bg-gradient-to-br from-white/15 to-white/5 hover:from-white/25 hover:to-white/10 text-white shadow-lg hover:shadow-2xl ${iconData.glow} border border-white/20 hover:border-white/40`}
+                className={`reveal group relative w-full overflow-hidden backdrop-blur-md rounded-xl transition-all duration-500 transform hover:scale-105 hover:translate-x-2 bg-gradient-to-r from-white/15 to-white/5 hover:from-white/25 hover:to-white/10 text-white shadow-lg hover:shadow-xl ${iconData.glow} border border-white/20 hover:border-white/40`}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Animated Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${iconData.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-r ${iconData.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
                 
                 {/* Pulsing Ring Effect */}
-                <div className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-white/0 group-hover:border-white/30 group-hover:animate-pulse transition-all duration-300"></div>
+                <div className="absolute inset-0 rounded-xl border-2 border-white/0 group-hover:border-white/30 transition-all duration-300"></div>
                 
-                {/* Capsule Content */}
-                <div className="relative px-4 sm:px-6 py-3 sm:py-4">
-                  <div className="flex flex-col items-center text-center gap-2">
+                {/* Category Content - Horizontal Layout */}
+                <div className="relative px-4 sm:px-5 py-3 sm:py-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     {/* Icon with Glow Effect */}
-                    <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br ${iconData.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-white" strokeWidth={2.5} />
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${iconData.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
+                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} />
                     </div>
                     
-                    {/* Category Name */}
-                    <h3 className="text-xs sm:text-sm font-bold text-white group-hover:text-gray-100 transition-colors duration-300 whitespace-nowrap leading-tight">
-                      {category.category}
-                    </h3>
-                    
-                    {/* Subtle Description */}
-                    <p className="text-[10px] sm:text-xs text-white/70 group-hover:text-white/90 transition-colors duration-300 opacity-80 group-hover:opacity-100">
-                      {category.products.length} Models
-                    </p>
+                    <div className="flex-1 text-left">
+                      {/* Category Name */}
+                      <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-gray-100 transition-colors duration-300 leading-tight">
+                        {category.category}
+                      </h3>
+                      
+                      {/* Model Count */}
+                      <p className="text-xs text-white/70 group-hover:text-white/90 transition-colors duration-300">
+                        {category.products.length} Models Available
+                      </p>
+                    </div>
+
+                    {/* Arrow Indicator */}
+                    <div className="w-6 h-6 flex items-center justify-center opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
 
                   {/* Shimmer Effect */}
@@ -300,12 +310,13 @@ const Products = () => {
             );
           })}
         </div>
+
       </div>
 
-      {/* Delta Electronics Badge */}
-      <div className="absolute top-8 sm:top-12 md:top-16 right-4 sm:right-6 md:right-8 z-10">
+      {/* Delta Electronics Badge - Top Right */}
+      <div className="absolute top-8 sm:top-12 md:top-16 right-6 sm:right-8 md:right-12 z-20">
         <div className="backdrop-blur-md bg-primary/90 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border-2 border-primary shadow-lg shadow-primary/50">
-          <span className="text-xs sm:text-sm font-bold text-white">Delta Electronics</span>
+          <span className="text-xs sm:text-sm font-bold text-white">Delta Electronics Partner</span>
         </div>
       </div>
     </section>

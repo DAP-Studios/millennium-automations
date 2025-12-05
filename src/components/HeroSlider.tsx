@@ -98,12 +98,14 @@ const HeroSlider = () => {
               }}
             >
               <span className="inline-flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 lg:gap-4">
-                {/* MAS Logo     with glow highlight */}
-                <img
-                  src={masLogo}
-                  alt="MAS logo"
-                  className="h-12 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105"
-                />
+                {/* MAS Logo */}
+                <div className="relative">
+                  <img
+                    src={masLogo}
+                    alt="MAS logo"
+                    className="h-12 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105 drop-shadow-[0_8px_15px_rgba(0,0,0,0.8)]"
+                  />
+                </div>
                 <span className="leading-tight text-center sm:text-left">
                   <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
                     Millennium

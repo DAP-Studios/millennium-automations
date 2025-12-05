@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import Header from "@/components/Header";
 import HeroSlider from "@/components/HeroSlider";
 import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -20,7 +19,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <Header />
       <main ref={mainRef} className="snap-y snap-mandatory overflow-y-scroll h-screen">
         <HeroSlider />
         <Products />

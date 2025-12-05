@@ -6,12 +6,12 @@ import industrialBg from "@/assets/hero-1.jpg";
 const features = [
   {
     icon: BadgeCheck,
-    title: "Authorized Delta Electronics partner",
+    title: "Authorized Delta Electronics Channel partner",
     description: "Official channel partner with genuine products"
   },
   {
     icon: BadgeCheck,
-    title: "ISO certified quality",
+    title: "ISO certified Group Company",
     description: "Certified processes ensuring reliability"
   },
   {

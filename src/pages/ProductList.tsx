@@ -15,187 +15,273 @@ const allProducts = [
   {
     category: "Variable Frequency Drives",
     categoryId: "vfd",
-    description: "Precise motor speed control with advanced vector control and energy-saving capabilities.",
+    description: "Advanced vector control drives with integrated PLC logic and precision torque management for industrial automation.",
     image: vfdImage,
     products: [
       {
-        model: "ME300 Series",
-        specs: "0.2kW - 110kW, 200-480V",
+        model: "ME300 Series - Basic Compact",
+        specs: "Up to 7.5kW, 200% Starting Torque @ 3Hz, -20°C to +50°C",
         image: vfdImage,
-        features: ["Built-in PLC", "Energy saving 30-50%", "Multiple protocols"],
-        applications: "General purpose machinery, pumps, fans, conveyors"
+        features: ["Built-in Braking Chopper", "STO Safety (SIL2/PL d)", "100% Conformal Coating", "Vector Control Algorithm"],
+        applications: "Conveyor systems, extruders, basic automation with high starting torque requirements"
       },
       {
-        model: "REG2000 Series",
-        specs: "1.5kW - 630kW, High Performance",
+        model: "MS300 Series - Standard Compact",
+        specs: "Up to 22kW, IP66/NEMA 4X, Output up to 1500Hz",
         image: vfdImage,
-        features: ["Vector control", "Regenerative braking", "IP54 protection"],
-        applications: "Heavy-duty industrial applications, high dynamic response"
+        features: ["IM/IPM/SPM Motor Support", "40% Size Reduction", "Multiple Communication Cards", "High-Speed Operation"],
+        applications: "CNC spindles, machine tools, centrifugation processes, wash-down environments"
       },
       {
-        model: "CP2000 Series",
-        specs: "0.75kW - 3700kW, Modular Design",
+        model: "MH300 Series - Advanced Compact",
+        specs: "Up to 75kW, Closed-Loop PG Cards, 33kHz Pulse Input",
         image: vfdImage,
-        features: ["Cabinet type", "Advanced cooling", "Remote monitoring"],
-        applications: "Large scale industrial systems, process control"
+        features: ["Encoder Feedback Support", "Tension Control Algorithms", "Friction Compensation", "Inertia Estimation"],
+        applications: "Vertical lifting, tension control, winding applications, precision positioning"
       },
       {
-        model: "C2000-HS Series",
-        specs: "0.75kW - 630kW, High Speed",
+        model: "C2000+ Series - Heavy Duty Vector",
+        specs: "Up to 560kW, HD/SHD Rating, 180% Overload 3s",
         image: vfdImage,
-        features: ["200kHz switching", "Low noise", "Compact design"],
-        applications: "High-speed spindles, precision machinery"
+        features: ["Synchronous Reluctance Motors", "Point-to-Point Positioning", "Field-Oriented Control", "IE5 Efficiency"],
+        applications: "Crushers, extruders, heavy machinery, high break-away torque loads"
       },
       {
-        model: "VFD-EL-W Series",
-        specs: "0.2kW - 2.2kW, Wall Mount",
+        model: "CP2000 Series - Fan/Pump Vector",
+        specs: "Up to 630kW, Fire Mode, Multi-Pump Control",
         image: vfdImage,
-        features: ["IP66 outdoor", "Easy installation", "Cost effective"],
-        applications: "Outdoor applications, water pumps, ventilation"
+        features: ["Variable Torque Optimization", "8-Pump Synchronization", "Bypass Function", "BACnet Support"],
+        applications: "HVAC systems, building automation, water treatment, fire safety pumps"
+      },
+      {
+        model: "VP3000 Series - Low Harmonic",
+        specs: "Up to 630kW, THDi <35%, Predictive Maintenance",
+        image: vfdImage,
+        features: ["Active Harmonic Filter", "PdM Health Monitoring", "SynRM Support", "Power Quality Protection"],
+        applications: "Chillers, compressors, facilities with strict power quality requirements"
       }
     ]
   },
   {
-    category: "Servo Motor Systems",
+    category: "Servo Motor Systems & Motion Control",
     categoryId: "servo",
-    description: "High-precision motion control systems with exceptional performance for automation.",
+    description: "Precision servo drives and motion controllers with deterministic communication for synchronized multi-axis control.",
     image: servoImage,
     products: [
       {
-        model: "ASDA-A2 Series",
-        specs: "100W - 3kW, 17-bit Encoder",
+        model: "ASDA-H3 Multi-Axis Servo",
+        specs: "High-Power Multi-Axis, Common DC Bus, Energy Regeneration",
         image: servoImage,
-        features: ["Fast response <0.5ms", "Auto-tuning", "Multi-axis sync"],
-        applications: "Packaging machines, textile machinery, robotics"
+        features: ["Common DC Bus Design", "Energy Recovery", "Multi-Axis Synchronization", "Injection Molding Optimized"],
+        applications: "Injection molding machines, clamping units, cyclical acceleration/deceleration systems"
       },
       {
-        model: "ASDA-A3 Series",
-        specs: "100W - 15kW, 23-bit Encoder",
+        model: "DVP-15MC Motion Controller",
+        specs: "CANopen Motion (DS402), Up to 24 Real Axes, <1µs Jitter",
         image: servoImage,
-        features: ["EtherCAT support", "±0.01% accuracy", "Advanced control"],
-        applications: "CNC machines, semiconductor equipment, precision positioning"
+        features: ["Deterministic Communication", "Electronic Cam (E-Cam)", "Complex Motion Profiles", "CANopen Protocol"],
+        applications: "Multi-axis printing, robotics, synchronized manufacturing lines"
       },
       {
-        model: "ASDA-B2 Series",
-        specs: "200W - 3kW, 20-bit Encoder",
+        model: "DVP-50MC EtherCAT Controller",
+        specs: "EtherCAT Protocol, 20MB Data Capacity, High-Speed Sync",
         image: servoImage,
-        features: ["Low inertia", "Compact size", "Easy setup"],
-        applications: "Small automated equipment, pick and place, conveyors"
+        features: ["EtherCAT Master", "Real-Time Synchronization", "Advanced Motion Control", "Non-Linear Profiles"],
+        applications: "High-precision CNC systems, coordinated robotic cells, packaging automation"
       },
       {
-        model: "ASDA-M Series",
-        specs: "10W - 400W, Micro Servo",
+        model: "DVP-PM Pulse Motion Controller",
+        specs: "1MHz Output Frequency, High-Speed Differential Signaling",
         image: servoImage,
-        features: ["Ultra compact", "RS485 control", "Cost efficient"],
-        applications: "Medical devices, laboratory equipment, small automation"
+        features: ["Pulse Train Generation", "Differential Signaling", "EMI Immunity", "Servo Drive Interface"],
+        applications: "High-speed positioning, servo amplifier control, noise-critical environments"
       }
     ]
   },
   {
-    category: "Human Machine Interface",
+    category: "Human Machine Interface with PLC",
     categoryId: "hmi",
-    description: "Intuitive touchscreen panels for seamless industrial automation monitoring.",
+    description: "Converged HMI-PLC controllers combining visualization with integrated logic control and I/O capabilities.",
     image: hmiImage,
     products: [
       {
-        model: "DOP-107 Series",
-        specs: "7\" TFT LCD, 800×480",
+        model: "TP70P Series - Touch Panel HMI-PLC",
+        specs: "7\" TFT LCD, 65,535 Colors, DVP-SS2 PLC Core Integrated",
         image: hmiImage,
-        features: ["Resistive touch", "Recipe function", "Alarm management"],
-        applications: "Machine control panels, process monitoring"
+        features: ["Embedded PLC Logic (2k Steps)", "Onboard Digital/Analog I/O", "USB Programming Port", "RS-485 Multi-drop"],
+        applications: "Single-device control solutions, conveyor systems, eliminating separate PLC requirements"
       },
       {
-        model: "DOP-110 Series",
-        specs: "10.1\" TFT LCD, 1024×600",
+        model: "TP04P Series - Text Panel HMI-PLC",
+        specs: "Monochrome LCD, Physical Function Keys, Integrated PLC",
         image: hmiImage,
-        features: ["Multi-touch", "Data logging", "USB connectivity"],
-        applications: "Industrial HMI, production monitoring, SCADA systems"
+        features: ["User-Definable Keys", "Direct PLC Macro Triggers", "Cost-Effective Design", "Robust Control Logic"],
+        applications: "Simple machines, ovens, basic automation where graphics are unnecessary"
       },
       {
-        model: "DOP-115 Series",
-        specs: "15.6\" TFT LCD, 1920×1080",
+        model: "DOP-107 Advanced Series",
+        specs: "7\" TFT LCD, 800×480, Recipe & Alarm Management",
         image: hmiImage,
-        features: ["Full HD display", "Ethernet support", "IP65 front"],
-        applications: "Large scale control rooms, complex visualization"
+        features: ["Advanced Recipe Functions", "Multi-Level Alarms", "Data Logging", "Network Connectivity"],
+        applications: "Process control, batch manufacturing, recipe-based production systems"
       },
       {
-        model: "DOP-103 Series",
-        specs: "4.3\" TFT LCD, 480×272",
+        model: "DOP-115 Large Format Series",
+        specs: "15.6\" Full HD TFT LCD, 1920×1080, IP65 Front Panel",
         image: hmiImage,
-        features: ["Compact design", "65,536 colors", "Multiple ports"],
-        applications: "Small machines, embedded control, simple HMI"
+        features: ["High-Resolution Display", "Multi-Touch Support", "Ethernet Integration", "SCADA Ready"],
+        applications: "Control rooms, complex visualization, large-scale monitoring systems"
       }
     ]
   },
   {
     category: "Programmable Logic Controllers",
     categoryId: "plc",
-    description: "Reliable, high-performance control solutions with extensive I/O options.",
+    description: "High-performance deterministic logic controllers with integrated motion control and advanced communication capabilities.",
     image: plcImage,
     products: [
       {
-        model: "DVP-SE Series",
-        specs: "14-60 I/O, 0.54μs/step",
+        model: "DVP-ES3 Series - Third Generation",
+        specs: "64k Steps, 25ns Execution Speed, AS-Series Core",
         image: plcImage,
-        features: ["Cost effective", "Compact design", "Easy programming"],
-        applications: "Simple automation, small machines, educational purposes"
+        features: ["40x Speed Improvement", "Native Ethernet & CANopen", "4-Axis 200kHz Pulse Output", "High-Throughput Processing"],
+        applications: "High-speed packaging lines, servo control, complex machine networks"
       },
       {
-        model: "DVP-SS2 Series",
-        specs: "24-60 I/O, 0.24μs/step",
+        model: "DVP-ES2/EX2 Series - Standard",
+        specs: "Up to 60 I/O Points, 0.35μs Execution, 3x COM Ports",
         image: plcImage,
-        features: ["High speed", "Built-in Ethernet", "Motion control"],
-        applications: "Medium automation, motion control, networked systems"
+        features: ["Monolithic Brick Design", "12-bit Analog I/O (EX2)", "Triple Communication", "Expansion Capability"],
+        applications: "Process control, temperature/pressure monitoring, HMI & VFD networks"
       },
       {
-        model: "AS200 Series",
-        specs: "128-256K steps, Multi-axis",
+        model: "DVP-SV2 Slim High-Performance",
+        specs: "30k Steps, 0.24μs Execution, Linear/Arc Interpolation",
         image: plcImage,
-        features: ["EtherCAT master", "8-axis control", "Advanced HMI"],
-        applications: "Complex automation, multi-axis motion, integrated systems"
+        features: ["Compact Form Factor", "2-Axis Motion Tasks", "CNC-Level Functions", "Circle Cutting Capability"],
+        applications: "Space-constrained installations, 2-axis motion control, cutting applications"
       },
       {
-        model: "AH500 Series",
-        specs: "Large capacity, Modular",
+        model: "DVP-SE Slim Network Gateway",
+        specs: "16k Steps, Built-in Ethernet, Mini-USB, 0.64μs",
         image: plcImage,
-        features: ["Redundancy support", "SCADA ready", "Hot swap I/O"],
-        applications: "Critical infrastructure, large factories, redundant systems"
+        features: ["Transparent Gateway", "Remote Programming", "Network Bridge", "Distributed Control"],
+        applications: "Remote monitoring, distributed systems, gateway applications, network integration"
       }
     ]
   },
   {
-    category: "Power Supply Components",
+    category: "Industrial Power Supply Systems",
     categoryId: "smps",
-    description: "Industrial-grade SMPS ensuring stable operation with comprehensive protection.",
+    description: "Advanced power supplies with integrated diagnostics, marine certifications, and specialized industry compliance.",
     image: smpsImage,
     products: [
       {
-        model: "DRP-24V Series",
-        specs: "24VDC, 60-960W",
+        model: "CliQ M Series - Premium Marine",
+        specs: "DIN Rail Mount, Advanced Power Boost 150% for 5s, -25°C to +70°C",
         image: smpsImage,
-        features: ["DIN rail mount", "89% efficiency", "Wide input range"],
-        applications: "Industrial control panels, automation systems"
+        features: ["DNV GL Marine Certification", "Inductive Load Starting", "Maritime Environment Ready", "Heavy Industrial Grade"],
+        applications: "Marine automation, heavy industry, large contactor starting, offshore platforms"
       },
       {
-        model: "PMT-12V Series",
-        specs: "12VDC, 15-100W",
+        model: "CliQ VA Series - Visual Diagnostics",
+        specs: "DIN Rail Mount, Integrated LCD Display, Real-Time Monitoring",
         image: smpsImage,
-        features: ["Compact size", "Low ripple", "Overload protection"],
-        applications: "Small devices, embedded systems, sensors"
+        features: ["Built-in LCD Display", "Voltage/Current/Temperature Display", "Rapid Diagnostics", "No External Meter Required"],
+        applications: "Maintenance-friendly installations, diagnostic-critical systems, troubleshooting applications"
       },
       {
-        model: "PMC-48V Series",
-        specs: "48VDC, 120-480W",
+        model: "Force-GT Series - Ultra-Efficient",
+        specs: "Ultra-Slim Form Factor, 80+ Efficiency, -25°C to +70°C",
         image: smpsImage,
-        features: ["High reliability", "Active PFC", "Parallel operation"],
-        applications: "Telecom equipment, server systems, high-power devices"
+        features: ["Space-Saving Design", "Constant Current Circuit", "Charging Applications", "Wide Temperature Range"],
+        applications: "DIN rail space optimization, battery charging systems, extreme temperature environments"
       },
       {
-        model: "DRL-24V Series",
-        specs: "24VDC, 240-480W",
+        model: "PMT2 Series - Consumer Safety",
+        specs: "Panel Mount, 30mm Ultra-Low Profile, IEC 60335 Compliant",
         image: smpsImage,
-        features: ["Ultra slim", "Metal case", "CE/UL certified"],
-        applications: "Space-constrained installations, control cabinets"
+        features: ["Household Appliance Standard", "Consumer Safety Certified", "Low Profile Design", "Universal Mounting"],
+        applications: "Vending machines, coffee makers, consumer-facing equipment, appliance integration"
+      },
+      {
+        model: "MEB Series - Medical Grade",
+        specs: "Medical Certified, Low Leakage Current, Patient Safety",
+        image: smpsImage,
+        features: ["Medical Environment Certified", "Ultra-Low Leakage", "Patient Safety Standards", "Hospital Grade Reliability"],
+        applications: "Medical devices, hospital equipment, patient-connected systems, healthcare automation"
+      }
+    ]
+  },
+  {
+    category: "Rotary Optical Encoders & Feedback",
+    categoryId: "encoders",
+    description: "Precision feedback devices for closed-loop motion control with incremental, absolute, and servo commutation capabilities.",
+    image: servoImage,
+    products: [
+      {
+        model: "ES Series - Incremental Solid Shaft",
+        specs: "36.6mm & 50mm OD, 100-2500 PPR, 6mm/8mm Shaft",
+        image: servoImage,
+        features: ["Line Driver Differential Output", "Flexible Coupling Compatible", "Vibration Isolation", "Multiple Output Stages"],
+        applications: "General purpose positioning, motor feedback, conveyor tracking, speed measurement"
+      },
+      {
+        model: "EH Series - Incremental Hollow Shaft",
+        specs: "8mm Hollow Bore, Direct Motor Mount, Space-Saving Design",
+        image: servoImage,
+        features: ["Direct Shaft Mounting", "No Coupling Required", "Compact Installation", "High Noise Immunity"],
+        applications: "Direct motor feedback, space-constrained applications, servo motor integration"
+      },
+      {
+        model: "MH/MT Series - Servo Commutation",
+        specs: "Motor Integration, U/V/W Commutation Signals, 85°C/100°C Operation",
+        image: servoImage,
+        features: ["Magnetic Pole Position Sensing", "Immediate Startup Capability", "High Temperature Rated", "Phase Sequence Generation"],
+        applications: "PM servo motor commutation, brushless motor control, high-precision servo systems"
+      },
+      {
+        model: "AS/AH Series - Absolute Position",
+        specs: "Gray Code Output, 5-12 bit Resolution, Power Loss Recovery",
+        image: servoImage,
+        features: ["Absolute Position Memory", "No Homing Required", "Gray Code Error Prevention", "Single Bit Transition"],
+        applications: "Robotic arms, multi-turn applications, position-critical systems, automated machinery"
+      }
+    ]
+  },
+  {
+    category: "Vertical Industry Solutions",
+    categoryId: "solutions",
+    description: "Integrated system solutions combining drives, PLCs, and specialized logic for specific industries.",
+    image: vfdImage,
+    products: [
+      {
+        model: "IED-S Elevator System",
+        specs: "Integrated VFD + Elevator Logic, EnDat/Sin-Cos Support, 8-Car Group Control",
+        image: vfdImage,
+        features: ["Direct Encoder Interface", "Floor Positioning Logic", "Door Control Integration", "Group Management"],
+        applications: "Elevator systems, vertical transportation, building automation, lift modernization"
+      },
+      {
+        model: "HES-C Injection Molding System",
+        specs: "VFD-VJ Hybrid Servo + MST Motor + Hydraulic Controller",
+        image: vfdImage,
+        features: ["Hydraulic Pressure Control", "Energy Saving Design", "Precise Flow Management", "Molding Cycle Optimization"],
+        applications: "Injection molding machines, plastic manufacturing, automotive parts, precision molding"
+      },
+      {
+        model: "CT2000 Textile Drive",
+        specs: "Flange Mount Design, External Heatsink, Lint-Resistant Cooling",
+        image: vfdImage,
+        features: ["Lint Accumulation Prevention", "External Heat Dissipation", "Textile Environment Optimized", "Multi-Speed Control"],
+        applications: "Spinning mills, weaving machines, textile manufacturing, fiber processing"
+      },
+      {
+        model: "VP3000/CP2000 Fluid Power System",
+        specs: "Multi-Pump Sequencing, Analog Pressure Control, Constant System Pressure",
+        image: vfdImage,
+        features: ["8-Pump Coordination", "Pressure Sensor Integration", "Runtime Equalization", "Automatic Sequencing"],
+        applications: "Water treatment plants, HVAC systems, municipal pumping, pressure boosting stations"
       }
     ]
   }
@@ -246,13 +332,21 @@ const ProductList = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="flex items-center justify-between mb-3">
-            <Link 
-              to="/#products" 
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+            <button 
+              onClick={() => {
+                window.location.href = '/#products';
+                setTimeout(() => {
+                  const element = document.getElementById('products');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm font-semibold">Back</span>
-            </Link>
+              <span className="text-sm font-semibold">Back to Products</span>
+            </button>
             <span className="text-sm text-muted-foreground font-medium">{totalProducts} Products</span>
           </div>
 
