@@ -328,10 +328,10 @@ const ProductList = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
       <Header />
       
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header Section */}
-          <div className="flex items-center justify-between mb-3">
+      <main className="pt-20 sm:pt-24 pb-12 sm:pb-16">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          {/* Header Section - Responsive */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mb-3 sm:mb-4">
             <button 
               onClick={() => {
                 window.location.href = '/#products';
@@ -350,27 +350,27 @@ const ProductList = () => {
             <span className="text-sm text-muted-foreground font-medium">{totalProducts} Products</span>
           </div>
 
-          {/* Search Bar and Category Filter */}
-          <div className="mb-4 space-y-3">
+          {/* Search Bar and Category Filter - Responsive */}
+          <div className="mb-3 sm:mb-4 space-y-2 sm:space-y-3">
             {/* Search Bar */}
-            <div className="relative max-w-xl">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <div className="relative max-w-full sm:max-w-xl">
+              <Search className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 focus:border-primary focus:outline-none text-sm"
+                className="w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-2.5 rounded-lg border border-slate-300 focus:border-primary focus:outline-none text-xs sm:text-sm"
               />
             </div>
 
-            {/* Category Buttons */}
-            <div className="flex flex-wrap gap-2">
+            {/* Category Buttons - Responsive Scrolling */}
+            <div className="flex flex-nowrap sm:flex-wrap gap-1 sm:gap-2 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-hide">
               {allProducts.map((cat) => (
                 <button
                   key={cat.categoryId}
                   onClick={() => handleCategoryChange(cat.categoryId)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
                     selectedCategory === cat.categoryId
                       ? 'bg-primary text-white shadow-md'
                       : 'bg-white border border-slate-200 text-muted-foreground hover:border-primary'
@@ -382,68 +382,68 @@ const ProductList = () => {
             </div>
           </div>
 
-          {/* Products List */}
+          {/* Products List - Fully Responsive */}
           {filteredProducts.length > 0 ? (
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {filteredProducts.map((category) => (
                 <div key={category.categoryId}>
                   {category.products.map((product, index) => (
                     <div
                       key={index}
-                      className="bg-white border border-slate-200 hover:border-primary/50 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg group mb-3"
+                      className="bg-white border border-slate-200 hover:border-primary/50 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg group mb-2 sm:mb-3"
                     >
                       <div className="flex flex-col sm:flex-row">
-                        {/* Product Image */}
-                        <div className="sm:w-40 h-32 sm:h-auto relative overflow-hidden flex-shrink-0">
+                        {/* Product Image - Responsive */}
+                        <div className="w-full sm:w-32 md:w-40 h-24 sm:h-32 md:h-auto relative overflow-hidden flex-shrink-0">
                           <img
                             src={product.image}
                             alt={product.model}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
-                          <div className="absolute top-2 left-2 w-7 h-7 bg-primary/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                          <div className="absolute top-1 left-1 sm:top-2 sm:left-2 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-primary/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
                             <span className="text-xs font-bold text-white">
                               {String(index + 1).padStart(2, '0')}
                             </span>
                           </div>
                         </div>
 
-                        {/* Product Details */}
-                        <div className="flex-1 p-4">
-                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                        {/* Product Details - Responsive */}
+                        <div className="flex-1 p-3 sm:p-4">
+                          <div className="flex flex-col gap-2 sm:gap-3">
                             <div className="flex-1">
-                              {/* Category Badge */}
-                              <div className="flex items-center gap-2 mb-2">
+                              {/* Category Badge - Mobile Optimized */}
+                              <div className="flex items-center gap-2 mb-1 sm:mb-2">
                                 <span className="text-xs font-semibold text-primary/70 uppercase tracking-wide">
                                   {category.category}
                                 </span>
                               </div>
                               
-                              {/* Model */}
-                              <h3 className="text-lg font-bold text-primary mb-1 group-hover:text-blue-600 transition-colors">
+                              {/* Model - Responsive */}
+                              <h3 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-1 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 {product.model}
                               </h3>
                               
-                              {/* Specs */}
-                              <p className="text-xs text-muted-foreground font-medium mb-3">
+                              {/* Specs - Responsive */}
+                              <p className="text-xs text-muted-foreground font-medium mb-2 sm:mb-3 line-clamp-2 sm:line-clamp-none">
                                 {product.specs}
                               </p>
 
-                              <div className="grid sm:grid-cols-2 gap-3">
-                                {/* Features */}
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                                {/* Features - Mobile Optimized */}
                                 <div>
-                                  <p className="text-xs font-semibold text-slate-700 mb-1.5">Features</p>
-                                  <ul className="space-y-1">
+                                  <p className="text-xs font-semibold text-slate-700 mb-1 sm:mb-1.5">Features</p>
+                                  <ul className="space-y-0.5 sm:space-y-1">
                                     {product.features.slice(0, 2).map((feature, idx) => (
-                                      <li key={idx} className="flex items-start gap-1.5 text-xs text-muted-foreground">
+                                      <li key={idx} className="flex items-start gap-1 sm:gap-1.5 text-xs text-muted-foreground">
                                         <span className="w-1 h-1 bg-primary rounded-full mt-1.5 flex-shrink-0"></span>
-                                        <span>{feature}</span>
+                                        <span className="line-clamp-1 sm:line-clamp-none">{feature}</span>
                                       </li>
                                     ))}
                                   </ul>
                                 </div>
 
-                                {/* Applications */}
-                                <div>
+                                {/* Applications - Hide on Small Mobile */}
+                                <div className="hidden sm:block">
                                   <p className="text-xs font-semibold text-slate-700 mb-1.5">Applications</p>
                                   <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                                     {product.applications}
@@ -452,10 +452,10 @@ const ProductList = () => {
                               </div>
                             </div>
 
-                            {/* Contact Button */}
+                            {/* Contact Button - Responsive */}
                             <a
                               href={`mailto:millenniumautomationsystem@gmail.com?subject=Inquiry about ${product.model}&body=Hi,%0D%0A%0D%0AI'm interested in the ${product.model}.%0D%0A%0D%0APlease provide more information.%0D%0A%0D%0AThank you`}
-                              className="inline-flex items-center justify-center px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-lg transition-all whitespace-nowrap flex-shrink-0"
+                              className="inline-flex items-center justify-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all whitespace-nowrap flex-shrink-0 w-full sm:w-auto"
                             >
                               Get Quote
                             </a>
@@ -473,13 +473,13 @@ const ProductList = () => {
             </div>
           )}
 
-          {/* Contact Section */}
-          <div className="mt-8 bg-white border border-slate-200 rounded-lg p-6">
-            <h3 className="text-lg font-bold text-primary mb-3">Need Assistance?</h3>
-            <div className="flex flex-wrap gap-3">
+          {/* Contact Section - Responsive */}
+          <div className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-lg p-4 sm:p-6">
+            <h3 className="text-base sm:text-lg font-bold text-primary mb-2 sm:mb-3">Need Assistance?</h3>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <a
                 href="tel:+919904003445"
-                className="inline-flex items-center px-4 py-2 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-lg transition-all"
+                className="inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all"
               >
                 📞 Call
               </a>
@@ -487,13 +487,13 @@ const ProductList = () => {
                 href="https://wa.me/919904003445"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-all"
+                className="inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-semibold rounded-lg transition-all"
               >
                 💬 WhatsApp
               </a>
               <a
                 href="mailto:millenniumautomationsystem@gmail.com"
-                className="inline-flex items-center px-4 py-2 border border-primary text-primary hover:bg-primary/10 text-sm font-semibold rounded-lg transition-all"
+                className="inline-flex items-center justify-center px-3 sm:px-4 py-2 border border-primary text-primary hover:bg-primary/10 text-xs sm:text-sm font-semibold rounded-lg transition-all"
               >
                 ✉️ Email
               </a>

@@ -70,28 +70,28 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
       {/* Main Navigation */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex justify-center items-center h-16 sm:h-18 md:h-20">
           <button
             onClick={() => scrollToSection("#hero")}
-            className="flex items-center gap-4 hover:opacity-90 transition-all duration-300 group"
+            className="flex items-center gap-2 sm:gap-3 md:gap-4 hover:opacity-90 transition-all duration-300 group"
             aria-label="Go to home"
           >
             <div className="relative">
               <img
                 src={masLogo}
                 alt="MAS logo"
-                className="h-12 sm:h-14 transition-all duration-300 transform group-hover:scale-105 drop-shadow-sm"
+                className="h-8 sm:h-10 md:h-12 lg:h-14 transition-all duration-300 transform group-hover:scale-105 drop-shadow-sm"
               />
             </div>
             <div className="block">
               <div className={`transition-all duration-300 ${
                 isScrolled ? "text-blue-600" : "text-blue-500 drop-shadow-md"
               }`}>
-                <h1 className="text-xl font-bold leading-tight tracking-tight">
+                <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight tracking-tight">
                   Millennium Automation
                 </h1>
-                <p className={`text-sm font-medium ${
+                <p className={`text-xs sm:text-sm md:text-sm font-medium ${
                   isScrolled ? "text-red-600" : "text-red-400"
                 }`}>
                   Smart System • Better Solution
@@ -103,35 +103,35 @@ const Header = () => {
       </div>
       
       {/* Simplified Menu Button */}
-      <div className="absolute top-5 right-4">
+      <div className="absolute top-3 sm:top-4 md:top-5 right-3 sm:right-4">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`p-1 rounded transition-all duration-200 ${
+          className={`p-1 sm:p-2 rounded transition-all duration-200 ${
             isScrolled ? "text-slate-700" : "text-white"
           }`}
           aria-label="Menu"
         >
           {isMobileMenuOpen ? (
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           ) : (
-            <Menu className="w-5 h-5" />
+            <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
           )}
         </button>
       </div>
 
       {/* Simple Navigation Menu */}
-      <div className={`absolute top-full right-4 transition-all duration-200 ${
+      <div className={`absolute top-full right-3 sm:right-4 transition-all duration-200 ${
         isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}>
-        <div className={`mobile-menu-dropdown mt-2 rounded-lg shadow-lg min-w-48 ${
+        <div className={`mobile-menu-dropdown mt-2 rounded-lg shadow-lg min-w-40 sm:min-w-48 ${
           isScrolled ? "bg-white border border-slate-200" : "bg-slate-900 border border-white/20"
         }`}>
-          <div className="py-2">
+          <div className="py-1 sm:py-2">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className={`w-full px-4 py-2 text-left text-sm transition-colors ${
+                className={`w-full px-3 sm:px-4 py-1.5 sm:py-2 text-left text-xs sm:text-sm transition-colors ${
                   isScrolled 
                     ? "text-slate-700 hover:bg-slate-100 hover:text-primary" 
                     : "text-white hover:bg-white/10"

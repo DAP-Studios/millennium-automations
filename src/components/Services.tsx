@@ -109,47 +109,47 @@ const Services = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col justify-center py-4 sm:py-6 md:py-8">
-        <div className="text-center mb-4 sm:mb-6 md:mb-8 reveal">
-          <div className="inline-block mb-2 sm:mb-3">
-            <span className="text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-500/30 to-purple-500/30 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 shadow-lg animate-pulse">
+        <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 reveal">
+          <div className="inline-block mb-1 sm:mb-2 md:mb-3">
+            <span className="text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-500/30 to-purple-500/30 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-white/20 shadow-lg animate-pulse">
               ⚡ What We Do ⚡
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-md mb-1.5 sm:mb-2 md:mb-3 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-md mb-1 sm:mb-1.5 md:mb-2 lg:mb-3 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
             Our Expertise
           </h2>
-          <p className="text-white/90 drop-shadow-sm text-xs sm:text-sm md:text-base max-w-3xl mx-auto mb-4">
+          <p className="text-white/90 drop-shadow-sm text-xs sm:text-sm md:text-base max-w-3xl mx-auto mb-2 sm:mb-3 md:mb-4 px-2">
             Complete industrial automation services from design to support.
           </p>
           
-          {/* Stats Counter */}
-          <div className="flex justify-center items-center gap-6 sm:gap-8 md:gap-12 mb-2">
+          {/* Stats Counter - Responsive */}
+          <div className="flex justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 mb-1 sm:mb-2">
             <div className="text-center group">
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
                 50+
               </div>
               <div className="text-xs text-white/70">Projects</div>
             </div>
-            <div className="w-px h-8 bg-white/30"></div>
+            <div className="w-px h-4 sm:h-6 md:h-8 bg-white/30"></div>
             <div className="text-center group">
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-400 group-hover:text-green-300 transition-colors">
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-green-400 group-hover:text-green-300 transition-colors">
                 24/7
               </div>
               <div className="text-xs text-white/70">Support</div>
             </div>
-            <div className="w-px h-8 bg-white/30"></div>
+            <div className="w-px h-4 sm:h-6 md:h-8 bg-white/30"></div>
             <div className="text-center group">
-              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors">
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors">
                 5+
               </div>
               <div className="text-xs text-white/70">Years</div>
             </div>
           </div>
         </div>
-        {/* Compact Grid Layout - All 6 Services */}
-        <div className="w-full max-w-6xl mx-auto">
-          {/* Services Grid - Compact 3x2 Layout */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+        {/* Responsive Grid Layout - All 6 Services */}
+        <div className="w-full max-w-7xl mx-auto">
+          {/* Services Grid - Fully Responsive Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
             {services.map((service, index) => {
               // Color schemes for each service
               const colorSchemes = [
@@ -167,13 +167,13 @@ const Services = () => {
                 <div
                   key={index}
                   onClick={() => handleServiceClick(service)}
-                  className={`reveal group relative bg-white/5 backdrop-blur-sm border border-white/20 ${colors.hover} ${colors.shadow} rounded-xl p-4 cursor-pointer transition-all duration-300 hover:transform hover:scale-102 hover:-translate-y-1`}
+                  className={`reveal group relative bg-white/5 backdrop-blur-sm border border-white/20 ${colors.hover} ${colors.shadow} rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 cursor-pointer transition-all duration-300 hover:transform hover:scale-[1.02] hover:-translate-y-1`}
                   style={{
                     animationDelay: `${index * 80}ms`
                   }}
                 >
-                  {/* Service Image */}
-                  <div className="relative w-full h-24 sm:h-28 mb-3 rounded-lg overflow-hidden">
+                  {/* Service Image - Responsive */}
+                  <div className="relative w-full h-20 sm:h-24 md:h-28 lg:h-32 mb-2 sm:mb-3 rounded-md sm:rounded-lg overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -182,26 +182,26 @@ const Services = () => {
                     {/* Image Overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} group-hover:opacity-80 transition-opacity duration-300`}></div>
                     
-                    {/* Service Number Badge */}
-                    <div className={`absolute top-2 right-2 w-6 h-6 bg-${colors.accent}-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-md group-hover:scale-105 transition-transform duration-300`}>
+                    {/* Service Number Badge - Responsive */}
+                    <div className={`absolute top-1 sm:top-2 right-1 sm:right-2 w-5 h-5 sm:w-6 sm:h-6 bg-${colors.accent}-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-md group-hover:scale-105 transition-transform duration-300`}>
                       {index + 1}
                     </div>
                   </div>
                   
-                  {/* Content */}
-                  <div className="space-y-2">
+                  {/* Content - Responsive */}
+                  <div className="space-y-1 sm:space-y-2">
                     <div>
-                      <h3 className={`text-sm sm:text-base font-bold text-white text-center group-hover:text-${colors.accent}-300 transition-colors duration-300 leading-tight`}>
+                      <h3 className={`text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white text-center group-hover:text-${colors.accent}-300 transition-colors duration-300 leading-tight px-1`}>
                         {service.title}
                       </h3>
                     </div>
                     
-                    {/* Bottom Accent Line */}
+                    {/* Bottom Accent Line - Responsive */}
                     <div className={`w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-${colors.accent}-500 to-${colors.accent}-300 transition-all duration-400 ease-out mx-auto`}></div>
                   </div>
                   
                   {/* Subtle Glow Effect */}
-                  <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-15 bg-gradient-to-br from-${colors.accent}-500/20 to-transparent pointer-events-none transition-opacity duration-300`}></div>
+                  <div className={`absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-15 bg-gradient-to-br from-${colors.accent}-500/20 to-transparent pointer-events-none transition-opacity duration-300`}></div>
                 </div>
               );
             })}

@@ -234,21 +234,21 @@ const Products = () => {
       style={{ backgroundImage: `url(${industrialBg})` }}
     >
       
-      {/* Left Side Layout */}
-      <div className="absolute left-6 sm:left-8 md:left-12 top-8 sm:top-12 md:top-16 bottom-8 sm:bottom-12 md:bottom-16 z-20 flex flex-col justify-between max-w-sm lg:max-w-md">
+      {/* Responsive Layout - Overflow Fixed */}
+      <div className="absolute left-2 sm:left-4 md:left-6 lg:left-8 top-3 sm:top-6 md:top-8 lg:top-12 bottom-3 sm:bottom-6 md:bottom-8 lg:bottom-12 z-20 flex flex-col justify-between max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[400px] xl:max-w-[440px]">
         
-        {/* Title and Description - Left Aligned */}
-        <div className="text-left">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white drop-shadow-md mb-3 sm:mb-4">
+        {/* Title and Description - Compact */}
+        <div className="text-left flex-shrink-0">
+          <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white drop-shadow-md mb-1 xs:mb-1.5 sm:mb-2 md:mb-3 leading-tight">
             Our Products
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-100 drop-shadow-sm mb-6 sm:mb-8">
+          <p className="text-[9px] xs:text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-gray-100 drop-shadow-sm mb-2 xs:mb-3 sm:mb-4 md:mb-6 leading-snug">
             Click any category to explore our Delta Electronics automation solutions
           </p>
         </div>
 
-        {/* Vertical Category List */}
-        <div className="flex-1 flex flex-col justify-center gap-3 sm:gap-4">
+        {/* Responsive Category List - Overflow Safe */}
+        <div className="flex-1 flex flex-col justify-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-2.5 min-h-0 overflow-hidden">
           {allProductsData.map((category, index) => {
             // Icon mapping for each product category
             const categoryIcons = [
@@ -266,45 +266,90 @@ const Products = () => {
               <button
                 key={category.categoryId}
                 onClick={() => handleCategoryClick(category.categoryId)}
-                className={`reveal group relative w-full overflow-hidden backdrop-blur-md rounded-xl transition-all duration-500 transform hover:scale-105 hover:translate-x-2 bg-gradient-to-r from-white/15 to-white/5 hover:from-white/25 hover:to-white/10 text-white shadow-lg hover:shadow-xl ${iconData.glow} border border-white/20 hover:border-white/40`}
+                className={`reveal group relative w-full overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl transition-all duration-500 transform hover:scale-[1.02] sm:hover:scale-105 md:hover:scale-[1.08] hover:translate-x-1 sm:hover:translate-x-2 md:hover:translate-x-3 bg-gradient-to-r from-white/15 to-white/5 hover:from-white/25 hover:to-white/10 text-white shadow-lg hover:shadow-xl sm:hover:shadow-2xl ${iconData.glow} border border-white/20 hover:border-white/40 active:scale-[0.98] active:duration-75`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Animated Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${iconData.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                {/* Animated Background Gradient with Dynamic Opacity */}
+                <div className={`absolute inset-0 bg-gradient-to-r ${iconData.color} opacity-0 group-hover:opacity-20 md:group-hover:opacity-30 transition-opacity duration-500 group-active:opacity-40`}></div>
                 
-                {/* Pulsing Ring Effect */}
-                <div className="absolute inset-0 rounded-xl border-2 border-white/0 group-hover:border-white/30 transition-all duration-300"></div>
+                {/* Pulsing Ring Effect with Enhanced Animation */}
+                <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/0 group-hover:border-white/30 md:group-hover:border-white/50 transition-all duration-300 group-hover:animate-pulse"></div>
                 
-                {/* Category Content - Horizontal Layout */}
-                <div className="relative px-4 sm:px-5 py-3 sm:py-4">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    {/* Icon with Glow Effect */}
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${iconData.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
-                      <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} />
+                {/* Ripple Effect on Click */}
+                <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/0 group-active:bg-white/20 transition-all duration-150"></div>
+                
+                {/* Category Content - Fully Dynamic Relative Design */}
+                <div className="relative h-full flex items-center" style={{ padding: 'clamp(0.25rem, 2vw, 1rem)' }}>
+                  <div className="flex items-center w-full" style={{ gap: 'clamp(0.25rem, 1.5vw, 1rem)' }}>
+                    {/* Icon - Fully Dynamic Relative to Container */}
+                    <div 
+                      className={`bg-gradient-to-br ${iconData.color} rounded flex items-center justify-center group-hover:scale-110 md:group-hover:scale-125 group-hover:rotate-3 md:group-hover:rotate-6 transition-all duration-300 shadow-lg group-hover:shadow-2xl flex-shrink-0 group-active:scale-95`}
+                      style={{ 
+                        width: 'clamp(1.25rem, 8vw, 3rem)',
+                        height: 'clamp(1.25rem, 8vw, 3rem)',
+                        borderRadius: 'clamp(0.25rem, 1vw, 0.75rem)'
+                      }}
+                    >
+                      <IconComponent 
+                        className="text-white drop-shadow-md" 
+                        strokeWidth={2.5} 
+                        style={{ 
+                          width: 'clamp(0.625rem, 4vw, 1.5rem)',
+                          height: 'clamp(0.625rem, 4vw, 1.5rem)'
+                        }}
+                      />
                     </div>
                     
-                    <div className="flex-1 text-left">
-                      {/* Category Name */}
-                      <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-gray-100 transition-colors duration-300 leading-tight">
+                    <div className="flex-1 text-left min-w-0 overflow-hidden">
+                      {/* Category Name - Fully Dynamic Relative Text */}
+                      <h3 
+                        className="font-bold text-white group-hover:text-gray-100 group-hover:drop-shadow-lg transition-all duration-300 leading-tight truncate group-hover:tracking-wide"
+                        style={{ 
+                          fontSize: 'clamp(0.625rem, 3vw, 1.125rem)',
+                          lineHeight: 'clamp(0.875rem, 4vw, 1.375rem)'
+                        }}
+                      >
                         {category.category}
                       </h3>
                       
-                      {/* Model Count */}
-                      <p className="text-xs text-white/70 group-hover:text-white/90 transition-colors duration-300">
-                        {category.products.length} Models Available
+                      {/* Model Count - Dynamic Relative Text */}
+                      <p 
+                        className="hidden xs:block text-white/70 group-hover:text-white/90 transition-all duration-300 group-hover:translate-x-1 truncate"
+                        style={{ 
+                          fontSize: 'clamp(0.5rem, 2.2vw, 0.875rem)',
+                          lineHeight: 'clamp(0.75rem, 3vw, 1.25rem)'
+                        }}
+                      >
+                        {category.products.length} Models
                       </p>
                     </div>
 
-                    {/* Arrow Indicator */}
-                    <div className="w-6 h-6 flex items-center justify-center opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    {/* Arrow Indicator - Dynamic Relative Size */}
+                    <div 
+                      className="flex items-center justify-center opacity-60 group-hover:opacity-100 group-hover:translate-x-1 md:group-hover:translate-x-2 lg:group-hover:translate-x-3 transition-all duration-300 flex-shrink-0 group-hover:animate-bounce"
+                      style={{ 
+                        width: 'clamp(0.625rem, 4vw, 1.5rem)',
+                        height: 'clamp(0.625rem, 4vw, 1.5rem)'
+                      }}
+                    >
+                      <svg 
+                        className="text-white drop-shadow-md" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        style={{ 
+                          width: 'clamp(0.375rem, 2.5vw, 1rem)',
+                          height: 'clamp(0.375rem, 2.5vw, 1rem)'
+                        }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
                   </div>
 
-                  {/* Shimmer Effect */}
+                  {/* Enhanced Shimmer Effect with Multiple Layers */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1200 ease-out delay-100"></div>
                 </div>
               </button>
             );
@@ -313,10 +358,10 @@ const Products = () => {
 
       </div>
 
-      {/* Delta Electronics Badge - Top Right */}
-      <div className="absolute top-8 sm:top-12 md:top-16 right-6 sm:right-8 md:right-12 z-20">
-        <div className="backdrop-blur-md bg-primary/90 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border-2 border-primary shadow-lg shadow-primary/50">
-          <span className="text-xs sm:text-sm font-bold text-white">Delta Electronics Partner</span>
+      {/* Delta Electronics Badge - Enhanced Dynamic Badge */}
+      <div className="absolute top-3 sm:top-6 md:top-8 lg:top-12 right-3 sm:right-6 md:right-8 lg:right-12 z-20">
+        <div className="group backdrop-blur-md bg-primary/90 px-1 sm:px-1.5 md:px-2 lg:px-3 xl:px-4 py-0.5 sm:py-0.5 md:py-1 lg:py-1.5 xl:py-2 rounded-full border-2 border-primary shadow-lg shadow-primary/50 hover:shadow-xl hover:shadow-primary/70 transition-all duration-300 hover:scale-105 cursor-pointer">
+          <span className="text-[8px] sm:text-[10px] md:text-[10px] lg:text-xs xl:text-sm font-bold text-white group-hover:tracking-wider transition-all duration-300">Delta Electronics Channel Partner</span>
         </div>
       </div>
     </section>
