@@ -3,6 +3,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { ArrowLeft, Search } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { productCategorySEO } from "@/lib/seoConfig";
 
 // Import product images
 import vfdImage from "@/assets/hero-1.jpg";
@@ -238,8 +240,18 @@ const ProductList = () => {
 
   const totalProducts = filteredProducts.reduce((sum, cat) => sum + cat.products.length, 0);
 
+  // Get SEO configuration for current category
+  const categorySEO = productCategorySEO[selectedCategory] || productCategorySEO.vfd;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <SEO
+        title={categorySEO.title}
+        description={categorySEO.description}
+        keywords={categorySEO.keywords}
+        canonical={categorySEO.canonical}
+        ogType={categorySEO.ogType}
+      />
       <Header />
       
       <main className="pt-24 pb-16">

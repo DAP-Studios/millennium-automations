@@ -75,8 +75,9 @@ const HeroSlider = () => {
           >
             <img
               src={image}
-              alt="Industrial Automation"
+              alt={`Industrial automation solutions Vapi - Delta Electronics authorized distributor offering VFD, PLC, HMI, and servo systems in Gujarat, India ${index + 1}`}
               className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
             />
           </div>
         ))}
@@ -101,7 +102,7 @@ const HeroSlider = () => {
                 {/* MAS Logo     with glow highlight */}
                 <img
                   src={masLogo}
-                  alt="MAS logo"
+                  alt="Millennium Automation System logo - Industrial automation solutions provider Vapi Gujarat"
                   className="h-12 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105"
                 />
                 <span className="leading-tight text-center sm:text-left">
@@ -173,7 +174,7 @@ const HeroSlider = () => {
                   <div className="flex flex-col items-center justify-center -space-y-8 sm:-space-y-10">
                     <img
                       src={deltaLogo}
-                      alt="Delta logo"
+                      alt="Delta Electronics authorized partner - Industrial automation products distributor Vapi Gujarat"
                       className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] object-contain"
                     />
                     <div>
