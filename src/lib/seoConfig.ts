@@ -88,6 +88,8 @@ export const getAllKeywords = (): string => {
     "Delta Electronics channel partner Gujarat",
     "Delta Electronics authorized distributor Vapi",
     "Delta Electronics dealer Vapi",
+    "Delta Electronics dealer in Vapi",
+    "Delta Electronics dealer in Gujarat",
     "Delta Electronics supplier Vapi Gujarat",
     
     // Product Categories
@@ -99,6 +101,32 @@ export const getAllKeywords = (): string => {
     "control panel manufacturer Vapi",
     "automation solutions Vapi",
     "industrial automation services Gujarat",
+    
+    // Product Categories with Delta Brand - Vapi Location
+    "Delta VFD drive Vapi",
+    "Delta VFD Vapi",
+    "Delta servo motor Vapi",
+    "Delta servo Vapi",
+    "Delta HMI Vapi",
+    "Delta HMI panel Vapi",
+    "Delta PLC Vapi",
+    "Delta PLC controller Vapi",
+    "Delta power supply Vapi",
+    "Delta SMPS Vapi",
+    "Delta encoder Vapi",
+    "Delta motion controller Vapi",
+    
+    // Product Categories with Delta Brand - Gujarat Location
+    "Delta VFD drive Gujarat",
+    "Delta VFD Gujarat",
+    "Delta servo motor Gujarat",
+    "Delta servo Gujarat",
+    "Delta HMI Gujarat",
+    "Delta HMI panel Gujarat",
+    "Delta PLC Gujarat",
+    "Delta PLC controller Gujarat",
+    "Delta power supply Gujarat",
+    "Delta SMPS Gujarat",
     
     // Product Models - VFD
     "Delta ME300",
@@ -206,7 +234,31 @@ export const getAllKeywords = (): string => {
     "automation near Vapi",
     "Delta Electronics near me",
     "VFD supplier near me",
-    "PLC supplier near me"
+    "PLC supplier near me",
+    
+    // Additional Product Variations with Locations
+    "Delta VFD dealer Vapi",
+    "Delta VFD dealer Gujarat",
+    "Delta servo dealer Vapi",
+    "Delta servo dealer Gujarat",
+    "Delta HMI dealer Vapi",
+    "Delta HMI dealer Gujarat",
+    "Delta PLC dealer Vapi",
+    "Delta PLC dealer Gujarat",
+    "Delta power supply dealer Vapi",
+    "Delta power supply dealer Gujarat",
+    "Delta SMPS dealer Vapi",
+    "Delta SMPS dealer Gujarat",
+    
+    // Product Type + Location Variations
+    "Delta VFD drives Vapi",
+    "Delta servo motors Vapi",
+    "Delta HMI panels Vapi",
+    "Delta PLC controllers Vapi",
+    "Delta VFD drives Gujarat",
+    "Delta servo motors Gujarat",
+    "Delta HMI panels Gujarat",
+    "Delta PLC controllers Gujarat"
   ];
   
   return baseKeywords.join(", ");
