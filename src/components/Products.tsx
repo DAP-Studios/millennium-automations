@@ -266,14 +266,14 @@ const Products = () => {
               <button
                 key={category.categoryId}
                 onClick={() => handleCategoryClick(category.categoryId)}
-                className={`reveal group relative w-full overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl transition-all duration-500 transform hover:scale-[1.02] sm:hover:scale-105 md:hover:scale-[1.08] hover:translate-x-1 sm:hover:translate-x-2 md:hover:translate-x-3 bg-gradient-to-r from-white/15 to-white/5 hover:from-white/25 hover:to-white/10 text-white shadow-lg hover:shadow-xl sm:hover:shadow-2xl ${iconData.glow} border border-white/20 hover:border-white/40 active:scale-[0.98] active:duration-75`}
+                className={`reveal relative w-full overflow-hidden backdrop-blur-md rounded-lg sm:rounded-xl md:rounded-2xl transition-all duration-500 bg-gradient-to-r from-white/15 to-white/5 text-white shadow-lg hover:shadow-xl ${iconData.glow} border border-white/20`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Animated Background Gradient with Dynamic Opacity */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${iconData.color} opacity-0 group-hover:opacity-20 md:group-hover:opacity-30 transition-opacity duration-500 group-active:opacity-40`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-r ${iconData.color} opacity-0`}></div>
                 
                 {/* Pulsing Ring Effect with Enhanced Animation */}
-                <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/0 group-hover:border-white/30 md:group-hover:border-white/50 transition-all duration-300 group-hover:animate-pulse"></div>
+                <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl border-2 border-white/0"></div>
                 
                 {/* Ripple Effect on Click */}
                 <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/0 group-active:bg-white/20 transition-all duration-150"></div>
@@ -283,7 +283,7 @@ const Products = () => {
                   <div className="flex items-center w-full" style={{ gap: 'clamp(0.25rem, 1.5vw, 1rem)' }}>
                     {/* Icon - Fully Dynamic Relative to Container */}
                     <div 
-                      className={`bg-gradient-to-br ${iconData.color} rounded flex items-center justify-center group-hover:scale-110 md:group-hover:scale-125 group-hover:rotate-3 md:group-hover:rotate-6 transition-all duration-300 shadow-lg group-hover:shadow-2xl flex-shrink-0 group-active:scale-95`}
+                      className={`bg-gradient-to-br ${iconData.color} rounded flex items-center justify-center shadow-lg flex-shrink-0`}
                       style={{ 
                         width: 'clamp(1.25rem, 8vw, 3rem)',
                         height: 'clamp(1.25rem, 8vw, 3rem)',
@@ -303,7 +303,7 @@ const Products = () => {
                     <div className="flex-1 text-left min-w-0 overflow-hidden">
                       {/* Category Name - Fully Dynamic Relative Text */}
                       <h3 
-                        className="font-bold text-white group-hover:text-gray-100 group-hover:drop-shadow-lg transition-all duration-300 leading-tight truncate group-hover:tracking-wide"
+                        className="font-bold text-white leading-tight truncate"
                         style={{ 
                           fontSize: 'clamp(0.625rem, 3vw, 1.125rem)',
                           lineHeight: 'clamp(0.875rem, 4vw, 1.375rem)'
@@ -314,7 +314,7 @@ const Products = () => {
                       
                       {/* Model Count - Dynamic Relative Text */}
                       <p 
-                        className="hidden xs:block text-white/70 group-hover:text-white/90 transition-all duration-300 group-hover:translate-x-1 truncate"
+                        className="hidden xs:block text-white/70 truncate"
                         style={{ 
                           fontSize: 'clamp(0.5rem, 2.2vw, 0.875rem)',
                           lineHeight: 'clamp(0.75rem, 3vw, 1.25rem)'
@@ -326,7 +326,7 @@ const Products = () => {
 
                     {/* Arrow Indicator - Dynamic Relative Size */}
                     <div 
-                      className="flex items-center justify-center opacity-60 group-hover:opacity-100 group-hover:translate-x-1 md:group-hover:translate-x-2 lg:group-hover:translate-x-3 transition-all duration-300 flex-shrink-0 group-hover:animate-bounce"
+                      className="flex items-center justify-center opacity-60 flex-shrink-0"
                       style={{ 
                         width: 'clamp(0.625rem, 4vw, 1.5rem)',
                         height: 'clamp(0.625rem, 4vw, 1.5rem)'
@@ -348,8 +348,8 @@ const Products = () => {
                   </div>
 
                   {/* Enhanced Shimmer Effect with Multiple Layers */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1200 ease-out delay-100"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full"></div>
                 </div>
               </button>
             );
@@ -360,8 +360,8 @@ const Products = () => {
 
       {/* Delta Electronics Badge - Enhanced Dynamic Badge */}
       <div className="absolute top-3 sm:top-6 md:top-8 lg:top-12 right-3 sm:right-6 md:right-8 lg:right-12 z-20">
-        <div className="group backdrop-blur-md bg-primary/90 px-1 sm:px-1.5 md:px-2 lg:px-3 xl:px-4 py-0.5 sm:py-0.5 md:py-1 lg:py-1.5 xl:py-2 rounded-full border-2 border-primary shadow-lg shadow-primary/50 hover:shadow-xl hover:shadow-primary/70 transition-all duration-300 hover:scale-105 cursor-pointer">
-          <span className="text-[8px] sm:text-[10px] md:text-[10px] lg:text-xs xl:text-sm font-bold text-white group-hover:tracking-wider transition-all duration-300">Delta Electronics Channel Partner</span>
+        <div className="backdrop-blur-md bg-primary/90 px-1 sm:px-1.5 md:px-2 lg:px-3 xl:px-4 py-0.5 sm:py-0.5 md:py-1 lg:py-1.5 xl:py-2 rounded-full border-2 border-primary shadow-lg shadow-primary/50 cursor-pointer">
+          <span className="text-[8px] sm:text-[10px] md:text-[10px] lg:text-xs xl:text-sm font-bold text-white">Delta Electronics Channel Partner</span>
         </div>
       </div>
     </section>

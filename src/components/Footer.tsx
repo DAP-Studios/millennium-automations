@@ -11,7 +11,7 @@ const Footer = () => {
               Built with excellence for the future of industry.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+          {/* <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <img
               src="dap.png"
               alt="DAP Tech"
@@ -34,7 +34,7 @@ const Footer = () => {
                 </a>
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

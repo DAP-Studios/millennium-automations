@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
     <section
       id="why-us"
       ref={sectionRef}
-      className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always flex items-center justify-center"
+      className="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center"
       style={{ backgroundImage: `url(${industrialBg})` }}
     >
       {/* Dark Gradient Overlay */}

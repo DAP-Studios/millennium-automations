@@ -94,7 +94,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative h-screen md:h-screen w-full bg-cover bg-center overflow-y-auto md:overflow-hidden snap-start snap-always text-white flex items-start md:items-center justify-center" style={{ backgroundImage: `url(${industrialBg})` }}>
+    <section id="contact" className="relative min-h-screen w-full bg-cover bg-center text-white flex items-start md:items-center justify-center" style={{ backgroundImage: `url(${industrialBg})` }}>
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full flex flex-col py-6 sm:py-8 md:py-4 h-full md:h-auto">
@@ -291,23 +291,35 @@ const Contact = () => {
           </div>
 
           {/* Right Bottom Box: Developer Info */}
-          <div className="p-4 sm:p-5">
-            <div className="flex items-center justify-end gap-3">
-              <img
-                src="dap.png"
-                alt="DAP Tech"
-                className="h-10 sm:h-12 opacity-90 flex-shrink-0"
-              />
-              <div className="text-right">
-                <p className="text-white/90 text-xs sm:text-2xl md:text-3xl font-bold leading-tight">
-                  DAP Tech Solutions
-                </p>
-                <p className="text-white/70 text-l leading-tight">
-                  Created by Deep Parmar <a href="tel:+919725362234" className="text-primary font-bold hover:underline text-xs">+91 9725362234</a>
-                </p>
-              </div>
-            </div>
-          </div>
+          <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 text-right ml-auto">
+  <img
+    src="dap.png"
+    alt="DAP Tech"
+    className="h-7 sm:h-8 lg:h-10 opacity-90"
+  />
+
+  <div className="text-right">
+    <p className="text-xm sm:text-sm mb-0.5 sm:mb-1">
+      Website by{" "}
+      <a 
+        href="https://thedap.live"
+        className="text-[#c60000] font-bold">
+        DAP Tech Solutions
+      </a>
+    </p>
+
+    <p className="text-[10px] sm:text-xs lg:text-sm">
+      Deep Parmar{" "}
+      <a
+        href="tel:+919725362234"
+        className="text-[#025dcd] font-bold hover:underline transition-colors"
+      >
+        +91 9725362234
+      </a>
+    </p>
+  </div>
+</div>
+
         </div>
       </div>
       

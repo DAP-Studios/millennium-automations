@@ -10,9 +10,9 @@ interface AboutModalProps {
 const AboutModal = ({ isOpen, onClose, type }: AboutModalProps) => {
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      // ...existing code...
     } else {
-      document.body.style.overflow = "unset";
+      // ...existing code...
     }
     return () => {
       document.body.style.overflow = "unset";

@@ -19,7 +19,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <main ref={mainRef} className="snap-y snap-mandatory overflow-y-scroll h-screen">
+      <main ref={mainRef} className="min-h-screen w-full">
         <HeroSlider />
         <Products />
         <About />

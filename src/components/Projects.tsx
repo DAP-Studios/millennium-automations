@@ -4,65 +4,155 @@ import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
-    title: "Automotive Assembly Line Automation",
-    description: "Complete automation solution for a 500-meter assembly line with integrated robotics, PLC control, and real-time quality monitoring systems.",
-    scope: ["50+ Delta PLCs", "120 Servo Motors", "80 VFDs", "SCADA Integration"],
-    results: ["40% productivity increase", "99.5% system uptime", "ROI in 18 months", "35% energy savings"],
-    client: "Major Automotive Manufacturer",
-    duration: "8 months",
-    location: "Haryana, India",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
-  },
-  {
-    title: "Smart Building HVAC Control",
-    description: "Intelligent HVAC automation system for a 15-story commercial building with zone-based climate control and energy management.",
-    scope: ["Central BMS Integration", "200+ VFDs for AHUs", "Touch Panel HMIs", "IoT Sensors Network"],
-    results: ["45% energy reduction", "Improved comfort levels", "Remote monitoring", "Predictive maintenance"],
-    client: "Commercial Real Estate Developer",
-    duration: "6 months",
-    location: "New Delhi, India",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-  },
-  {
-    title: "Water Treatment Plant Automation",
-    description: "Comprehensive automation and monitoring system for a 50 MLD water treatment facility with remote access capabilities.",
-    scope: ["PLC-based Process Control", "SCADA System", "150+ Field Instruments", "Telemetry Integration"],
-    results: ["24/7 unmanned operation", "Water quality improvement", "Reduced chemical waste", "Cost savings of ₹2Cr/year"],
-    client: "Municipal Water Authority",
-    duration: "10 months",
-    location: "Uttar Pradesh, India",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
-  },
-  {
-    title: "Power Distribution Automation",
-    description: "Smart power distribution system with load management, power factor correction, and automated fault detection for 100+ industrial units.",
-    scope: ["33kV Substation Automation", "AMR Integration", "Power Quality Monitoring", "Custom Control Panels"],
-    results: ["Zero downtime", "95% power factor", "Automated billing", "Real-time analytics"],
-    client: "Industrial Park Developer",
-    duration: "12 months",
-    location: "Gujarat, India",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80"
-  },
-  {
-    title: "Pharmaceutical Packaging Line",
-    description: "High-speed automated packaging line with vision inspection, serialization, and complete traceability for pharmaceutical products.",
-    scope: ["Servo-driven Packaging", "Vision Systems", "Serialization", "Clean Room Compatible"],
-    results: ["300 units/min throughput", "Zero defects", "FDA compliant", "Full traceability"],
-    client: "Leading Pharma Company",
-    duration: "5 months",
-    location: "Maharashtra, India",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80"
-  },
-  {
-    title: "Textile Mill Process Automation",
-    description: "End-to-end automation of spinning, weaving, and dyeing processes with quality control and production tracking systems.",
-    scope: ["300+ VFD Installations", "Process Control", "Quality Monitoring", "Production MES"],
-    results: ["25% productivity gain", "Consistent quality", "30% waste reduction", "Energy optimization"],
-    client: "Large Textile Manufacturer",
-    duration: "14 months",
-    location: "Tamil Nadu, India",
-    image: "src/assets/image.png"
-  }
+  title: "Automotive Assembly Line Automation",
+  description: "Complete end-to-end automation solution for a 500-meter automotive assembly line featuring integrated robotics, advanced PLC control systems, real-time quality monitoring, and predictive maintenance capabilities.",
+  scope: [
+    "50+ Delta PLCs Network", 
+    "120 Servo Motor Systems", 
+    "80 Variable Frequency Drives", 
+    "Industrial SCADA Integration",
+    "Robot Work Cells",
+    "Vision Quality Systems",
+    "MES Integration"
+  ],
+  results: [
+    "40% productivity increase", 
+    "99.5% system uptime achieved", 
+    "ROI achieved in 18 months", 
+    "35% energy consumption reduction",
+    "Cycle time reduced by 22%",
+    "Zero safety incidents"
+  ],
+  client: "Major Automotive Manufacturer",
+  duration: "8 months",
+  location: "Haryana, India",
+  image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
+},
+{
+  title: "Packaging Solution",
+  description: "Advanced high-speed packaging automation system with integrated vision inspection, real-time tracking, robotic material handling, and intelligent quality control for optimized production efficiency.",
+  scope: [
+    "PLC-based Line Control System", 
+    "AI-powered Vision Inspection", 
+    "SCADA Monitoring Platform", 
+    "Robotic Pick & Place Units", 
+    "Precision Servo Drive Systems",
+    "Barcode/RFID Tracking",
+    "Automatic Rejection System"
+  ],
+  results: [
+    "35% throughput increase", 
+    "99.8% packaging accuracy rate", 
+    "Real-time quality monitoring", 
+    "28% material waste reduction",
+    "OEE improved to 87%",
+    "Payback period: 14 months"
+  ],
+  client: "Leading FMCG Manufacturer",
+  duration: "4 months",
+  location: "Mumbai, India",
+  image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80"
+},
+{
+  title: "Water Treatment Plant Automation",
+  description: "Comprehensive automation and remote monitoring system for a 50 MLD water treatment facility with advanced process control, telemetry integration, and intelligent chemical dosing for optimal water quality.",
+  scope: [
+    "Multi-stage PLC Process Control", 
+    "Web-based SCADA System", 
+    "150+ Field Instrumentation", 
+    "Telemetry & Remote Access",
+    "Automated Chemical Dosing",
+    "Water Quality Analyzers",
+    "Mobile Monitoring App"
+  ],
+  results: [
+    "24/7 unmanned operation capability", 
+    "Consistent water quality compliance", 
+    "40% chemical waste reduction", 
+    "Annual cost savings: ₹2 Crore",
+    "Real-time quality alerts",
+    "Energy consumption down 25%"
+  ],
+  client: "Municipal Water Authority",
+  duration: "10 months",
+  location: "Uttar Pradesh, India",
+  image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+},
+{
+  title: "Power Distribution Automation",
+  description: "Intelligent smart power distribution system with advanced load management, automatic power factor correction, real-time monitoring, and automated fault detection serving 100+ industrial manufacturing units.",
+  scope: [
+    "33kV Substation Automation", 
+    "Automated Meter Reading (AMR)", 
+    "Power Quality Monitoring System", 
+    "Custom Control Panel Design",
+    "Load Management Software",
+    "Fault Detection & Isolation",
+    "Energy Analytics Dashboard"
+  ],
+  results: [
+    "Zero unplanned downtime", 
+    "Power factor improved to 0.95", 
+    "Automated billing system", 
+    "Real-time energy analytics",
+    "30% reduction in demand charges",
+    "Remote fault isolation in <2 min"
+  ],
+  client: "Industrial Park Developer",
+  duration: "12 months",
+  location: "Gujarat, India",
+  image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80"
+},
+{
+  title: "Pharmaceutical Packaging Line",
+  description: "High-speed automated pharmaceutical packaging line with advanced vision inspection, serialization compliance, complete product traceability, and clean room compatible design meeting stringent FDA regulations.",
+  scope: [
+    "Servo-driven Packaging System", 
+    "Multi-camera Vision Inspection", 
+    "Track & Trace Serialization", 
+    "Clean Room Grade Equipment",
+    "Automated Reject Handling",
+    "Batch Management System",
+    "21 CFR Part 11 Compliance"
+  ],
+  results: [
+    "300 units/min throughput achieved", 
+    "Zero defect shipping record", 
+    "Full FDA compliance certified", 
+    "100% product traceability",
+    "Reduced changeover time by 60%",
+    "ROI in 20 months"
+  ],
+  client: "Leading Pharmaceutical Company",
+  duration: "5 months",
+  location: "Maharashtra, India",
+  image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80"
+},
+{
+  title: "Textile Mill Process Automation",
+  description: "Comprehensive end-to-end automation of spinning, weaving, and dyeing processes with integrated quality control systems, production tracking, and Manufacturing Execution System (MES) for enhanced operational efficiency.",
+  scope: [
+    "300+ VFD Drive Installations", 
+    "Multi-stage Process Control", 
+    "Real-time Quality Monitoring", 
+    "Production MES Platform",
+    "Recipe Management System",
+    "Energy Management System",
+    "Centralized Dashboard"
+  ],
+  results: [
+    "25% overall productivity gain", 
+    "Consistent fabric quality achieved", 
+    "30% raw material waste reduction", 
+    "Energy optimization: 32% savings",
+    "Production visibility improved",
+    "Reduced downtime by 45%"
+  ],
+  client: "Large Textile Manufacturer",
+  duration: "14 months",
+  location: "Tamil Nadu, India",
+  image: "https://images.unsplash.com/photo-1604508809435-bd97c0b2b1f3?w=800&q=80"
+}
 ];
 
 const Projects = () => {

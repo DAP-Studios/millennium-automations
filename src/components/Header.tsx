@@ -68,10 +68,16 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <header 
+    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+  isScrolled
+    ? "bg-white/100 backdrop-saturate-150 shadow-md"
+    : "bg-solate-900/60 backdrop-blur-md"
+}`}>
+
       {/* Main Navigation */}
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-16 sm:h-18 md:h-20">
+        <div className="flex justify-center items-center h-16 sm:h-18 md:h-20" >
           <button
             onClick={() => scrollToSection("#hero")}
             className="flex items-center gap-2 sm:gap-3 md:gap-4 hover:opacity-90 transition-all duration-300 group"
