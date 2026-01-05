@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import industrialBg from "@/assets/hero-2.jpg";
 import ProjectModal from "./ProjectModal";
+import "./animations.css";
+
 
 const projects = [
   {
@@ -26,10 +28,10 @@ const projects = [
   client: "Major Automotive Manufacturer",
   duration: "8 months",
   location: "Haryana, India",
-  image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
+  image: "src/assets/projects/automotive-assembly.png"
 },
 {
-  title: "Packaging Solution",
+  title: "Packaging Solution Automation",
   description: "Advanced high-speed packaging automation system with integrated vision inspection, real-time tracking, robotic material handling, and intelligent quality control for optimized production efficiency.",
   scope: [
     "PLC-based Line Control System", 
@@ -51,7 +53,7 @@ const projects = [
   client: "Leading FMCG Manufacturer",
   duration: "4 months",
   location: "Mumbai, India",
-  image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80"
+  image: "src/assets/projects/packaging-solution.png"
 },
 {
   title: "Water Treatment Plant Automation",
@@ -76,7 +78,7 @@ const projects = [
   client: "Municipal Water Authority",
   duration: "10 months",
   location: "Uttar Pradesh, India",
-  image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+  image: "src/assets/projects/water-treatment-plant.png"
 },
 {
   title: "Power Distribution Automation",
@@ -101,7 +103,7 @@ const projects = [
   client: "Industrial Park Developer",
   duration: "12 months",
   location: "Gujarat, India",
-  image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80"
+  image: "src/assets/projects/power-distribution-automation.png"
 },
 {
   title: "Pharmaceutical Packaging Line",
@@ -126,7 +128,7 @@ const projects = [
   client: "Leading Pharmaceutical Company",
   duration: "5 months",
   location: "Maharashtra, India",
-  image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80"
+  image: "src/assets/projects/pharmaceutical-packaging.png"
 },
 {
   title: "Textile Mill Process Automation",
@@ -151,7 +153,7 @@ const projects = [
   client: "Large Textile Manufacturer",
   duration: "14 months",
   location: "Tamil Nadu, India",
-  image: "https://images.unsplash.com/photo-1604508809435-bd97c0b2b1f3?w=800&q=80"
+  image: "src/assets/projects/textile-mill-automation.png"
 }
 ];
 
@@ -192,43 +194,45 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always flex items-center justify-center"
+      className="relative h-screen w-full bg-cover bg-center overflow-hidden flex flex-col items-center justify-center"
       style={{ backgroundImage: `url(${industrialBg})` }}
     >
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 max-h-screen overflow-y-auto py-6 sm:py-8 md:py-12">
-        <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 reveal">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 reveal">
           <div className="inline-block mb-2 sm:mb-3 md:mb-4">
             <span className="text-xs sm:text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               Our Work
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-md mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-md">
             Featured Projects
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
               onClick={() => handleProjectClick(project)}
               className="reveal flex flex-col items-center gap-3 cursor-pointer group"
             >
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-3 sm:border-4 border-white/30 group-hover:border-primary/80 transition-all duration-300 shadow-lg group-hover:shadow-xl group-hover:scale-110">
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
                 <img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 group-hover:from-black/20 group-hover:to-black/30 transition-all duration-300" />
               </div>
-              <h3 className="text-xs sm:text-sm md:text-base font-bold text-white text-center drop-shadow-sm group-hover:text-primary/90 transition-colors line-clamp-2">
-                {project.title}
-              </h3>
+              <div className="flex flex-col gap-1 w-full text-center">
+                <h3 className="text-xs sm:text-sm font-bold text-white drop-shadow-sm group-hover:text-primary/90 transition-colors line-clamp-2">
+                  {project.title}
+                </h3>
+              </div>
             </div>
           ))}
         </div>

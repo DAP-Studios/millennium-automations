@@ -21,9 +21,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-<<<<<<< HEAD
-      <main ref={mainRef} className="min-h-screen w-full">
-=======
       <SEO
         title={defaultSEO.title}
         description={defaultSEO.description}
@@ -32,8 +29,7 @@ const Index = () => {
         ogImage={defaultSEO.ogImage}
         ogType={defaultSEO.ogType}
       />
-      <main ref={mainRef} className="snap-y snap-mandatory overflow-y-scroll h-screen">
->>>>>>> d104233461ac958cbf397babb0b708238884c78f
+      <main ref={mainRef} className="w-full">
         <HeroSlider />
         <Products />
         <About />
