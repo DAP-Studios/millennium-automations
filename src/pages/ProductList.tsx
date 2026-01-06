@@ -10,9 +10,56 @@ import whatsappIcon from "@/assets/whatsapp.png";
 // Import product images
 import vfdImage from "@/assets/hero-1.jpg";
 import servoImage from "@/assets/hero-1.jpg";
-
 import plcImage from "@/assets/hero-1.jpg";
 import smpsImage from "@/assets/hero-1.jpg";
+
+// VFD Images
+import elwImg from "@/assets/products/vfd/elw.png";
+import me300Img from "@/assets/products/vfd/me300.png";
+import cp2000Img from "@/assets/products/vfd/cp2000.png";
+import ms300Img from "@/assets/products/vfd/ms300.png";
+import mh300Img from "@/assets/products/vfd/mh300.png";
+import c2000Img from "@/assets/products/vfd/c2000.png";
+
+// Servo Images
+import dvp15Img from "@/assets/products/servo/dvp15.png";
+import dvp50Img from "@/assets/products/servo/dvp50.png";
+import dvppmImg from "@/assets/products/servo/dvppm.png";
+
+// HMI Images
+import tp04pImg from "@/assets/products/hmi/tp04p.png";
+import dop103Img from "@/assets/products/hmi/dop103.png";
+import dop107Img from "@/assets/products/hmi/dop107.png";
+import dop110Img from "@/assets/products/hmi/dop110.png";
+import dop112Img from "@/assets/products/hmi/dop112.png";
+import dop115Img from "@/assets/products/hmi/dop115.png";
+
+// PLC Images
+import ss2Img from "@/assets/products/plc/ss2.png";
+import es3Img from "@/assets/products/plc/es3.png";
+import sv2Img from "@/assets/products/plc/sv2.png";
+import seImg from "@/assets/products/plc/se.png";
+import asImg from "@/assets/products/plc/as.png";
+import eh20Img from "@/assets/products/plc/eh20.png";
+
+// SMPS Images
+import cliqImg from "@/assets/products/smps/cliq.png";
+import cliqmImg from "@/assets/products/smps/cliqm.png";
+import forcegtImg from "@/assets/products/smps/forcegt.png";
+import ptmImg from "@/assets/products/smps/ptm.png";
+import mebImg from "@/assets/products/smps/meb.png";
+
+// Rotary Encoder Images
+import esImg from "@/assets/products/rotary/es.png";
+import ehImg from "@/assets/products/rotary/eh.png";
+import mhmtImg from "@/assets/products/rotary/mhmt.png";
+import asahImg from "@/assets/products/rotary/asah.png";
+
+// Vertical Industry Solutions Images
+import iedsImg from "@/assets/products/vis/ieds.png";
+import hescImg from "@/assets/products/vis/hesc.png";
+import ct2000Img from "@/assets/products/vis/ct2000.png";
+import vp3000Img from "@/assets/products/vis/vp3000.png";
 
 const allProducts = [
 
@@ -27,7 +74,7 @@ const allProducts = [
   {
     model: "EL-W Series",
     specs: "Sensorless Vector Control Compact Drive; 150% overload capacity @ 60s; power ratings approx. 0.2kW–4.0kW",
-    image: "src/assets/products/vfd/elw.png",
+    image: elwImg,
     features: [
       "Sensorless Vector Control",
       "Built-in PID Control",
@@ -41,7 +88,7 @@ const allProducts = [
   {
     model: "ME300 Series - Basic Compact",
     specs: "Up to 7.5kW, 200% Starting Torque @ 3Hz, -20°C to +50°C",
-    image: "src/assets/products/vfd/me300.png",
+    image: me300Img,
     features: [
       "Built-in Braking Chopper",
       "STO Safety (SIL2/PL d)",
@@ -53,7 +100,7 @@ const allProducts = [
   {
     model: "CP2000 Series - Fan/Pump Vector",
     specs: "Up to 630kW, Fire Mode, Multi-Pump Control",
-    image: "src/assets/products/vfd/cp2000.png",
+    image: cp2000Img,
     features: [
       "Variable Torque Optimization",
       "8-Pump Synchronization",
@@ -65,7 +112,7 @@ const allProducts = [
   {
     model: "MS300 Series - Standard Compact",
     specs: "Up to 22kW, IP66/NEMA 4X, Output up to 1500Hz",
-    image: "src/assets/products/vfd/ms300.png",
+    image: ms300Img,
     features: [
       "IM/IPM/SPM Motor Support",
       "40% Size Reduction",
@@ -77,7 +124,7 @@ const allProducts = [
   {
     model: "MH300 Series - Advanced Compact",
     specs: "Up to 75kW, Closed-Loop PG Cards, 33kHz Pulse Input",
-    image: "src/assets/products/vfd/mh300.png",
+    image: mh300Img,
     features: [
       "Encoder Feedback Support",
       "Tension Control Algorithms",
@@ -89,7 +136,7 @@ const allProducts = [
   {
     model: "C2000+ Series - Heavy Duty Vector",
     specs: "Up to 560kW, HD/SHD Rating, 180% Overload 3s",
-    image: "src/assets/products/vfd/c2000.png",
+    image: c2000Img,
     features: [
       "Synchronous Reluctance Motors",
       "Point-to-Point Positioning",
@@ -119,21 +166,21 @@ const allProducts = [
       {
         model: "DVP-15MC Motion Controller",
         specs: "CANopen Motion (DS402), Up to 24 Real Axes, <1µs Jitter",
-        image: "src/assets/products/servo/dvp15.png",
+        image: dvp15Img,
         features: ["Deterministic Communication", "Electronic Cam (E-Cam)", "Complex Motion Profiles", "CANopen Protocol"],
         applications: "Multi-axis printing, robotics, synchronized manufacturing lines"
       },
       {
         model: "DVP-50MC EtherCAT Controller",
         specs: "EtherCAT Protocol, 20MB Data Capacity, High-Speed Sync",
-        image: "src/assets/products/servo/dvp50.png",
+        image: dvp50Img,
         features: ["EtherCAT Master", "Real-Time Synchronization", "Advanced Motion Control", "Non-Linear Profiles"],
         applications: "High-precision CNC systems, coordinated robotic cells, packaging automation"
       },
       {
         model: "DVP-PM Pulse Motion Controller",
         specs: "1MHz Output Frequency, High-Speed Differential Signaling",
-        image: "src/assets/products/servo/dvppm.png",
+        image: dvppmImg,
         features: ["Pulse Train Generation", "Differential Signaling", "EMI Immunity", "Servo Drive Interface"],
         applications: "High-speed positioning, servo amplifier control, noise-critical environments"
       }
@@ -150,14 +197,14 @@ const allProducts = [
       {
         model: "TP04P Series - Text Panel HMI-PLC",
         specs: "Monochrome LCD, Physical Function Keys, Integrated PLC",
-        image: "src/assets/products/hmi/tp04p.png",
+        image: tp04pImg,
         features: ["User-Definable Keys", "Direct PLC Macro Triggers", "Cost-Effective Design", "Robust Control Logic"],
         applications: "Simple machines, ovens, basic automation where graphics are unnecessary"
       },
   {
     model: "DOP-103BQ Series - Basic Text/Graphic HMI",
     specs: "4.3\" TFT LCD, 480×272 Resolution, USB & RS-232/RS-485",
-    image: "src/assets/products/hmi/dop103.png",
+    image: dop103Img,
     features: [
       "Compact and Cost-Effective Design",
       "Supports Delta PLC Communication",
@@ -170,7 +217,7 @@ const allProducts = [
   {
     model: "DOP-107BV Series - Standard Graphic HMI",
     specs: "7\" TFT LCD, 800×480 Resolution, USB Host/Client, Ethernet",
-    image: "src/assets/products/hmi/dop107.png",
+    image: dop107Img,
     features: [
       "High-Resolution Color Display",
       "Ethernet Communication Support",
@@ -183,7 +230,7 @@ const allProducts = [
   {
     model: "DOP-110WS Series - Advanced Wide Screen HMI",
     specs: "10.1\" TFT LCD, 1024×600 Resolution, Dual Ethernet, USB",
-    image: "src/assets/products/hmi/dop110.png",
+    image: dop110Img,
     features: [
       "Wide-Screen High Brightness Display",
       "Dual Ethernet Ports",
@@ -196,7 +243,7 @@ const allProducts = [
   {
     model: "DOP-112MX Series - High-Performance HMI",
     specs: "12.1\" TFT LCD, 1024×768 Resolution, Ethernet, USB, SD Card",
-    image: "src/assets/products/hmi/dop112.png",
+    image: dop112Img,
     features: [
       "Large Industrial-Grade Display",
       "Enhanced Processing Performance",
@@ -209,7 +256,7 @@ const allProducts = [
   {
     model: "DOP-115MX Series - Premium Large Screen HMI",
     specs: "15\" TFT LCD, 1024×768 Resolution, Ethernet, USB, SD Card",
-    image: "src/assets/products/hmi/dop115.png",
+    image: dop115Img,
     features: [
       "Large Viewing Area for Control Rooms",
       "High Reliability Industrial Design",
@@ -233,7 +280,7 @@ const allProducts = [
     {
       model: "DVP-SS2 Series - Basic Compact PLC",
       specs: "10k Steps Program Capacity, 0.64μs Execution Speed, Up to 32 I/O",
-      image: "src/assets/products/plc/ss2.png",
+      image: ss2Img,
       features: [
         "Cost-Effective Entry-Level PLC",
         "Built-in High-Speed Counters",
@@ -246,7 +293,7 @@ const allProducts = [
     {
       model: "DVP-ES3 Series - Third Generation",
       specs: "64k Steps, 25ns Execution Speed, AS-Series Core",
-      image: "src/assets/products/plc/es3.png",
+      image: es3Img,
       features: [
         "40x Speed Improvement",
         "Native Ethernet & CANopen",
@@ -258,7 +305,7 @@ const allProducts = [
     {
       model: "DVP-SV2 Series - Slim High Performance PLC",
       specs: "30k Steps, 0.24μs Execution, Linear/Arc Interpolation",
-      image: "src/assets/products/plc/sv2.png",
+      image: sv2Img,
       features: [
         "Compact Slim Design",
         "2-Axis Motion Control",
@@ -270,7 +317,7 @@ const allProducts = [
     {
       model: "DVP-SE Series - Slim Network PLC",
       specs: "16k Steps, Built-in Ethernet, Mini-USB, 0.64μs Execution",
-      image: "src/assets/products/plc/se.png",
+      image: seImg,
       features: [
         "Built-in Ethernet Port",
         "Remote Programming & Monitoring",
@@ -282,7 +329,7 @@ const allProducts = [
     {
       model: "AS Series - Modular Advanced PLC",
       specs: "Up to 128k Steps, Multi-Core CPU, EtherCAT Motion Control",
-      image: "src/assets/products/plc/as.png",
+      image: asImg,
       features: [
         "High-Speed Backplane Architecture",
         "Multi-Axis Synchronized Motion",
@@ -294,7 +341,7 @@ const allProducts = [
     {
       model: "EH Series - Redundant High-End PLC",
       specs: "Up to 256k Steps, CPU Redundancy, High Availability Architecture",
-      image: "src/assets/products/plc/eh20.png",
+      image: eh20Img,
       features: [
         "Redundant CPU & Power Modules",
         "High Reliability for Critical Systems",
@@ -317,35 +364,35 @@ const allProducts = [
       {
         model: "CliQ M Series - Premium Marine",
         specs: "DIN Rail Mount, Advanced Power Boost 150% for 5s, -25°C to +70°C",
-        image: "src/assets/products/smps/cliq.png",
+        image: cliqImg,
         features: ["DNV GL Marine Certification", "Inductive Load Starting", "Maritime Environment Ready", "Heavy Industrial Grade"],
         applications: "Marine automation, heavy industry, large contactor starting, offshore platforms"
       },
       {
         model: "CliQ VA Series - Visual Diagnostics",
         specs: "DIN Rail Mount, Integrated LCD Display, Real-Time Monitoring",
-        image: "src/assets/products/smps/cliqm.png",
+        image: cliqmImg,
         features: ["Built-in LCD Display", "Voltage/Current/Temperature Display", "Rapid Diagnostics", "No External Meter Required"],
         applications: "Maintenance-friendly installations, diagnostic-critical systems, troubleshooting applications"
       },
       {
         model: "Force-GT Series - Ultra-Efficient",
         specs: "Ultra-Slim Form Factor, 80+ Efficiency, -25°C to +70°C",
-        image: "src/assets/products/smps/forcegt.png",
+        image: forcegtImg,
         features: ["Space-Saving Design", "Constant Current Circuit", "Charging Applications", "Wide Temperature Range"],
         applications: "DIN rail space optimization, battery charging systems, extreme temperature environments"
       },
       {
         model: "PMT2 Series - Consumer Safety",
         specs: "Panel Mount, 30mm Ultra-Low Profile, IEC 60335 Compliant",
-        image: "src/assets/products/smps/ptm.png",
+        image: ptmImg,
         features: ["Household Appliance Standard", "Consumer Safety Certified", "Low Profile Design", "Universal Mounting"],
         applications: "Vending machines, coffee makers, consumer-facing equipment, appliance integration"
       },
       {
         model: "MEB Series - Medical Grade",
         specs: "Medical Certified, Low Leakage Current, Patient Safety",
-        image: "src/assets/products/smps/meb.png",
+        image: mebImg,
         features: ["Medical Environment Certified", "Ultra-Low Leakage", "Patient Safety Standards", "Hospital Grade Reliability"],
         applications: "Medical devices, hospital equipment, patient-connected systems, healthcare automation"
       }
@@ -363,28 +410,28 @@ const allProducts = [
       {
         model: "ES Series - Incremental Solid Shaft",
         specs: "36.6mm & 50mm OD, 100-2500 PPR, 6mm/8mm Shaft",
-        image: "src/assets/products/rotary/es.png",
+        image: esImg,
         features: ["Line Driver Differential Output", "Flexible Coupling Compatible", "Vibration Isolation", "Multiple Output Stages"],
         applications: "General purpose positioning, motor feedback, conveyor tracking, speed measurement"
       },
       {
         model: "EH Series - Incremental Hollow Shaft",
         specs: "8mm Hollow Bore, Direct Motor Mount, Space-Saving Design",
-        image: "src/assets/products/rotary/eh.png",
+        image: ehImg,
         features: ["Direct Shaft Mounting", "No Coupling Required", "Compact Installation", "High Noise Immunity"],
         applications: "Direct motor feedback, space-constrained applications, servo motor integration"
       },
       {
         model: "MH/MT Series - Servo Commutation",
         specs: "Motor Integration, U/V/W Commutation Signals, 85°C/100°C Operation",
-        image: "src/assets/products/rotary/mhmt.png",
+        image: mhmtImg,
         features: ["Magnetic Pole Position Sensing", "Immediate Startup Capability", "High Temperature Rated", "Phase Sequence Generation"],
         applications: "PM servo motor commutation, brushless motor control, high-precision servo systems"
       },
       {
         model: "AS/AH Series - Absolute Position",
         specs: "Gray Code Output, 5-12 bit Resolution, Power Loss Recovery",
-        image: "src/assets/products/rotary/asah.png",
+        image: asahImg,
         features: ["Absolute Position Memory", "No Homing Required", "Gray Code Error Prevention", "Single Bit Transition"],
         applications: "Robotic arms, multi-turn applications, position-critical systems, automated machinery"
       }
@@ -399,28 +446,28 @@ const allProducts = [
       {
         model: "IED-S Elevator System",
         specs: "Integrated VFD + Elevator Logic, EnDat/Sin-Cos Support, 8-Car Group Control",
-        image: "src/assets/products/vis/ieds.png",
+        image: iedsImg,
         features: ["Direct Encoder Interface", "Floor Positioning Logic", "Door Control Integration", "Group Management"],
         applications: "Elevator systems, vertical transportation, building automation, lift modernization"
       },
       {
         model: "HES-C Injection Molding System",
         specs: "VFD-VJ Hybrid Servo + MST Motor + Hydraulic Controller",
-        image: "src/assets/products/vis/hesc.png",
+        image: hescImg,
         features: ["Hydraulic Pressure Control", "Energy Saving Design", "Precise Flow Management", "Molding Cycle Optimization"],
         applications: "Injection molding machines, plastic manufacturing, automotive parts, precision molding"
       },
       {
         model: "CT2000 Textile Drive",
         specs: "Flange Mount Design, External Heatsink, Lint-Resistant Cooling",
-        image: "src/assets/products/vis/ct2000.png",
+        image: ct2000Img,
         features: ["Lint Accumulation Prevention", "External Heat Dissipation", "Textile Environment Optimized", "Multi-Speed Control"],
         applications: "Spinning mills, weaving machines, textile manufacturing, fiber processing"
       },
       {
         model: "VP3000/CP2000 Fluid Power System",
         specs: "Multi-Pump Sequencing, Analog Pressure Control, Constant System Pressure",
-        image: "src/assets/products/vis/vp3000.png",
+        image: vp3000Img,
         features: ["8-Pump Coordination", "Pressure Sensor Integration", "Runtime Equalization", "Automatic Sequencing"],
         applications: "Water treatment plants, HVAC systems, municipal pumping, pressure boosting stations"
       }
@@ -541,15 +588,15 @@ const ProductList = () => {
                   {category.products.map((product, index) => (
                     <div
                       key={index}
-                      className="bg-white border border-slate-200 hover:border-primary/50 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg group mb-2 sm:mb-3 h-96"
+                      className="bg-white border border-slate-200 hover:border-primary/50 rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg group mb-2 sm:mb-3 flex flex-col sm:h-96"
                     >
                       <div className="flex flex-col sm:flex-row h-full">
                         {/* Product Image - Responsive */}
-                        <div className="w-full sm:w-1/2 h-64 sm:h-full relative overflow-hidden flex-shrink-0 bg-white flex items-center p-1 justify-center">
+                        <div className="w-full sm:w-1/2 h-40 sm:h-full relative overflow-hidden flex-shrink-0 bg-slate-50 flex items-center justify-center">
                           <img
                             src={product.image}
                             alt={product.model}
-                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                            className="w-auto h-auto max-w-[95%] max-h-[95%] object-contain group-hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute top-1 left-1 sm:top-2 sm:left-2 w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 bg-primary/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
                             <span className="text-xs font-bold text-white">
@@ -575,7 +622,7 @@ const ProductList = () => {
                               </h3>
                               
                               {/* Specs - Responsive */}
-                              <p className="text-xs text-muted-foreground font-medium mb-2 sm:mb-3 line-clamp-2 sm:line-clamp-none">
+                              <p className="text-xs sm:text-sm text-muted-foreground font-medium mb-2 sm:mb-3 line-clamp-2 sm:line-clamp-none">
                                 {product.specs}
                               </p>
 
@@ -593,10 +640,10 @@ const ProductList = () => {
                                   </ul>
                                 </div>
 
-                                {/* Applications - Hide on Small Mobile */}
+                                {/* Applications */}
                                 <div className="w-full">
                                   <p className="text-xs font-semibold text-slate-700 mb-1.5">Applications</p>
-                                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
                                     {product.applications}
                                   </p>
                                 </div>
@@ -604,21 +651,20 @@ const ProductList = () => {
                             </div>
 
                             {/* Contact Buttons - Responsive */}
-                            <div className="flex gap-2 mt-3">
+                            <div className="flex gap-2 mt-3 w-full">
                               <a
                                 href={`mailto:millenniumautomationsystem@gmail.com?subject=Inquiry - ${product.model}&body=Hi,%0D%0A%0D%0AI'm interested in learning more about the following product:%0D%0A%0D%0AProduct: ${product.model}%0D%0ACategory: ${category.category}%0D%0A%0D%0ASpecifications:%0D%0A${product.specs}%0D%0A%0D%0AKey Features:%0D%0A${product.features.join('%0D%0A')}%0D%0A%0D%0AApplications:%0D%0A${product.applications}%0D%0A%0D%0APlease provide more information and pricing details.%0D%0A%0D%0AThank you`}
-                                className="flex-1 inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold rounded-full transition-all"
+                                className="flex-1 inline-flex items-center justify-center px-2 sm:px-3 py-2 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold rounded-full transition-all whitespace-nowrap"
                               >
-                                📧 Get Quote
+                                📧 Quote
                               </a>
                               <a
                                 href={`https://wa.me/919904003445?text=Hi,%20I'm%20interested%20in%20the%20${encodeURIComponent(product.model)}%20from%20the%20${encodeURIComponent(category.category)}%20category.%0A%0AProduct:%20${encodeURIComponent(product.model)}%0A%0ASpecifications:%0A${encodeURIComponent(product.specs)}%0A%0AFeatures:%0A${encodeURIComponent(product.features.join(', '))}%0A%0AApplications:%0A${encodeURIComponent(product.applications)}%0A%0APlease provide more information and pricing.%20Thank%20you!`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex-1 inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-semibold rounded-full transition-all"
+                                className="flex-1 inline-flex items-center justify-center px-2 sm:px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-semibold rounded-full transition-all"
                               >
-                                <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 sm:w-4 sm:h-4" />
-                                <span className="ml-2">WhatsApp</span>
+                                <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
                               </a>
                             </div>
                           </div>

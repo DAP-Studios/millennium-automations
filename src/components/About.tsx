@@ -77,7 +77,7 @@ const About = () => {
                 className="reveal group bg-white/10 backdrop-blur-xl rounded-xl border-2 border-emerald-400/40 hover:border-emerald-400/80 p-4 sm:p-5 text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer shadow-lg hover:bg-emerald-400/20"
               >
                 <img src={deltaLogo} alt="Delta" className="h-8 sm:h-10 text-emerald-200 mx-auto mb-2" />
-                <div className="text-sm font-bold text-emerald-200">Delta Partner</div>
+                <div className="text-sm font-bold text-emerald-200">Delta Channel Partner</div>
                 <div className="text-xs text-white/60 group-hover:text-white transition-colors">Click to visit</div>
               </button>
               <button

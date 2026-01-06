@@ -2,6 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import industrialBg from "@/assets/hero-2.jpg";
 import ProjectModal from "./ProjectModal";
 import "./animations.css";
+import automotiveImg from "@/assets/projects/automotive-assembly.png";
+import packagingImg from "@/assets/projects/packaging-solution.png";
+import pharmaceuticalImg from "@/assets/projects/pharmaceutical-packaging.png";
+import textileImg from "@/assets/projects/textile-mill-automation.png";
+import waterTreatmentImg from "@/assets/projects/water-treatment-plant.png";
+import powerDistributionImg from "@/assets/projects/power-distribution-automation.png";
 
 
 const projects = [
@@ -28,7 +34,7 @@ const projects = [
   client: "Major Automotive Manufacturer",
   duration: "8 months",
   location: "Haryana, India",
-  image: "src/assets/projects/automotive-assembly.png"
+  image: automotiveImg
 },
 {
   title: "Packaging Solution Automation",
@@ -53,58 +59,9 @@ const projects = [
   client: "Leading FMCG Manufacturer",
   duration: "4 months",
   location: "Mumbai, India",
-  image: "src/assets/projects/packaging-solution.png"
+  image: packagingImg
 },
-{
-  title: "Water Treatment Plant Automation",
-  description: "Comprehensive automation and remote monitoring system for a 50 MLD water treatment facility with advanced process control, telemetry integration, and intelligent chemical dosing for optimal water quality.",
-  scope: [
-    "Multi-stage PLC Process Control", 
-    "Web-based SCADA System", 
-    "150+ Field Instrumentation", 
-    "Telemetry & Remote Access",
-    "Automated Chemical Dosing",
-    "Water Quality Analyzers",
-    "Mobile Monitoring App"
-  ],
-  results: [
-    "24/7 unmanned operation capability", 
-    "Consistent water quality compliance", 
-    "40% chemical waste reduction", 
-    "Annual cost savings: ₹2 Crore",
-    "Real-time quality alerts",
-    "Energy consumption down 25%"
-  ],
-  client: "Municipal Water Authority",
-  duration: "10 months",
-  location: "Uttar Pradesh, India",
-  image: "src/assets/projects/water-treatment-plant.png"
-},
-{
-  title: "Power Distribution Automation",
-  description: "Intelligent smart power distribution system with advanced load management, automatic power factor correction, real-time monitoring, and automated fault detection serving 100+ industrial manufacturing units.",
-  scope: [
-    "33kV Substation Automation", 
-    "Automated Meter Reading (AMR)", 
-    "Power Quality Monitoring System", 
-    "Custom Control Panel Design",
-    "Load Management Software",
-    "Fault Detection & Isolation",
-    "Energy Analytics Dashboard"
-  ],
-  results: [
-    "Zero unplanned downtime", 
-    "Power factor improved to 0.95", 
-    "Automated billing system", 
-    "Real-time energy analytics",
-    "30% reduction in demand charges",
-    "Remote fault isolation in <2 min"
-  ],
-  client: "Industrial Park Developer",
-  duration: "12 months",
-  location: "Gujarat, India",
-  image: "src/assets/projects/power-distribution-automation.png"
-},
+
 {
   title: "Pharmaceutical Packaging Line",
   description: "High-speed automated pharmaceutical packaging line with advanced vision inspection, serialization compliance, complete product traceability, and clean room compatible design meeting stringent FDA regulations.",
@@ -128,7 +85,7 @@ const projects = [
   client: "Leading Pharmaceutical Company",
   duration: "5 months",
   location: "Maharashtra, India",
-  image: "src/assets/projects/pharmaceutical-packaging.png"
+  image: pharmaceuticalImg
 },
 {
   title: "Textile Mill Process Automation",
@@ -153,7 +110,57 @@ const projects = [
   client: "Large Textile Manufacturer",
   duration: "14 months",
   location: "Tamil Nadu, India",
-  image: "src/assets/projects/textile-mill-automation.png"
+  image: textileImg
+},
+{
+  title: "Water Treatment Plant Automation",
+  description: "Comprehensive automation and remote monitoring system for a 50 MLD water treatment facility with advanced process control, telemetry integration, and intelligent chemical dosing for optimal water quality.",
+  scope: [
+    "Multi-stage PLC Process Control", 
+    "Web-based SCADA System", 
+    "150+ Field Instrumentation", 
+    "Telemetry & Remote Access",
+    "Automated Chemical Dosing",
+    "Water Quality Analyzers",
+    "Mobile Monitoring App"
+  ],
+  results: [
+    "24/7 unmanned operation capability", 
+    "Consistent water quality compliance", 
+    "40% chemical waste reduction", 
+    "Annual cost savings: ₹2 Crore",
+    "Real-time quality alerts",
+    "Energy consumption down 25%"
+  ],
+  client: "Municipal Water Authority",
+  duration: "10 months",
+  location: "Uttar Pradesh, India",
+  image: waterTreatmentImg
+},
+{
+  title: "Power Distribution Automation",
+  description: "Intelligent smart power distribution system with advanced load management, automatic power factor correction, real-time monitoring, and automated fault detection serving 100+ industrial manufacturing units.",
+  scope: [
+    "33kV Substation Automation", 
+    "Automated Meter Reading (AMR)", 
+    "Power Quality Monitoring System", 
+    "Custom Control Panel Design",
+    "Load Management Software",
+    "Fault Detection & Isolation",
+    "Energy Analytics Dashboard"
+  ],
+  results: [
+    "Zero unplanned downtime", 
+    "Power factor improved to 0.95", 
+    "Automated billing system", 
+    "Real-time energy analytics",
+    "30% reduction in demand charges",
+    "Remote fault isolation in <2 min"
+  ],
+  client: "Industrial Park Developer",
+  duration: "12 months",
+  location: "Gujarat, India",
+  image: powerDistributionImg
 }
 ];
 

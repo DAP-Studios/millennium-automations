@@ -117,7 +117,7 @@ const allProducts: Category[] = [
     ]
   },
   {
-    category: "Human Machine Interface with PLC",
+    category: "Human Machine Interface",
     categoryId: "hmi",
     description: "Converged HMI-PLC controllers combining visualization with integrated logic control and I/O capabilities.",
     image: hmiImage,

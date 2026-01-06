@@ -38,18 +38,12 @@ const HeroSlider = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Auto-slide every 5 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  // Removed auto-slide effect
 
   // Tailwind-based style definitions for content
   const contentStyles = {
     heading:
-      "text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] text-white",
+      "text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_8px_rgba(100,100,100,0.6)]",
     subtitle:
       "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white max-w-2xl font-light leading-relaxed",
     buttonPrimary:
@@ -210,18 +204,7 @@ const HeroSlider = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-2 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer group hidden sm:block"
-        onClick={() => scrollToSection("#products")}
-        style={{
-          animation: "fadeIn 1s ease-out forwards 1.2s",
-          opacity: 0,
-          color: "white",
-        }}
-      >
-        <ChevronDown className="w-6 h-6 text-white/60 group-hover:text-white animate-bounce transition-colors duration-300 mx-auto" />
-      </div>
+      {/* Scroll Indicator - Removed */}
     </section>
   );
 };
