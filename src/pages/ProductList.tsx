@@ -22,9 +22,11 @@ import mh300Img from "@/assets/products/vfd/mh300.png";
 import c2000Img from "@/assets/products/vfd/c2000.png";
 
 // Servo Images
-import dvp15Img from "@/assets/products/servo/dvp15.png";
-import dvp50Img from "@/assets/products/servo/dvp50.png";
-import dvppmImg from "@/assets/products/servo/dvppm.png";
+import a2Img from "@/assets/products/servo/a2.png";
+import b2Img from "@/assets/products/servo/b2.png";
+import b21Img from "@/assets/products/servo/b21.png";
+import b3Img from "@/assets/products/servo/b3.png";
+import e3Img from "@/assets/products/servo/e3.png";
 
 // HMI Images
 import tp04pImg from "@/assets/products/hmi/tp04p.png";
@@ -41,6 +43,10 @@ import sv2Img from "@/assets/products/plc/sv2.png";
 import seImg from "@/assets/products/plc/se.png";
 import asImg from "@/assets/products/plc/as.png";
 import eh20Img from "@/assets/products/plc/eh20.png";
+import dvp15Img from "@/assets/products/plc/dvp15.png";
+import dvp50Img from "@/assets/products/plc/dvp50.png";
+import dvppmImg from "@/assets/products/plc/dvppm.png";
+
 
 // SMPS Images
 import cliqImg from "@/assets/products/smps/cliq.png";
@@ -148,49 +154,92 @@ const allProducts = [
     ]
   },
 
- // Servo Motor Systems & Motion Control
+ // Servo Motor Systems
 
   {
-    category: "Servo Motor Systems & Motion Control",
-    categoryId: "servo",
-    description: "Precision servo drives and motion controllers with deterministic communication for synchronized multi-axis control.",
-    image: servoImage,
-    products: [
-      // {
-      //   model: "ASDA-H3 Multi-Axis Servo",
-      //   specs: "High-Power Multi-Axis, Common DC Bus, Energy Regeneration",
-      //   image: servoImage,
-      //   features: ["Common DC Bus Design", "Energy Recovery", "Multi-Axis Synchronization", "Injection Molding Optimized"],
-      //   applications: "Injection molding machines, clamping units, cyclical acceleration/deceleration systems"
-      // },
-      {
-        model: "DVP-15MC Motion Controller",
-        specs: "CANopen Motion (DS402), Up to 24 Real Axes, <1µs Jitter",
-        image: dvp15Img,
-        features: ["Deterministic Communication", "Electronic Cam (E-Cam)", "Complex Motion Profiles", "CANopen Protocol"],
-        applications: "Multi-axis printing, robotics, synchronized manufacturing lines"
-      },
-      {
-        model: "DVP-50MC EtherCAT Controller",
-        specs: "EtherCAT Protocol, 20MB Data Capacity, High-Speed Sync",
-        image: dvp50Img,
-        features: ["EtherCAT Master", "Real-Time Synchronization", "Advanced Motion Control", "Non-Linear Profiles"],
-        applications: "High-precision CNC systems, coordinated robotic cells, packaging automation"
-      },
-      {
-        model: "DVP-PM Pulse Motion Controller",
-        specs: "1MHz Output Frequency, High-Speed Differential Signaling",
-        image: dvppmImg,
-        features: ["Pulse Train Generation", "Differential Signaling", "EMI Immunity", "Servo Drive Interface"],
-        applications: "High-speed positioning, servo amplifier control, noise-critical environments"
-      }
-    ]
-  },
+  category: "Servo Motor Systems",
+  categoryId: "servo",
+  description:
+    "High-precision AC servo systems offering fast response, smooth motion, and seamless integration with PLC and motion controllers.",
+  image: servoImage,
+  products: [
+    {
+      model: "ASDA-A2 Series Servo Drive",
+      specs: "High-Performance AC Servo, 1kHz–3.1kHz Response, Full-Closed Loop Support",
+      range: "0.1 kW – 15 kW",
+      image: a2Img,
+      features: [
+        "Auto-Tuning & Advanced Vibration Suppression",
+        "Full / Semi Closed-Loop Control",
+        "High-Speed Position & Torque Control",
+        "EtherCAT / CANopen / Analog Options"
+      ],
+      applications:
+        "CNC machines, robotics, semiconductor equipment, high-speed automation"
+    },
+    {
+      model: "ASDA-B2 Series Servo Drive",
+      specs: "General Purpose AC Servo, High Resolution Encoder",
+      range: "0.1 kW – 3 kW",
+      image: b2Img,
+      features: [
+        "Cost-Effective High Performance",
+        "17-bit Absolute Encoder",
+        "Smooth Low-Speed Control",
+        "Pulse / Analog / Modbus Control"
+      ],
+      applications:
+        "Packaging machines, conveyors, labeling systems, textile machinery"
+    },
+    {
+      model: "ASDA-B2L Series Servo Drive",
+      specs: "Compact Economy Servo, Simplified Motion Control",
+      range: "0.1 kW – 1 kW",
+      image: b21Img,
+      features: [
+        "Entry-Level Servo Solution",
+        "Pulse Train Control",
+        "Compact Design",
+        "Reduced Wiring & Setup Time"
+      ],
+      applications:
+        "Pick-and-place units, small automation systems, indexing tables"
+    },
+    {
+      model: "ASDA-B3 Series Servo Drive",
+      specs: "Ultra-Compact Servo Drive, Easy Integration",
+      range: "0.1 kW – 0.75 kW",
+      image: b3Img,
+      features: [
+        "Smallest Footprint",
+        "Quick Auto-Tuning",
+        "Pulse / Analog Input",
+        "Energy Efficient Design"
+      ],
+      applications:
+        "Light-duty automation, medical devices, small assembly machines"
+    },
+    {
+      model: "ASDA-E3 Series EtherCAT Servo Drive",
+      specs: "EtherCAT Servo System, Ultra-Low Latency Synchronization",
+      range: "0.1 kW – 3 kW",
+      image: e3Img,
+      features: [
+        "EtherCAT Communication",
+        "Distributed Clock Synchronization",
+        "High-Speed Multi-Axis Control",
+        "Excellent Path Accuracy"
+      ],
+      applications:
+        "Synchronized multi-axis systems, robotics, electronic assembly lines"
+    }
+  ]
+},
 
-  // Human Machine Interface with PLC
+// Human Machine Interface
 
   {
-    category: "Human Machine Interface with PLC",
+    category: "Human Machine Interface",
     categoryId: "hmi",
     description: "Converged HMI-PLC controllers combining visualization with integrated logic control and I/O capabilities.",
     products: [
@@ -269,12 +318,13 @@ const allProducts = [
     ]
   },
 
-  // Programmable Logic Controllers
+  // Programmable Logic Controllers 
 
   {
-  category: "Programmable Logic Controllers",
+  category: "Programmable Logic Controllers & Motion Control",
   categoryId: "plc",
-  description: "High-performance deterministic logic controllers with integrated motion control and advanced communication capabilities.",
+  description:
+    "High-performance deterministic logic controllers with integrated motion control and advanced communication capabilities.",
   image: plcImage,
   products: [
     {
@@ -288,7 +338,8 @@ const allProducts = [
         "Multiple Expansion Modules",
         "Reliable Deterministic Control"
       ],
-      applications: "Basic machine automation, small conveyors, packaging machines, OEM panels"
+      applications:
+        "Basic machine automation, small conveyors, packaging machines, OEM panels"
     },
     {
       model: "DVP-ES3 Series - Third Generation",
@@ -300,7 +351,8 @@ const allProducts = [
         "4-Axis 200kHz Pulse Output",
         "High-Throughput Processing"
       ],
-      applications: "High-speed packaging lines, servo control, complex machine networks"
+      applications:
+        "High-speed packaging lines, servo control, complex machine networks"
     },
     {
       model: "DVP-SV2 Series - Slim High Performance PLC",
@@ -312,7 +364,8 @@ const allProducts = [
         "CNC-Level Motion Instructions",
         "High-Speed Pulse Output"
       ],
-      applications: "Space-constrained installations, 2-axis motion control, cutting and positioning systems"
+      applications:
+        "Space-constrained installations, 2-axis motion control, cutting and positioning systems"
     },
     {
       model: "DVP-SE Series - Slim Network PLC",
@@ -324,8 +377,52 @@ const allProducts = [
         "Transparent Network Gateway",
         "Distributed Control Capability"
       ],
-      applications: "Remote monitoring, distributed automation, gateway applications, network integration"
+      applications:
+        "Remote monitoring, distributed automation, gateway applications, network integration"
     },
+
+    /* 🔹 Motion Controllers (Added with Images) */
+
+    {
+      model: "DVP-15MC Motion Controller",
+      specs: "CANopen DS402, Up to 24 Real Axes, <1µs Jitter",
+      image: dvp15Img, // dvp15.png
+      features: [
+        "Deterministic CANopen Motion",
+        "Electronic Cam (E-Cam)",
+        "Multi-Axis Interpolation",
+        "High-Speed Synchronization"
+      ],
+      applications:
+        "Multi-axis printing machines, robotics, synchronized production lines"
+    },
+    {
+      model: "DVP-50MC EtherCAT Motion Controller",
+      specs: "EtherCAT Master, 20MB Motion Data, Ultra-Fast Sync",
+      image: dvp50Img, // dvp50.png
+      features: [
+        "EtherCAT Distributed Clock",
+        "High-Speed Multi-Axis Control",
+        "Advanced Motion Algorithms",
+        "Non-Linear Motion Profiles"
+      ],
+      applications:
+        "CNC systems, coordinated robotic cells, high-precision packaging automation"
+    },
+    {
+      model: "DVP-PM Pulse Motion Controller",
+      specs: "1MHz Pulse Output, Differential Signaling",
+      image: dvppmImg, // dvppm.png
+      features: [
+        "High-Frequency Pulse Train Output",
+        "Differential Signaling for Noise Immunity",
+        "Servo & Stepper Drive Interface",
+        "Stable High-Speed Positioning"
+      ],
+      applications:
+        "High-speed positioning systems, servo amplifiers, EMI-sensitive environments"
+    },
+
     {
       model: "AS Series - Modular Advanced PLC",
       specs: "Up to 128k Steps, Multi-Core CPU, EtherCAT Motion Control",
@@ -336,7 +433,8 @@ const allProducts = [
         "EtherCAT / PROFINET Support",
         "Hot-Swap I/O Modules"
       ],
-      applications: "High-end automation systems, multi-axis motion, robotics, complex production lines"
+      applications:
+        "High-end automation systems, multi-axis motion, robotics, complex production lines"
     },
     {
       model: "EH Series - Redundant High-End PLC",
@@ -348,10 +446,12 @@ const allProducts = [
         "Advanced Diagnostics",
         "Industrial Network Integration"
       ],
-      applications: "Critical infrastructure, continuous process industries, power plants, high-availability systems"
+      applications:
+        "Critical infrastructure, continuous process industries, power plants, high-availability systems"
     }
   ]
-},
+}
+,
 
  // Switched-Mode Power Supplies
 
