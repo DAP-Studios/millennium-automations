@@ -765,6 +765,7 @@ const ProductList = () => {
                                 className="flex-1 inline-flex items-center justify-center px-2 sm:px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-xs sm:text-sm font-semibold rounded-full transition-all"
                               >
                                 <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
+                                <span className="ml-1">WhatsApp</span>
                               </a>
                             </div>
                           </div>

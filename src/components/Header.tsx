@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronRight } from "lucide-react";
 import masLogo from "@/assets/logo.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
@@ -50,30 +53,38 @@ const Header = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    // Handle home/hero specially
-    if (href === "#hero") {
-      const mainElement = document.querySelector('main');
-      if (mainElement) {
-        mainElement.scrollTo({ top: 0, behavior: "smooth" });
-        setIsMobileMenuOpen(false);
-      }
+    const sectionId = href.replace("#", "");
+    const isHomePage = location.pathname === "/";
+
+    // If not on home page, navigate to home first
+    if (!isHomePage) {
+      navigate("/");
+      // Small delay to ensure page loads before scrolling
+      setTimeout(() => {
+        scrollToElement(sectionId);
+      }, 100);
       return;
     }
-    
-    const element = document.querySelector(href);
+
+    scrollToElement(sectionId);
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToElement = (sectionId: string) => {
+    if (sectionId === "hero") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <header 
-    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-  isScrolled
-    ? "bg-white/100 backdrop-saturate-150 shadow-md"
-    : "bg-solate-900/60 backdrop-blur-md"
-}`}>
+    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-md`}>
 
       {/* Main Navigation */}
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
@@ -112,10 +123,10 @@ const Header = () => {
       <div className="absolute top-3 sm:top-4 md:top-5 right-3 sm:right-4">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`p-1 sm:p-2 rounded transition-all duration-200 ${
-            isScrolled ? "text-slate-700" : "text-white"
-          }`}
-          aria-label="Menu"
+          className="p-1 sm:p-2 rounded transition-all duration-200 text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMobileMenuOpen ? (
             <X className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -128,20 +139,15 @@ const Header = () => {
       {/* Simple Navigation Menu */}
       <div className={`absolute top-full right-3 sm:right-4 transition-all duration-200 ${
         isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}>
-        <div className={`mobile-menu-dropdown mt-2 rounded-lg shadow-lg min-w-40 sm:min-w-48 ${
-          isScrolled ? "bg-white border border-slate-200" : "bg-slate-900 border border-white/20"
-        }`}>
+      }`}
+      id="mobile-menu">
+        <div className={`mobile-menu-dropdown mt-2 rounded-lg shadow-lg min-w-40 sm:min-w-48 bg-white border border-slate-200`}>
           <div className="py-1 sm:py-2">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className={`w-full px-3 sm:px-4 py-1.5 sm:py-2 text-left text-xs sm:text-sm transition-colors ${
-                  isScrolled 
-                    ? "text-slate-700 hover:bg-slate-100 hover:text-primary" 
-                    : "text-white hover:bg-white/10"
-                }`}
+                className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-left text-xs sm:text-sm transition-colors text-slate-700 hover:bg-slate-100 hover:text-primary focus:outline-none focus:bg-slate-100 focus:text-primary"
               >
                 {link.label}
               </button>
