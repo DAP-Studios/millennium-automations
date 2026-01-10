@@ -62,7 +62,11 @@ const About = () => {
               <div className="relative z-10">
                 <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">About Millennium</h3>
                 <p className="text-white/90 text-sm sm:text-base leading-relaxed group-hover:text-white transition-all duration-300 mb-6">
-                  Millennium Automation System is an authorized dealer of Delta Electronics products based in Vapi, Gujarat. We specialize in high-quality industrial automation solutions with comprehensive technical support and competitive pricing.
+                  Millennium Automation System is an authorized <strong>dealer and supplier of Delta Electronics products in Vapi, Gujarat</strong>. 
+                  We stock and supply <strong>Delta Drive in Vapi</strong>, <strong>Delta VFD in Vapi</strong>, <strong>Delta HMI in Vapi</strong>, 
+                  and <strong>Delta PLC in Vapi</strong>. We specialize in high-quality industrial automation solutions including ME300 Series, 
+                  MS300 Series, C2000 Series, CP2000 Series, REG 2000 Series from 0.5 HP, 1 HP, 2 HP, 5 HP and more, 
+                  with comprehensive technical support and competitive pricing.
                 </p>
                 <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                   We are committed to delivering world-class automation solutions and becoming India's most trusted automation partner through innovation and excellence.
