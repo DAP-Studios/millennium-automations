@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Zap, Cog, Monitor, Cpu, Battery } from "lucide-react";
 import industrialBg from "@/assets/hero-1.jpg";
 import vfdImage from "@/assets/hero-1.jpg";
+import deltaLogo from "@/assets/delta.png";
+
 
 // Product data
 const allProductsData = [
@@ -200,6 +202,7 @@ const Products = () => {
   const navigate = useNavigate();
 
   const handleCategoryClick = (categoryId: string) => {
+    window.scrollTo(0, 0);
     navigate(`/product-list?category=${categoryId}`);
   };
 
@@ -358,12 +361,12 @@ const Products = () => {
 
       </div>
 
-      {/* Delta Electronics Badge - Enhanced Dynamic Badge */}
-      <div className="absolute top-3 sm:top-6 md:top-8 lg:top-12 right-3 sm:right-6 md:right-8 lg:right-12 z-20">
-        <div className="backdrop-blur-md bg-primary/90 px-1 sm:px-1.5 md:px-2 lg:px-3 xl:px-4 py-0.5 sm:py-0.5 md:py-1 lg:py-1.5 xl:py-2 rounded-full border-2 border-primary shadow-lg shadow-primary/50 cursor-pointer">
-          <span className="text-[8px] sm:text-[10px] md:text-[10px] lg:text-xs xl:text-sm font-bold text-white">Delta Electronics Channel Partner</span>
+      {/* Delta Electronics Badge - Enhanced Dynamic Badge */} 
+      <a href="https://www.deltaww.com" target="_blank" rel="noopener noreferrer" className="absolute top-8 sm:top-8 md:top-8 lg:top-8 right-[72px] z-20" >
+        <div className="backdrop-blur-xl bg-cyan-700 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full border border-white/30 shadow-lg shadow-white/10 cursor-pointer hover:shadow-xl hover:bg-white/25 transition-all duration-300 flex flex-row items-center gap-3 backdrop-filter">
+          <img src={deltaLogo} alt="Delta" className="h-7 sm:h-9 md:h-10 lg:h-11 flex-shrink-0" />
         </div>
-      </div>
+      </a>
     </section>
   );
 };

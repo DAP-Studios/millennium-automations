@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Award, Target, MapPin } from "lucide-react";
+import { Award, Target, MapPin, X } from "lucide-react";
 import aboutTeam from "@/assets/about-team.jpg";
 import industrialBg from "@/assets/hero-2.jpg";
 import masLogo from "@/assets/logo.png";
 import deltaLogo from "@/assets/delta.png";
+import deltaCertificate from "@/assets/4.jpg";
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [showCertificate, setShowCertificate] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -73,12 +75,12 @@ const About = () => {
             {/* Quick Info Cards */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <button
-                onClick={() => window.open('https://www.deltaww.com', '_blank')}
+                onClick={() => setShowCertificate(true)}
                 className="reveal group bg-white/10 backdrop-blur-xl rounded-xl border-2 border-emerald-400/40 hover:border-emerald-400/80 p-4 sm:p-5 text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer shadow-lg hover:bg-emerald-400/20"
               >
-                <img src={deltaLogo} alt="Delta" className="h-8 sm:h-10 text-emerald-200 mx-auto mb-2" />
-                <div className="text-sm font-bold text-emerald-200">Delta Channel Partner</div>
-                <div className="text-xs text-white/60 group-hover:text-white transition-colors">Click to visit</div>
+                <img src={deltaLogo} alt="Delta" className="h-8 sm:h-10 mx-auto mb-2" />
+                <div className="text-sm font-bold text-emerald-200">Delta Certificate</div>
+                <div className="text-xs text-white/60 group-hover:text-white transition-colors">View Certificate</div>
               </button>
               <button
                 onClick={() => window.open('https://maps.google.com/?q=Vapi,Gujarat', '_blank')}
@@ -118,8 +120,26 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      {showCertificate && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowCertificate(false)}>
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 sticky top-0 bg-white rounded-t-2xl">
+              <h3 className="text-2xl font-bold text-gray-800">Delta Electronics Certificate</h3>
+              <button onClick={() => setShowCertificate(false)} className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
+            <div className="p-6">
+              <img src={deltaCertificate} alt="Delta Certificate" className="w-full h-auto rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+      )}
     </section>
   );
-};
+}
 
 export default About;
