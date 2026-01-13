@@ -6,6 +6,7 @@ import Products from "@/components/Products";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import DeltaProductsInfo from "@/components/DeltaProductsInfo";
 import SEO from "@/components/SEO";
 import { defaultSEO } from "@/lib/seoConfig";
 import { Menu, X } from "lucide-react";
@@ -101,6 +102,7 @@ const Index = () => {
         <Projects />
         <WhyChooseUs />
         <Contact />
+        <DeltaProductsInfo />
       </main>
     </div>
   );
