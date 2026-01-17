@@ -98,7 +98,7 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="relative h-screen w-full bg-cover bg-center overflow-hidden snap-start snap-always flex items-center justify-center"
+      className="relative min-h-screen w-full bg-cover bg-center overflow-y-auto snap-start snap-always flex items-center justify-center"
       style={{ backgroundImage: `url(${industrialBg})` }}
     >
       {/* Subtle Background Pattern - Removed floating particles for cleaner web look */}
@@ -108,14 +108,14 @@ const Services = () => {
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 h-full flex flex-col justify-center py-4 sm:py-6 md:py-8">
-        <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 reveal">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 relative z-10 h-full flex flex-col justify-center py-3 sm:py-6 md:py-8">
+        <div className="text-center mb-2 sm:mb-4 md:mb-6 lg:mb-8 reveal">
           <div className="inline-block mb-1 sm:mb-2 md:mb-3">
             <span className="text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-500/30 to-purple-500/30 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full border border-white/20 shadow-lg animate-pulse">
               ⚡ What We Do ⚡
             </span>
           </div>
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white drop-shadow-md mb-1 sm:mb-1.5 md:mb-2 lg:mb-3 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white drop-shadow-md mb-1 sm:mb-2 md:mb-3 lg:mb-4 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text">
             Our Expertise
           </h2>
           <p className="text-white/90 drop-shadow-sm text-xs sm:text-sm md:text-base max-w-3xl mx-auto mb-2 sm:mb-3 md:mb-4 px-2">
@@ -123,23 +123,23 @@ const Services = () => {
           </p>
           
           {/* Stats Counter - Responsive */}
-          <div className="flex justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12 mb-1 sm:mb-2">
+          <div className="flex justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-10 mb-1 sm:mb-2">
             <div className="text-center group">
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
+              <div className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
                 50+
               </div>
               <div className="text-xs text-white/70">Projects</div>
             </div>
-            <div className="w-px h-4 sm:h-6 md:h-8 bg-white/30"></div>
+            <div className="w-px h-3 sm:h-5 md:h-8 bg-white/30"></div>
             <div className="text-center group">
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-green-400 group-hover:text-green-300 transition-colors">
+              <div className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-green-400 group-hover:text-green-300 transition-colors">
                 24/7
               </div>
               <div className="text-xs text-white/70">Support</div>
             </div>
-            <div className="w-px h-4 sm:h-6 md:h-8 bg-white/30"></div>
+            <div className="w-px h-3 sm:h-5 md:h-8 bg-white/30"></div>
             <div className="text-center group">
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors">
+              <div className="text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors">
                 5+
               </div>
               <div className="text-xs text-white/70">Years</div>
@@ -149,7 +149,7 @@ const Services = () => {
         {/* Responsive Grid Layout - All 6 Services */}
         <div className="w-full max-w-7xl mx-auto">
           {/* Services Grid - Fully Responsive Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1.5 sm:gap-3 md:gap-4">
             {services.map((service, index) => {
               // Color schemes for each service
               const colorSchemes = [
@@ -167,13 +167,13 @@ const Services = () => {
                 <div
                   key={index}
                   onClick={() => handleServiceClick(service)}
-                  className={`reveal group relative bg-white/5 backdrop-blur-sm border border-white/20 ${colors.hover} ${colors.shadow} rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 cursor-pointer transition-all duration-300 hover:transform hover:scale-[1.02] hover:-translate-y-1`}
+                  className={`reveal group relative bg-white/5 backdrop-blur-sm border border-white/20 ${colors.hover} ${colors.shadow} rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 cursor-pointer transition-all duration-300 hover:transform hover:scale-[1.02] hover:-translate-y-1 h-full flex flex-col`}
                   style={{
                     animationDelay: `${index * 80}ms`
                   }}
                 >
                   {/* Service Image - Responsive */}
-                  <div className="relative w-full h-20 sm:h-24 md:h-28 lg:h-32 mb-2 sm:mb-3 rounded-md sm:rounded-lg overflow-hidden">
+                  <div className="relative w-full h-16 sm:h-24 md:h-28 lg:h-32 mb-2 sm:mb-3 rounded-md sm:rounded-lg overflow-hidden flex-shrink-0">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -189,7 +189,7 @@ const Services = () => {
                   </div>
                   
                   {/* Content - Responsive */}
-                  <div className="space-y-1 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-2 flex-grow flex flex-col justify-end">
                     <div>
                       <h3 className={`text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white text-center group-hover:text-${colors.accent}-300 transition-colors duration-300 leading-tight px-1`}>
                         {service.title}

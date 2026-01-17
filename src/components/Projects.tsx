@@ -207,14 +207,14 @@ const Projects = () => {
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
       
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 w-full">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12 reveal">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 relative z-10 w-full">
+        <div className="text-center mb-6 sm:mb-10 md:mb-12 reveal">
           <div className="inline-block mb-2 sm:mb-3 md:mb-4">
             <span className="text-xs sm:text-sm font-semibold text-white bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
               Our Work
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-md">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white drop-shadow-md">
             Featured Projects
           </h2>
         </div>

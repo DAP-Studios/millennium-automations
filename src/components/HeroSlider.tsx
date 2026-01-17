@@ -81,31 +81,31 @@ const HeroSlider = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative container mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20 xl:py-24 z-10">
+      <div className="relative container mx-auto px-2 sm:px-4 md:px-6 py-8 sm:py-16 lg:py-20 xl:py-24 z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12 lg:mb-16 xl:mb-20">
+          <div className="space-y-2 sm:space-y-4 mb-6 sm:mb-12 lg:mb-16 xl:mb-20">
             {/* Heading */}
             <h1
-              className={contentStyles.heading}
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_8px_rgba(100,100,100,0.6)]"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.2s",
                 opacity: 0,
               }}
             >
-              <span className="inline-flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-3 lg:gap-4">
+              <span className="inline-flex flex-col sm:flex-row items-center sm:items-center gap-1 sm:gap-3 lg:gap-4">
                 {/* MAS Logo */}
                 <div className="relative">
                   <img
                     src={masLogo}
                     alt="Millennium Automation System logo - Industrial automation solutions provider Vapi Gujarat"
-                    className="h-12 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105 drop-shadow-[0_8px_15px_rgba(0,0,0,0.8)]"
+                    className="h-10 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105 drop-shadow-[0_8px_15px_rgba(0,0,0,0.8)]"
                   />
                 </div>
                 <span className="leading-tight text-center sm:text-left">
-                  <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
+                  <span className="block text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
                     Millennium
                   </span>
-                  <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold">
+                  <span className="block text-lg sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold">
                     Automation System
                   </span>
                 </span>
@@ -114,7 +114,7 @@ const HeroSlider = () => {
 
             {/* Subtitle */}
             <p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto sm:mx-0 font-light leading-relaxed text-center sm:text-left"
+              className="text-xs sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto sm:mx-0 font-light leading-relaxed text-center sm:text-left px-2"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.4s",
                 opacity: 0,
@@ -125,7 +125,7 @@ const HeroSlider = () => {
 
             {/* Buttons */}
             <div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 pt-3 sm:pt-4 lg:pt-6 justify-center sm:justify-start"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6 pt-2 sm:pt-4 lg:pt-6 justify-center sm:justify-start"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.6s",
                 opacity: 0,
@@ -134,7 +134,7 @@ const HeroSlider = () => {
               <Button
                 onClick={() => scrollToSection("#products")}
                 size="lg"
-                className={contentStyles.buttonPrimary}
+                className="bg-primary hover:bg-primary/90 text-white font-semibold px-3 sm:px-6 lg:px-8 h-9 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:-translate-y-0.5"
               >
                 Explore Solutions →
               </Button>
@@ -142,7 +142,7 @@ const HeroSlider = () => {
                 onClick={() => scrollToSection("#contact")}
                 size="lg"
                 variant="outline"
-                className={contentStyles.buttonSecondary}
+                className="border-2 border-white bg-white/15 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 font-semibold px-3 sm:px-6 lg:px-8 h-9 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] transform hover:-translate-y-0.5"
               >
                 Get In Touch
               </Button>

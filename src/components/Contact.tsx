@@ -97,26 +97,26 @@ const Contact = () => {
     <section id="contact" className="relative min-h-screen w-full bg-cover bg-center text-white flex items-start md:items-center justify-center" style={{ backgroundImage: `url(${industrialBg})` }}>
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full flex flex-col py-6 sm:py-8 md:py-4 h-full md:h-auto">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 relative z-10 w-full flex flex-col py-4 sm:py-8 md:py-4 h-full md:h-auto">
         
         {/* Large Title at Top - Centered */}
         <div className="text-center mb-2 sm:mb-3 md:mb-4">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-md">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-md">
             Get In Touch
           </h1>
         </div>
 
         {/* Main Content Area - Two Columns */}
-        <div className="flex-grow grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-7xl mx-auto w-full mb-2 md:mb-4">
+        <div className="flex-grow grid md:grid-cols-2 gap-2 sm:gap-4 md:gap-6 max-w-7xl mx-auto w-full mb-2 md:mb-4">
           
           {/* Left Column: Contact Form */}
           <div className="h-full">
-            <div className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl p-3 sm:p-4 md:p-6 h-full">
-              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 text-center border-b border-white/20 pb-1 md:pb-2">Contact Form</h2>
-              <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3" aria-label="Contact form">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+            <div className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl p-2 sm:p-4 md:p-6 h-full">
+              <h2 className="text-sm sm:text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 text-center border-b border-white/20 pb-1 md:pb-2">Contact Form</h2>
+              <form onSubmit={handleSubmit} className="space-y-1.5 md:space-y-3" aria-label="Contact form">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 md:gap-3">
                   <div>
-                    <Label htmlFor="name" className="text-white mb-1 block font-medium text-xs md:text-sm">
+                    <Label htmlFor="name" className="text-white mb-0.5 block font-medium text-xs md:text-sm">
                       Full Name *
                     </Label>
                     <Input
@@ -124,13 +124,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Rahul Patel"
-                      className="bg-white/20 text-white border border-white/30 placeholder:text-white/60 focus:ring-2 focus:ring-primary/50 h-8 md:h-9 rounded-md px-2 md:px-3 text-xs md:text-sm backdrop-blur-sm"
+                      className="bg-white/20 text-white border border-white/30 placeholder:text-white/60 focus:ring-2 focus:ring-primary/50 h-7 md:h-9 rounded-md px-2 md:px-3 text-xs md:text-sm backdrop-blur-sm"
                       required
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="text-white mb-1 block font-medium text-xs md:text-sm">
+                    <Label htmlFor="email" className="text-white mb-0.5 block font-medium text-xs md:text-sm">
                       Email Address *
                     </Label>
                     <Input
@@ -139,20 +139,20 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="you@company.com"
-                      className="bg-white/20 text-white border border-white/30 placeholder:text-white/60 focus:ring-2 focus:ring-primary/50 h-8 md:h-9 rounded-md px-2 md:px-3 text-xs md:text-sm backdrop-blur-sm"
+                      className="bg-white/20 text-white border border-white/30 placeholder:text-white/60 focus:ring-2 focus:ring-primary/50 h-7 md:h-9 rounded-md px-2 md:px-3 text-xs md:text-sm backdrop-blur-sm"
                       required
                     />
                   </div>
 
                   <div className="md:col-span-2">
-                    <Label htmlFor="category" className="text-white mb-1 block font-medium text-xs md:text-sm">
+                    <Label htmlFor="category" className="text-white mb-0.5 block font-medium text-xs md:text-sm">
                       Product Category
                     </Label>
                     <select
                       id="category"
                       value={formData.category}
                       onChange={handleChange}
-                      className="w-full bg-white/20 text-white border border-white/30 focus:ring-2 focus:ring-primary/50 h-8 md:h-9 rounded-md px-2 md:px-3 text-xs md:text-sm backdrop-blur-sm"
+                      className="w-full bg-white/20 text-white border border-white/30 focus:ring-2 focus:ring-primary/50 h-7 md:h-9 rounded-md px-2 md:px-3 text-xs md:text-sm backdrop-blur-sm"
                     >
                       <option value="" className="bg-slate-800 text-white">-- Select a category --</option>
                       <option value="drives" className="bg-slate-800 text-white">VFD</option>
@@ -164,7 +164,7 @@ const Contact = () => {
                   </div>
 
                   <div className="md:col-span-2">
-                    <Label htmlFor="message" className="text-white mb-1 block font-medium text-xs md:text-sm">
+                    <Label htmlFor="message" className="text-white mb-0.5 block font-medium text-xs md:text-sm">
                       Message *
                     </Label>
                     <Textarea
@@ -181,7 +181,7 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-primary text-white hover:bg-primary/90 font-bold shadow-lg transition-all duration-200 h-8 md:h-10 text-xs md:text-sm"
+                  className="w-full bg-primary text-white hover:bg-primary/90 font-bold shadow-lg transition-all duration-200 h-7 md:h-10 text-xs md:text-sm"
                 >
                   Send Message
                 </Button>
@@ -190,14 +190,14 @@ const Contact = () => {
           </div>
 
           {/* Right Column: Contact Info - Four Stacked Boxes */}
-          <div className="flex flex-col gap-3 sm:gap-4 h-full">
+          <div className="flex flex-col gap-1.5 sm:gap-3 md:gap-4 h-full">
 
             {/* Box 1: Map Address */}
             <div className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl p-2 sm:p-3 md:p-4 flex-1">
-              <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1 md:mb-2 text-center border-b border-white/20 pb-1">Map Address</h3>
-              <div className="flex items-start gap-3">
+              <h3 className="text-xs sm:text-base md:text-lg font-bold text-white mb-0.5 md:mb-2 text-center border-b border-white/20 pb-0.5 md:pb-1">Map Address</h3>
+              <div className="flex items-start gap-2 sm:gap-3">
                 <div className="bg-primary/30 rounded-lg p-2">
-                  <MapPin className="w-5 h-5 text-white" />
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div className="flex-1">
                   <a
@@ -205,7 +205,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => trackContactClick("google_maps")}
-                    className="text-white/90 text-sm leading-relaxed hover:text-primary hover:underline block"
+                    className="text-white/90 text-xs sm:text-sm leading-relaxed hover:text-primary hover:underline block"
                   >
                     9W7F+3FR, Silvasa Rd, near Via Char Rasta Road, Phase 2, GIDC, Vapi, Gujarat 396195
                   </a>
@@ -214,15 +214,15 @@ const Contact = () => {
             </div>
 
             {/* Box 2: Email & Phone - Side by side */}
-            <div className="flex gap-2 flex-1">
+            <div className="flex gap-1 sm:gap-2 flex-1">
               {/* Left: Email - 60% width */}
               <div className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl p-2 sm:p-3 md:p-4 w-3/5">
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1 md:mb-2 text-center border-b border-white/20 pb-1">Email</h3>
-                <div className="flex items-start gap-2 md:gap-3">
-                  <div className="bg-primary/30 rounded-lg p-1.5 md:p-2">
-                    <Mail className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                <h3 className="text-xs sm:text-base md:text-lg font-bold text-white mb-0.5 md:mb-2 text-center border-b border-white/20 pb-0.5 md:pb-1">Email</h3>
+                <div className="flex items-start gap-1 sm:gap-2 md:gap-3">
+                  <div className="bg-primary/30 rounded-lg p-1 md:p-2 flex-shrink-0">
+                    <Mail className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 text-white" />
                   </div>
-                  <div className="flex-1 space-y-0.5 md:space-y-1">
+                  <div className="flex-1 space-y-0.5">
                     <a href="mailto:millenniumautomationsystem@gmail.com" className="text-white/90 hover:text-primary hover:underline text-xs md:text-sm block break-all">
                       millenniumautomationsystem@gmail.com
                     </a>
@@ -235,12 +235,12 @@ const Contact = () => {
 
               {/* Right: Phone - 40% width */}
               <div className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-xl p-2 sm:p-3 md:p-4 w-2/5">
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-white mb-1 md:mb-2 text-center border-b border-white/20 pb-1">Phone No</h3>
-                <div className="flex items-start gap-2 md:gap-3">
-                  <div className="bg-primary/30 rounded-lg p-1.5 md:p-2">
-                    <Phone className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                <h3 className="text-xs sm:text-base md:text-lg font-bold text-white mb-0.5 md:mb-2 text-center border-b border-white/20 pb-0.5 md:pb-1">Phone No</h3>
+                <div className="flex items-start gap-1 sm:gap-2 md:gap-3">
+                  <div className="bg-primary/30 rounded-lg p-1 md:p-2 flex-shrink-0">
+                    <Phone className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 text-white" />
                   </div>
-                  <div className="flex-1 space-y-0.5 md:space-y-1">
+                  <div className="flex-1 space-y-0.5">
                     <a
                       href="tel:+919904003445"
                       onClick={() => trackContactClick("phone")}
