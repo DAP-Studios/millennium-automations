@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ArrowLeft, Search } from "lucide-react";
 import Header from "@/components/Header";
@@ -580,6 +580,7 @@ const ProductList = () => {
   const categoryParam = searchParams.get("category");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>(categoryParam || allProducts[0].categoryId);
+  const categoryScrollRef = useRef<HTMLDivElement>(null);
 
   // Update selected category when URL parameter changes
   useEffect(() => {
@@ -591,6 +592,13 @@ const ProductList = () => {
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategory(categoryId);
     setSearchParams({ category: categoryId });
+  };
+
+  const scrollCategories = (direction: "left" | "right") => {
+    const el = categoryScrollRef.current;
+    if (!el) return;
+    const amount = 180;
+    el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
   };
 
   const filteredProducts = allProducts.filter(cat => {
@@ -663,20 +671,41 @@ const ProductList = () => {
             </div>
 
             {/* Category Buttons - Responsive Scrolling */}
-            <div className="flex flex-nowrap sm:flex-wrap gap-1 sm:gap-2 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-hide">
-              {allProducts.map((cat) => (
-                <button
-                  key={cat.categoryId}
-                  onClick={() => handleCategoryChange(cat.categoryId)}
-                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
-                    selectedCategory === cat.categoryId
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-white border border-slate-200 text-muted-foreground hover:border-primary'
-                  }`}
-                >
-                  {cat.category}
-                </button>
-              ))}
+            <div className="flex items-center gap-2 sm:block">
+              <button
+                type="button"
+                onClick={() => scrollCategories("left")}
+                className="sm:hidden h-7 w-7 rounded-full bg-white/90 border border-slate-200 shadow-sm text-slate-700"
+                aria-label="Scroll categories left"
+              >
+                ‹
+              </button>
+              <div
+                ref={categoryScrollRef}
+                className="min-w-0 flex-1 flex flex-nowrap sm:flex-wrap gap-1 sm:gap-2 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-hide"
+              >
+                {allProducts.map((cat) => (
+                  <button
+                    key={cat.categoryId}
+                    onClick={() => handleCategoryChange(cat.categoryId)}
+                    className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
+                      selectedCategory === cat.categoryId
+                        ? 'bg-primary text-white shadow-md'
+                        : 'bg-white border border-slate-200 text-muted-foreground hover:border-primary'
+                    }`}
+                  >
+                    {cat.category}
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => scrollCategories("right")}
+                className="sm:hidden h-7 w-7 rounded-full bg-white/90 border border-slate-200 shadow-sm text-slate-700"
+                aria-label="Scroll categories right"
+              >
+                ›
+              </button>
             </div>
           </div>
 

@@ -8,6 +8,7 @@ const Header = () => {
   const location = useLocation();
 
   const isHomePage = location.pathname === "/";
+  const isProductDetailPage = location.pathname.startsWith("/product-detail");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -81,17 +82,17 @@ const Header = () => {
       {/* ================= FULL NAVBAR (NOT HOME) ================= */}
       {!isHomePage && (
         <header className="fixed top-0 left-0 right-0 z-40 bg-white shadow-md">
-          <div className="relative h-16 sm:h-18 md:h-20">
+          <div className="mx-auto flex h-14 sm:h-16 md:h-18 items-center justify-start sm:justify-center px-4">
             <button
               onClick={() => scrollToSection("#hero")}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3"
+              className="flex max-w-full items-center gap-2 sm:gap-3 flex-row text-left"
             >
-              <img src={masLogo} alt="MAS logo" className="h-10 sm:h-12" />
-              <div>
-                <h1 className="font-bold text-lg text-blue-600">
+              <img src={masLogo} alt="MAS logo" className="h-10 sm:h-10 md:h-12" />
+              <div className="min-w-0">
+                <h1 className="font-bold text-base sm:text-lg text-blue-600 leading-tight">
                   Millennium Automation
                 </h1>
-                <p className="text-sm text-red-500">
+                <p className="text-xs sm:text-sm text-red-500 leading-tight">
                   Smart System • Better Solution
                 </p>
               </div>
@@ -104,25 +105,29 @@ const Header = () => {
       <button
         ref={buttonRef}
         onClick={() => setIsMobileMenuOpen((v) => !v)}
-        className="fixed top-4 right-4 z-50 p-2 bg-transparent shadow-none hover:bg-transparent transition"
+        className={`fixed right-4 z-50 p-2 bg-transparent shadow-none hover:bg-transparent transition ${
+          isProductDetailPage
+            ? "top-1/2 -translate-y-1/2 sm:top-4 sm:translate-y-0"
+            : "top-3"
+        }`}
         aria-label="Toggle menu"
       >
         <span className="sr-only">Toggle menu</span>
         <span className="relative block w-7 h-6">
           <span
-            className={`absolute left-0 top-0 h-0.5 w-full bg-white transition-all duration-300 ${
-              isMobileMenuOpen ? "translate-y-2.5 rotate-45" : "translate-y-0"
-            }`}
+            className={`absolute left-0 top-0 h-1 w-full rounded-full transition-all duration-300 ${
+              isProductDetailPage ? "bg-[#0A1F44]" : isHomePage ? "bg-white" : "bg-cyan-600"
+            } ${isMobileMenuOpen ? "translate-y-2.5 rotate-45" : "translate-y-0"}`}
           />
           <span
-            className={`absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-white transition-all duration-300 ${
-              isMobileMenuOpen ? "opacity-0" : "opacity-100"
-            }`}
+            className={`absolute left-0 top-1/2 h-1 w-full -translate-y-1/2 rounded-full transition-all duration-300 ${
+              isProductDetailPage ? "bg-[#0A1F44]" : isHomePage ? "bg-white" : "bg-cyan-600"
+            } ${isMobileMenuOpen ? "opacity-0" : "opacity-100"}`}
           />
           <span
-            className={`absolute left-0 bottom-0 h-0.5 w-full bg-white transition-all duration-300 ${
-              isMobileMenuOpen ? "-translate-y-2.5 -rotate-45" : "translate-y-0"
-            }`}
+            className={`absolute left-0 bottom-0 h-1 w-full rounded-full transition-all duration-300 ${
+              isProductDetailPage ? "bg-[#0A1F44]" : isHomePage ? "bg-white" : "bg-cyan-600"
+            } ${isMobileMenuOpen ? "-translate-y-2.5 -rotate-45" : "translate-y-0"}`}
           />
         </span>
       </button>
