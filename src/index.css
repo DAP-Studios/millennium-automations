@@ -1,0 +1,565 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    --primary: 201 78% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 17% 98%;
+    --secondary-foreground: 201 78% 52%;
+
+    --muted: 210 17% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 201 78% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 70% 45%;
+
+    --radius: 0.75rem;
+    
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 50%) 0%, hsl(220 70% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 80% 55%) 0%, hsl(220 70% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 70% 15%) 0%, hsl(220 80% 25%) 50%, hsl(200 70% 30%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9) 0%, hsl(220 70% 98% / 0.8) 100%);
+    
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.15);
+    --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.2);
+    --shadow-xl: 0 20px 40px -10px rgb(0 0 0 / 0.25);
+    
+    /* Mobile-first responsive utilities */
+    --mobile-padding: 0.75rem;
+    --tablet-padding: 1.5rem;
+    --desktop-padding: 2rem;
+    
+    --shadow-glow: 0 0 60px hsl(220 70% 50% / 0.4), 0 0 30px hsl(200 80% 50% / 0.3);
+    --shadow-glow-accent: 0 0 40px hsl(200 80% 50% / 0.5);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  }
+
+  .dark {
+    --background: 220 40% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 35% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 35% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 201 78% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 19% 60%;
+
+    --accent: 201 78% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 220 70% 55%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 55%) 0%, hsl(220 70% 40%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 80% 60%) 0%, hsl(220 70% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 40% 8%) 0%, hsl(220 50% 15%) 50%, hsl(200 50% 18%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 35% 12% / 0.8) 0%, hsl(220 35% 15% / 0.6) 100%);
+    
+    --shadow-glow: 0 0 60px hsl(220 70% 55% / 0.4), 0 0 30px hsl(200 80% 55% / 0.3);
+    --shadow-glow-accent: 0 0 40px hsl(200 80% 55% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+  
+  .gradient-bg {
+    background-image: var(--gradient-hero);
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 border border-white/40;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .glow-border {
+    position: relative;
+    border: 1px solid transparent;
+    background: linear-gradient(var(--gradient-card)) padding-box,
+                var(--gradient-accent) border-box;
+  }
+  
+  .reveal {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateY(18px);
+    transition: all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+
+  /* Subtle site background overlay used for sections with white background.
+     Keeps hero untouched while adding a light radial tint + soft texture. */
+  .site-bg {
+    position: relative;
+    background-color: hsl(var(--background));
+    overflow: visible;
+  }
+
+  .site-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* two soft radial tints for gentle color variation */
+    background-image: radial-gradient(circle at 10% 10%, rgba(59,130,246,0.04), transparent 10%),
+                      radial-gradient(circle at 90% 90%, rgba(14,165,233,0.03), transparent 15%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* keep children above the overlay */
+  .site-bg > * {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Very subtle noise/paper texture overlay using placeholder.svg in public/ */
+  .site-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/placeholder.svg');
+    background-repeat: repeat;
+    background-size: 240px 240px;
+    opacity: 0.03; /* very low so it only adds subtle grain */
+    pointer-events: none;
+    z-index: 5;
+    mix-blend-mode: normal;
+  }
+
+  /* Alternate white / soft-blue backgrounds for each top-level section inside .site-bg
+     This creates an even/odd striping effect. Sections remain independent; use specific
+     overrides in components when a different background is required. */
+  .site-bg > section:nth-of-type(odd) {
+    background-color: hsl(0 0% 100%); /* white */
+    color: hsl(var(--foreground));
+  }
+
+  /* configurable blue shades for even sections */
+  :root {
+    --section-blue: rgba(59,130,246,0.08);
+    --section-blue-2: rgba(14,165,233,0.06);
+  }
+
+  .site-bg > section:nth-of-type(even) {
+    /* light blue tint to keep the site airy while adding separation */
+    background-color: var(--section-blue);
+    color: hsl(var(--foreground));
+  }
+
+  /* every 4th section slightly different blue to add subtle variety */
+  .site-bg > section:nth-of-type(4n) {
+    background-color: var(--section-blue-2);
+  }
+
+  /* Responsive utilities for dynamic sizing */
+  @layer utilities {
+    /* Dynamic padding based on screen size */
+    .dynamic-padding {
+      padding: var(--mobile-padding);
+    }
+    
+    @screen sm {
+      .dynamic-padding {
+        padding: calc(var(--mobile-padding) * 1.25);
+      }
+    }
+    
+    @screen md {
+      .dynamic-padding {
+        padding: var(--tablet-padding);
+      }
+    }
+    
+    @screen lg {
+      .dynamic-padding {
+        padding: var(--desktop-padding);
+      }
+    }
+    
+    @screen xl {
+      .dynamic-padding {
+        padding: calc(var(--desktop-padding) * 1.25);
+      }
+    }
+    
+    /* Dynamic text scaling */
+    .text-dynamic-xs {
+      font-size: 0.7rem;
+    }
+    
+    @screen sm {
+      .text-dynamic-xs {
+        font-size: 0.75rem;
+      }
+    }
+    
+    @screen md {
+      .text-dynamic-xs {
+        font-size: 0.8rem;
+      }
+    }
+    
+    .text-dynamic-sm {
+      font-size: 0.8rem;
+    }
+    
+    @screen sm {
+      .text-dynamic-sm {
+        font-size: 0.875rem;
+      }
+    }
+    
+    @screen md {
+      .text-dynamic-sm {
+        font-size: 0.9rem;
+      }
+    }
+    
+    .text-dynamic-base {
+      font-size: 0.875rem;
+    }
+    
+    @screen sm {
+      .text-dynamic-base {
+        font-size: 1rem;
+      }
+    }
+    
+    @screen md {
+      .text-dynamic-base {
+        font-size: 1.1rem;
+      }
+    }
+    
+    /* Responsive spacing */
+    .gap-dynamic {
+      gap: 0.5rem;
+    }
+    
+    @screen sm {
+      .gap-dynamic {
+        gap: 0.75rem;
+      }
+    }
+    
+    @screen md {
+      .gap-dynamic {
+        gap: 1rem;
+      }
+    }
+    
+    @screen lg {
+      .gap-dynamic {
+        gap: 1.25rem;
+      }
+    }
+    
+    /* Mobile-optimized scrolling */
+    .mobile-scroll {
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+    
+    /* Touch-friendly interactive elements */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    @screen sm {
+      .touch-target {
+        min-height: 48px;
+        min-width: 48px;
+      }
+    }
+    
+    /* Responsive containers */
+    .container-dynamic {
+      width: 100%;
+      margin: 0 auto;
+      padding-left: var(--mobile-padding);
+      padding-right: var(--mobile-padding);
+      max-width: 1280px;
+    }
+    
+    @screen sm {
+      .container-dynamic {
+        padding-left: calc(var(--mobile-padding) * 1.5);
+        padding-right: calc(var(--mobile-padding) * 1.5);
+      }
+    }
+    
+    @screen md {
+      .container-dynamic {
+        padding-left: var(--tablet-padding);
+        padding-right: var(--tablet-padding);
+      }
+    }
+    
+    @screen lg {
+      .container-dynamic {
+        padding-left: var(--desktop-padding);
+        padding-right: var(--desktop-padding);
+      }
+    }
+    
+    /* Mobile-first grid utilities */
+    .grid-responsive-auto {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    @screen sm {
+      .grid-responsive-auto {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.25rem;
+      }
+    }
+    
+    @screen md {
+      .grid-responsive-auto {
+        gap: 1.5rem;
+      }
+    }
+    
+    /* Responsive breakout utilities */
+    .breakout-mobile {
+      margin-left: calc(-1 * var(--mobile-padding));
+      margin-right: calc(-1 * var(--mobile-padding));
+    }
+    
+    @screen sm {
+      .breakout-mobile {
+        margin-left: calc(-1 * var(--mobile-padding) * 1.5);
+        margin-right: calc(-1 * var(--mobile-padding) * 1.5);
+      }
+    }
+    
+    @screen md {
+      .breakout-mobile {
+        margin-left: calc(-1 * var(--tablet-padding));
+        margin-right: calc(-1 * var(--tablet-padding));
+      }
+    }
+  }
+
+  /* Smooth transition when theme or styles change */
+  .site-bg > section {
+    transition: background-color 260ms var(--transition-smooth), color 260ms var(--transition-smooth);
+  }
+
+  /* Line clamping utilities for ProductList */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Scrollbar hide utility for mobile category buttons */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Responsive text utilities */
+  .truncate-responsive {
+    @apply truncate sm:whitespace-normal;
+  }
+
+  /* Extra Small Breakpoint for Very Small Screens (320px+) */
+  @media (min-width: 320px) {
+    .xs\:block { display: block; }
+    .xs\:hidden { display: none; }
+    .xs\:w-4 { width: 1rem; }
+    .xs\:h-4 { height: 1rem; }
+    .xs\:w-7 { width: 1.75rem; }
+    .xs\:h-7 { height: 1.75rem; }
+    .xs\:w-3 { width: 0.75rem; }
+    .xs\:h-3 { height: 0.75rem; }
+    .xs\:w-6 { width: 1.5rem; }
+    .xs\:h-6 { height: 1.5rem; }
+    .xs\:w-20 { width: 5rem; }
+    .xs\:h-20 { height: 5rem; }
+    .xs\:px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .xs\:py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .xs\:px-1\.5 { padding-left: 0.375rem; padding-right: 0.375rem; }
+    .xs\:py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+    .xs\:gap-2 { gap: 0.5rem; }
+    .xs\:gap-1\.5 { gap: 0.375rem; }
+    .xs\:text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .xs\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .xs\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .xs\:mb-2 { margin-bottom: 0.5rem; }
+    .xs\:mb-4 { margin-bottom: 1rem; }
+    .xs\:mb-1\.5 { margin-bottom: 0.375rem; }
+    .xs\:mb-3 { margin-bottom: 0.75rem; }
+    .xs\:rounded-md { border-radius: 0.375rem; }
+  }
+  
+  /* Line clamp utilities for overflow control */
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Screen reader only - keeps content accessible to search engines and screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
