@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -291,28 +292,28 @@ const Contact = () => {
           </div>
 
           {/* Right Bottom Box: Developer Info */}
-          <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 text-right ml-auto">
+          <div className="flex flex-row items-center gap-3 sm:gap-4 text-left md:text-right md:ml-auto">
   <img
     src="dap.png"
     alt="DAP Tech"
-    className="h-7 sm:h-8 lg:h-10 opacity-90"
+    className="h-9 sm:h-8 lg:h-10 opacity-90"
   />
 
-  <div className="text-right">
-    <p className="text-xm sm:text-sm mb-0.5 sm:mb-1">
+  <div className="text-left md:text-right">
+    <p className="text-xs sm:text-sm mb-0.5 sm:mb-1">
       Website by{" "}
       <a 
         href="https://thedap.live"
-        className="text-[#c60000] font-bold">
+        className="text-[#8ca7f8] font-bold">
         DAP Tech Solutions
       </a>
     </p>
 
-    <p className="text-[10px] sm:text-xs lg:text-sm">
+    <p className="text-[11px] sm:text-xs lg:text-sm">
       Deep Parmar{" "}
       <a
         href="tel:+919725362234"
-        className="text-[#025dcd] font-bold hover:underline transition-colors"
+        className="text-[#ef8a91] font-bold hover:underline transition-colors"
       >
         +91 9725362234
       </a>
@@ -324,7 +325,7 @@ const Contact = () => {
       </div>
       
       {/* Floating WhatsApp Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-4 right-4 z-50">
         <a
           href="https://wa.me/919904003445?text=Hello%20Millennium%20Automation"
           target="_blank"

@@ -1,161 +1,165 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import masLogo from "@/assets/logo.png";
 
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [scrollY, setScrollY] = useState(0);
+
+  const isHomePage = location.pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showHeader, setShowHeader] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  /* ---------------- Scroll detect ---------------- */
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setIsScrolled(currentScrollY > 20);
-      
-      // Always show header throughout the entire website
-      setShowHeader(true);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu when clicking outside
+  /* ---------------- Outside click ---------------- */
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      const menuButton = document.querySelector('[aria-label="Menu"]');
-      const menuDropdown = document.querySelector('.mobile-menu-dropdown');
-      
-      if (isMobileMenuOpen && 
-          !menuButton?.contains(target) && 
-          !menuDropdown?.contains(target)) {
+    const handler = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (
+        isMobileMenuOpen &&
+        menuRef.current &&
+        buttonRef.current &&
+        !menuRef.current.contains(target) &&
+        !buttonRef.current.contains(target)
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handler);
+    }
+    return () => document.removeEventListener("mousedown", handler);
   }, [isMobileMenuOpen]);
 
+  /* ---------------- ESC key ---------------- */
+  useEffect(() => {
+    const esc = (e: KeyboardEvent) => e.key === "Escape" && setIsMobileMenuOpen(false);
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, []);
+
+  /* ---------------- Navigation ---------------- */
   const navLinks = [
-        { href: "#hero", label: "Home" },
-        { href: "#products", label: "Products" },
-        { href: "#about", label: "About" },
-        { href: "#services", label: "Services" },
-        { href: "#projects", label: "Projects" },
-        { href: "#contact", label: "Contact" },
+    { href: "#hero", label: "Home" },
+    { href: "#products", label: "Products" },
+    { href: "#about", label: "About" },
+    { href: "#services", label: "Services" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
   ];
 
   const scrollToSection = (href: string) => {
-    const sectionId = href.replace("#", "");
-    const isHomePage = location.pathname === "/";
-
-    // If not on home page, navigate to home first
-    if (!isHomePage) {
+    const id = href.replace("#", "");
+    if (location.pathname !== "/") {
       navigate("/");
-      // Small delay to ensure page loads before scrolling
       setTimeout(() => {
-        scrollToElement(sectionId);
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
-      return;
+    } else {
+      if (id === "hero") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }
     }
-
-    scrollToElement(sectionId);
     setIsMobileMenuOpen(false);
   };
 
-  const scrollToElement = (sectionId: string) => {
-    if (sectionId === "hero") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <header 
-    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-md`}>
-
-      {/* Main Navigation */}
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-16 sm:h-18 md:h-20" >
-          <button
-            onClick={() => scrollToSection("#hero")}
-            className="flex items-center gap-2 sm:gap-3 md:gap-4 hover:opacity-90 transition-all duration-300 group"
-            aria-label="Go to home"
-          >
-            <div className="relative">
-              <img
-                src={masLogo}
-                alt="MAS logo"
-                className="h-8 sm:h-10 md:h-12 lg:h-14 transition-all duration-300 transform group-hover:scale-105 drop-shadow-sm"
-              />
-            </div>
-            <div className="block">
-              <div className={`transition-all duration-300 ${
-                isScrolled ? "text-blue-600" : "text-blue-500 drop-shadow-md"
-              }`}>
-                <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight tracking-tight">
+    <>
+      {/* ================= FULL NAVBAR (NOT HOME) ================= */}
+      {!isHomePage && (
+        <header className="fixed top-0 left-0 right-0 z-40 bg-white shadow-md">
+          <div className="relative h-16 sm:h-18 md:h-20">
+            <button
+              onClick={() => scrollToSection("#hero")}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3"
+            >
+              <img src={masLogo} alt="MAS logo" className="h-10 sm:h-12" />
+              <div>
+                <h1 className="font-bold text-lg text-blue-600">
                   Millennium Automation
                 </h1>
-                <p className={`text-xs sm:text-sm md:text-sm font-medium ${
-                  isScrolled ? "text-red-600" : "text-red-400"
-                }`}>
+                <p className="text-sm text-red-500">
                   Smart System • Better Solution
                 </p>
               </div>
-            </div>
-          </button>
-        </div>
-      </div>
-      
-      {/* Simplified Menu Button */}
-      <div className="absolute top-3 sm:top-4 md:top-5 right-3 sm:right-4">
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-1 sm:p-2 rounded transition-all duration-200 text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="mobile-menu"
+            </button>
+          </div>
+        </header>
+      )}
+
+      {/* ================= HAMBURGER (ALL PAGES) ================= */}
+      <button
+        ref={buttonRef}
+        onClick={() => setIsMobileMenuOpen((v) => !v)}
+        className="fixed top-4 right-4 z-50 p-2 bg-transparent shadow-none hover:bg-transparent transition"
+        aria-label="Toggle menu"
+      >
+        <span className="sr-only">Toggle menu</span>
+        <span className="relative block w-7 h-6">
+          <span
+            className={`absolute left-0 top-0 h-0.5 w-full bg-white transition-all duration-300 ${
+              isMobileMenuOpen ? "translate-y-2.5 rotate-45" : "translate-y-0"
+            }`}
+          />
+          <span
+            className={`absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 bg-white transition-all duration-300 ${
+              isMobileMenuOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`absolute left-0 bottom-0 h-0.5 w-full bg-white transition-all duration-300 ${
+              isMobileMenuOpen ? "-translate-y-2.5 -rotate-45" : "translate-y-0"
+            }`}
+          />
+        </span>
+      </button>
+
+      {/* ================= DROPDOWN ================= */}
+      <div
+        className={`fixed top-16 right-4 z-40 transition-all duration-300 ${
+          isMobileMenuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
+      >
+        <div
+          ref={menuRef}
+          className="bg-white rounded-xl shadow-xl border min-w-52"
         >
-          {isMobileMenuOpen ? (
-            <X className="w-4 h-4 sm:w-5 sm:h-5" />
-          ) : (
-            <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
-          )}
-        </button>
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => scrollToSection(link.href)}
+              className="w-full flex justify-between px-5 py-3 text-sm hover:bg-blue-50 hover:text-blue-600"
+            >
+              {link.label}
+              <ChevronRight className="w-4 h-4 opacity-60" />
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Simple Navigation Menu */}
-      <div className={`absolute top-full right-3 sm:right-4 transition-all duration-200 ${
-        isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-      }`}
-      id="mobile-menu">
-        <div className={`mobile-menu-dropdown mt-2 rounded-lg shadow-lg min-w-40 sm:min-w-48 bg-white border border-slate-200`}>
-          <div className="py-1 sm:py-2">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-left text-xs sm:text-sm transition-colors text-slate-700 hover:bg-slate-100 hover:text-primary focus:outline-none focus:bg-slate-100 focus:text-primary"
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </header>
+      {/* ================= BACKDROP ================= */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/10"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+    </>
   );
 };
 

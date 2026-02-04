@@ -149,7 +149,7 @@ const Services = () => {
         {/* Responsive Grid Layout - All 6 Services */}
         <div className="w-full max-w-7xl mx-auto">
           {/* Services Grid - Fully Responsive Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1.5 sm:gap-3 md:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-1.5 sm:gap-3 md:gap-4">
             {services.map((service, index) => {
               // Color schemes for each service
               const colorSchemes = [
@@ -217,6 +217,6 @@ const Services = () => {
       />
     </section>
   );
-};
+};  
 
 export default Services;

@@ -753,7 +753,7 @@ const ProductList = () => {
                             {/* Contact Buttons - Responsive */}
                             <div className="flex gap-2 mt-3 w-full">
                               <a
-                                href={`mailto:millenniumautomationsystem@gmail.com?subject=Inquiry - ${product.model}&body=Hi,%0D%0A%0D%0AI'm interested in learning more about the following product:%0D%0A%0D%0AProduct: ${product.model}%0D%0ACategory: ${category.category}%0D%0A%0D%0ASpecifications:%0D%0A${product.specs}%0D%0A%0D%0AKey Features:%0D%0A${product.features.join('%0D%0A')}%0D%0A%0D%0AApplications:%0D%0A${product.applications}%0D%0A%0D%0APlease provide more information and pricing details.%0D%0A%0D%0AThank you`}
+                                href={`mailto:millenniumautomationsystem@gmail.com?subject=Inquiry - ${product.model}&body=${encodeURIComponent(`Hi,\n\nI'm interested in learning more about the following product:\n\nProduct: ${product.model}\nCategory: ${category.category}\n\nSpecifications:\n${product.specs}\n\nKey Features:\n${product.features.join('\n')}\n\nApplications:\n${product.applications}\n\nPlease provide more information and pricing details.\n\nThank you`)}`}
                                 className="flex-1 inline-flex items-center justify-center px-2 sm:px-3 py-2 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm font-semibold rounded-full transition-all whitespace-nowrap"
                               >
                                 📧 Quote

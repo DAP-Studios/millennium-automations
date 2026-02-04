@@ -31,6 +31,7 @@ const stats = [
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   // Smooth scroll to section
   const scrollToSection = (href: string) => {
@@ -38,7 +39,31 @@ const HeroSlider = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Removed auto-slide effect
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setCurrentSlide((prev) => prev + 1);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Reset to first slide seamlessly after the clone
+  useEffect(() => {
+    if (currentSlide === slides.length) {
+      const timeoutId = setTimeout(() => {
+        setIsAnimating(false);
+        setCurrentSlide(0);
+      }, 1000);
+      return () => clearTimeout(timeoutId);
+    }
+
+    if (!isAnimating && currentSlide === 0) {
+      const id = requestAnimationFrame(() => setIsAnimating(true));
+      return () => cancelAnimationFrame(id);
+    }
+  }, [isAnimating, currentSlide]);
 
   // Tailwind-based style definitions for content
   const contentStyles = {
@@ -55,57 +80,67 @@ const HeroSlider = () => {
   return (
     <section
       id="hero"
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950 snap-start snap-always"
+      className="relative min-h-screen sm:h-screen flex items-center justify-center overflow-hidden bg-slate-950 snap-start snap-always"
     >
       {/* Background Carousel */}
-      <div className="absolute inset-0">
-        {slides.map((image, index) => (
-          <div
-            key={index}
-            className={cn(
-              "absolute inset-0 transition-opacity duration-1000",
-              currentSlide === index ? "opacity-100" : "opacity-0"
-            )}
-          >
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className={cn(
+            "flex h-full w-full ease-in-out",
+            isAnimating ? "transition-transform duration-1000" : "transition-none"
+          )}
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((image, index) => (
+            <div key={index} className="h-full w-full flex-shrink-0">
+              <img
+                src={image}
+                alt={`Industrial automation solutions Vapi - Delta Electronics authorized distributor offering VFD, PLC, HMI, and servo systems in Gujarat, India ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          ))}
+          <div className="h-full w-full flex-shrink-0">
             <img
-              src={image}
-              alt={`Industrial automation solutions Vapi - Delta Electronics authorized distributor offering VFD, PLC, HMI, and servo systems in Gujarat, India ${index + 1}`}
+              src={slides[0]}
+              alt="Industrial automation solutions Vapi - Delta Electronics authorized distributor offering VFD, PLC, HMI, and servo systems in Gujarat, India 1"
               className="w-full h-full object-cover"
-              loading={index === 0 ? "eager" : "lazy"}
+              loading="lazy"
             />
           </div>
-        ))}
+        </div>
         {/* Gradient overlays for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/30 to-slate-900/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/30 via-transparent to-slate-900/30" />
       </div>
 
       {/* Main Content */}
-      <div className="relative container mx-auto px-2 sm:px-4 md:px-6 py-8 sm:py-16 lg:py-20 xl:py-24 z-10">
+      <div className="relative container mx-auto px-2 sm:px-4 md:px-6 py-12 pt-16 sm:py-16 lg:py-20 xl:py-24 z-10">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-2 sm:space-y-4 mb-6 sm:mb-12 lg:mb-16 xl:mb-20">
             {/* Heading */}
             <h1
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_8px_rgba(100,100,100,0.6)]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_8px_rgba(100,100,100,0.6)] text-center sm:text-left"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.2s",
                 opacity: 0,
               }}
             >
-              <span className="inline-flex flex-col sm:flex-row items-center sm:items-center gap-1 sm:gap-3 lg:gap-4">
+              <span className="inline-flex flex-col sm:flex-row items-center justify-center sm:items-center sm:justify-start gap-1 sm:gap-3 lg:gap-4">
                 {/* MAS Logo */}
                 <div className="relative">
                   <img
                     src={masLogo}
                     alt="Millennium Automation System logo - Industrial automation solutions provider Vapi Gujarat"
-                    className="h-10 sm:h-14 md:h-16 lg:h-20 xl:h-24 brightness-105 drop-shadow-[0_8px_15px_rgba(0,0,0,0.8)]"
+                    className="h-[94px] sm:h-16 md:h-20 lg:h-24 xl:h-32 brightness-105 drop-shadow-[0_8px_15px_rgba(0,0,0,0.8)]"
                   />
                 </div>
                 <span className="leading-tight text-center sm:text-left">
-                  <span className="block text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
+                  <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-wider">
                     Millennium
                   </span>
-                  <span className="block text-lg sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold">
+                  <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold">
                     Automation System
                   </span>
                 </span>
@@ -114,7 +149,7 @@ const HeroSlider = () => {
 
             {/* Subtitle */}
             <p
-              className="text-xs sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl mx-auto sm:mx-0 font-light leading-relaxed text-center sm:text-left px-2"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl font-light leading-relaxed text-center mx-auto sm:mx-0"
               style={{
                 animation: "slideUp 0.8s ease-out forwards 0.4s",
                 opacity: 0,
@@ -134,7 +169,7 @@ const HeroSlider = () => {
               <Button
                 onClick={() => scrollToSection("#products")}
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-semibold px-3 sm:px-6 lg:px-8 h-9 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:-translate-y-0.5"
+                className="bg-primary hover:bg-primary/90 text-white font-semibold px-3 sm:px-6 lg:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.7)] transform hover:-translate-y-0.5"
               >
                 Explore Solutions →
               </Button>
@@ -142,7 +177,7 @@ const HeroSlider = () => {
                 onClick={() => scrollToSection("#contact")}
                 size="lg"
                 variant="outline"
-                className="border-2 border-white bg-white/15 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 font-semibold px-3 sm:px-6 lg:px-8 h-9 sm:h-12 lg:h-14 text-xs sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] transform hover:-translate-y-0.5"
+                className="border-2 border-white bg-white/15 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 font-semibold px-3 sm:px-6 lg:px-8 h-11 sm:h-12 lg:h-14 text-sm sm:text-sm lg:text-base rounded-lg transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.6)] transform hover:-translate-y-0.5"
               >
                 Get In Touch
               </Button>
@@ -151,7 +186,7 @@ const HeroSlider = () => {
 
           {/* Stats Grid */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 max-w-5xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-2 lg:gap-6 max-w-5xl mx-auto px-2"
             style={{
               animation: "fadeIn 1s ease-out forwards 0.8s",
               opacity: 0,
@@ -167,17 +202,17 @@ const HeroSlider = () => {
                 }}
               >
                 {stat.useDeltaLogo ? (
-                  <div className="flex flex-col items-center justify-center -space-y-8 sm:-space-y-10">
+                  <div className="flex flex-col items-center justify-center -space-y-4 sm:-space-y-10">
                     <img
                       src={deltaLogo}
                       alt="Delta Electronics authorized partner - Industrial automation products distributor Vapi Gujarat"
-                      className="w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] object-contain"
+                      className="w-[140px] h-[140px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] object-contain"
                     />
                     <div>
-                      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                      <div className="text-xl sm:text-xl lg:text-2xl font-bold text-white">
                         {stat.title}
                       </div>
-                      <div className="text-xs sm:text-sm lg:text-base text-white/80">
+                      <div className="text-sm sm:text-sm lg:text-base text-white/80">
                         {stat.subtitle}
                       </div>
                     </div>
@@ -185,14 +220,14 @@ const HeroSlider = () => {
                 ) : (
                   <div className="flex flex-col items-center justify-center gap-2 sm:gap-3">
                     <stat.icon
-                      className="w-8 h-8 sm:w-10 sm:h-10 text-secondary"
+                      className="w-12 h-12 sm:w-12 sm:h-12 text-secondary"
                       strokeWidth={2}
                     />
                     <div>
-                      <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                      <div className="text-xl sm:text-xl lg:text-2xl font-bold text-white">
                         {stat.title}
                       </div>
-                      <div className="text-xs sm:text-sm lg:text-base text-white/80 mt-1">
+                      <div className="text-sm sm:text-sm lg:text-base text-white/80 mt-1">
                         {stat.subtitle}
                       </div>
                     </div>

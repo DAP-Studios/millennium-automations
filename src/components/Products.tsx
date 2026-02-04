@@ -238,20 +238,20 @@ const Products = () => {
     >
       
       {/* Responsive Layout - Overflow Fixed */}
-      <div className="absolute left-2 sm:left-4 md:left-6 lg:left-8 top-3 sm:top-6 md:top-8 lg:top-12 bottom-3 sm:bottom-6 md:bottom-8 lg:bottom-12 z-20 flex flex-col justify-between max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[400px] xl:max-w-[440px]">
+      <div className="absolute left-1/2 md:left-2 lg:left-4 transform md:!translate-x-0 -translate-x-1/2 top-3 sm:top-6 md:top-8 lg:top-12 bottom-3 sm:bottom-6 md:bottom-8 lg:bottom-12 z-20 flex flex-col justify-between max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[400px] xl:max-w-[440px]">
         
         {/* Title and Description - Compact */}
-        <div className="text-left flex-shrink-0">
+        <div className="text-center md:text-left flex-shrink-0">
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white drop-shadow-md mb-1 xs:mb-1.5 sm:mb-2 md:mb-3 leading-tight">
             Our Products
           </h1>
-          <p className="text-[9px] xs:text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-gray-100 drop-shadow-sm mb-2 xs:mb-3 sm:mb-4 md:mb-6 leading-snug">
+          <p className="text-[9px] xs:text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-gray-100 drop-shadow-sm leading-snug">
             Click any category to explore our Delta Electronics automation solutions
           </p>
         </div>
 
         {/* Responsive Category List - Overflow Safe */}
-        <div className="flex-1 flex flex-col justify-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-2.5 min-h-0 overflow-hidden">
+        <div className="flex-1 flex flex-col justify-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-2.5 min-h-0 overflow-hidden md:max-w-[360px] lg:max-w-[400px] xl:max-w-[440px]">
           {allProductsData.map((category, index) => {
             // Icon mapping for each product category
             const categoryIcons = [
@@ -282,14 +282,17 @@ const Products = () => {
                 <div className="absolute inset-0 rounded-lg sm:rounded-xl md:rounded-2xl bg-white/0 group-active:bg-white/20 transition-all duration-150"></div>
                 
                 {/* Category Content - Fully Dynamic Relative Design */}
-                <div className="relative h-full flex items-center" style={{ padding: 'clamp(0.25rem, 2vw, 1rem)' }}>
+                <div className="relative h-full flex items-center" 
+                style={{ 
+                  padding: 'clamp(0.375rem, 2vw, 1rem)'
+                 }}> 
                   <div className="flex items-center w-full" style={{ gap: 'clamp(0.25rem, 1.5vw, 1rem)' }}>
                     {/* Icon - Fully Dynamic Relative to Container */}
                     <div 
                       className={`bg-gradient-to-br ${iconData.color} rounded flex items-center justify-center shadow-lg flex-shrink-0`}
                       style={{ 
-                        width: 'clamp(1.25rem, 8vw, 3rem)',
-                        height: 'clamp(1.25rem, 8vw, 3rem)',
+                        width: 'clamp(1.375rem, 8vw, 3rem)',
+                        height: 'clamp(1.375rem, 8vw, 3rem)',
                         borderRadius: 'clamp(0.25rem, 1vw, 0.75rem)'
                       }}
                     >
@@ -297,8 +300,8 @@ const Products = () => {
                         className="text-white drop-shadow-md" 
                         strokeWidth={2.5} 
                         style={{ 
-                          width: 'clamp(0.625rem, 4vw, 1.5rem)',
-                          height: 'clamp(0.625rem, 4vw, 1.5rem)'
+                          width: 'clamp(0.75rem, 4vw, 1.5rem)',
+                          height: 'clamp(0.75rem, 4vw, 1.5rem)'
                         }}
                       />
                     </div>
@@ -308,8 +311,8 @@ const Products = () => {
                       <h3 
                         className="font-bold text-white leading-tight truncate"
                         style={{ 
-                          fontSize: 'clamp(0.625rem, 3vw, 1.125rem)',
-                          lineHeight: 'clamp(0.875rem, 4vw, 1.375rem)'
+                          fontSize: 'clamp(0.75rem, 3vw, 1.125rem)',
+                          lineHeight: 'clamp(1rem, 4vw, 1.375rem)'
                         }}
                       >
                         {category.category}
@@ -319,8 +322,8 @@ const Products = () => {
                       <p 
                         className="hidden xs:block text-white/70 truncate"
                         style={{ 
-                          fontSize: 'clamp(0.5rem, 2.2vw, 0.875rem)',
-                          lineHeight: 'clamp(0.75rem, 3vw, 1.25rem)'
+                          fontSize: 'clamp(0.625rem, 2.2vw, 0.875rem)',
+                          lineHeight: 'clamp(0.875rem, 3vw, 1.25rem)'
                         }}
                       >
                         {category.products.length} Models
@@ -331,8 +334,8 @@ const Products = () => {
                     <div 
                       className="flex items-center justify-center opacity-60 flex-shrink-0"
                       style={{ 
-                        width: 'clamp(0.625rem, 4vw, 1.5rem)',
-                        height: 'clamp(0.625rem, 4vw, 1.5rem)'
+                        width: 'clamp(0.75rem, 4vw, 1.5rem)',
+                        height: 'clamp(0.75rem, 4vw, 1.5rem)'
                       }}
                     >
                       <svg 
@@ -341,8 +344,8 @@ const Products = () => {
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
                         style={{ 
-                          width: 'clamp(0.375rem, 2.5vw, 1rem)',
-                          height: 'clamp(0.375rem, 2.5vw, 1rem)'
+                          width: 'clamp(0.5rem, 2.5vw, 1rem)',
+                          height: 'clamp(0.5rem, 2.5vw, 1rem)'
                         }}
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
@@ -362,8 +365,8 @@ const Products = () => {
       </div>
 
       {/* Delta Electronics Badge - Enhanced Dynamic Badge */} 
-      <a href="https://www.deltaww.com" target="_blank" rel="noopener noreferrer" className="absolute top-8 sm:top-8 md:top-8 lg:top-8 right-[72px] z-20" >
-        <div className="backdrop-blur-xl bg-cyan-700 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full border border-white/30 shadow-lg shadow-white/10 cursor-pointer hover:shadow-xl hover:bg-white/25 transition-all duration-300 flex flex-row items-center gap-3 backdrop-filter">
+      <a href="https://www.deltaww.com" target="_blank" rel="noopener noreferrer" className="absolute bottom-3 left-4 md:bottom-3 md:left-4 z-20" >
+        <div className="backdrop-blur-xl bg-transparent px-3 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full border border-white/10 shadow-lg shadow-white/10 cursor-pointer hover:shadow-xl hover:bg-white/25 transition-all duration-300 flex flex-row items-center gap-3 backdrop-filter">
           <img src={deltaLogo} alt="Delta" className="h-7 sm:h-9 md:h-10 lg:h-11 flex-shrink-0" />
         </div>
       </a>
