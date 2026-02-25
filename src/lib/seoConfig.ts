@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
     city: "Vapi",
     state: "Gujarat",
     country: "India",
-    fullAddress: "6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi, Gujarat 396195"
+    fullAddress: "6A, first floor, Globe Chamber, Via Char Rasta Rd, opp. Sardar bhiladwala bank, Phase 2, GIDC, Vapi, Gujarat 396195"
   },
   contact: {
     phone: "+91-9904003445",
