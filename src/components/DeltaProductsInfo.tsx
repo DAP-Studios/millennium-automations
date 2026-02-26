@@ -6,21 +6,12 @@
 const DeltaProductsInfo = () => {
   return (
     <div className="sr-only" aria-hidden="false">
-<<<<<<< HEAD
-      <h1>Delta Drive - AC Drive - VFD Vapi | Delta Dealer & Supplier</h1>
-      
-      <p>
-        We are the <strong>dealer and supplier of Delta Drive in Vapi</strong>,{" "}
-        <strong>Delta VFD in Vapi</strong>, <strong>Delta HMI in Vapi</strong>, and{" "}
-        <strong>Delta PLC in Vapi</strong>. We stock and supply Delta Drive, Delta VFD and offer best prices for 
-=======
       <h1>Delta Authorized Dealer in Vapi | Delta Drive, VFD, PLC, HMI Dealer & Supplier</h1>
       
       <p>
         We are the <strong>Delta authorized dealer in Vapi</strong>, <strong>dealer and supplier of Delta Drive in Vapi</strong>,{" "}
         <strong>Delta VFD in Vapi</strong>, <strong>Delta HMI in Vapi</strong>, and{" "}
-        <strong>Delta PLC in Vapi</strong>. Authorized Delta Electronics distributor in Vapi, Gujarat. We stock and supply Delta Drive, Delta VFD and offer best prices for 
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
+        <strong>Delta PLC in Vapi</strong>. Authorized Delta Electronics distributor in Vapi, Gujarat. We stock and supply Delta Drive, Delta VFD and offer best prices for
         L Series, M Series, EL Series from 0.5 HP, 1 HP, 2 HP, 5 HP, and many more.
       </p>
 
@@ -68,15 +59,9 @@ const DeltaProductsInfo = () => {
         <li>And higher ratings up to 3700kW</li>
       </ul>
 
-<<<<<<< HEAD
-      <h2>Why Choose Us as Your Delta Dealer & Supplier:</h2>
-      <ul>
-        <li>Authorized Delta Electronics dealer and supplier in Vapi</li>
-=======
       <h2>Why Choose Us as Your Delta Authorized Dealer in Vapi:</h2>
       <ul>
         <li>Delta authorized dealer in Vapi — Authorized Delta Electronics dealer and supplier in Vapi</li>
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
         <li>We stock all major Delta VFD series</li>
         <li>Best prices in Vapi, Gujarat</li>
         <li>24/7 technical support</li>
@@ -85,15 +70,9 @@ const DeltaProductsInfo = () => {
       </ul>
 
       <p>
-<<<<<<< HEAD
-        <strong>Delta Drive Vapi | Delta AC Drive Vapi | Delta VFD Vapi Dealer & Supplier</strong> - 
-        Contact us for quotes on any Delta VFD series, from 0.5 HP to high-power industrial drives. 
-        We serve Vapi, Vatar, Morai, Varkund, Kachigam, Chharwada, Chanod, Dungrg, and all of Gujarat.
-=======
         <strong>Delta Authorized Dealer in Vapi | Delta Drive Vapi | Delta AC Drive Vapi | Delta VFD Vapi Dealer & Supplier</strong> — 
         Contact us for quotes on any Delta VFD series, from 0.5 HP to high-power industrial drives. 
         We serve Vapi, Vatar, Morai, Varkund, Kachigam, Chharwada, Chanod, Dungrg, and all of Gujarat. https://millenniumautomationsystem.com/
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
       </p>
 
       {/* Additional keyword-rich content matching competitor exactly */}

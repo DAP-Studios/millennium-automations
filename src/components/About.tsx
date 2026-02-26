@@ -87,15 +87,11 @@ const About = () => {
                 <div className="text-xs text-white/60 group-hover:text-white transition-colors hidden sm:block">View Certificate</div>
               </button>
               <button
-<<<<<<< HEAD
-                onClick={() => window.open('https://share.google/Nn7iV4TaW9cJoD2xw', '_blank')}
-=======
-                onClick={() => window.open('https://maps.google.com/?q=Vapi,Gujarat', '_blank')}
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
+                onClick={() => window.open('https://maps.app.goo.gl/nSqCSPjKCNyD3b6R7', '_blank')}
                 className="reveal group bg-white/10 backdrop-blur-xl rounded-lg sm:rounded-xl border-2 border-orange-400/40 hover:border-orange-400/80 p-2 sm:p-4 md:p-5 text-center transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer shadow-lg hover:bg-orange-400/20"
               >
                 <MapPin className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-orange-200 mx-auto mb-1 sm:mb-2" />
-                <div className="text-xs sm:text-sm font-bold text-orange-200">Vapi, Gujarat</div>
+                <div className="text-xs sm:text-sm font-bold text-orange-200">Millennium Automation System</div>
                 <div className="text-xs text-white/60 group-hover:text-white transition-colors hidden sm:block">View on map</div>
               </button>
             </div>

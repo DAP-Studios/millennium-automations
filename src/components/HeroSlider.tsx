@@ -147,11 +147,7 @@ const HeroSlider = () => {
               </span>
             </h1>
 
-<<<<<<< HEAD
-            {/* Subtitle */}
-=======
             {/* Subtitle - keyword-rich for "delta authorized dealer in vapi" searches */}
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
             <p
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-white max-w-2xl font-light leading-relaxed text-center mx-auto sm:mx-0"
               style={{
@@ -159,11 +155,7 @@ const HeroSlider = () => {
                 opacity: 0,
               }}
             >
-<<<<<<< HEAD
-              Smart Systems, Better Solution
-=======
               Delta Authorized Dealer in Vapi — Smart Systems, Better Solution
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
             </p>
 
             {/* Buttons */}

@@ -6,11 +6,7 @@ import industrialBg from "@/assets/hero-1.jpg";
 const features = [
   {
     icon: BadgeCheck,
-<<<<<<< HEAD
-    title: "Authorized Delta Electronics Channel partner",
-=======
     title: "Delta Authorized Dealer in Vapi — Authorized Delta Electronics Channel Partner",
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
     description: "Official channel partner with genuine products"
   },
   {

@@ -3,12 +3,9 @@ import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Package, Zap, CheckCircle2, Phone, Mail } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-<<<<<<< HEAD
-=======
 import SEO from "@/components/SEO";
 import { generateProductSEO, SITE_CONFIG } from "@/lib/seoConfig";
 import { generateBreadcrumbSchema, generateProductSchema } from "@/lib/structuredData";
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
 import vfdImage from "@/assets/hero-1.jpg";
 
 // Types
@@ -347,10 +344,6 @@ const ProductDetail = () => {
     );
   }
 
-<<<<<<< HEAD
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-=======
   const productSEO = generateProductSEO(product.model, category.categoryId);
   const productListUrl = `${SITE_CONFIG.url}/product-list?category=${category.categoryId}`;
   const productDetailUrl = `${SITE_CONFIG.url}/product-detail?category=${category.categoryId}&product=${encodeURIComponent(product.model)}`;
@@ -379,7 +372,6 @@ const ProductDetail = () => {
         ogType="product"
         structuredData={structuredData}
       />
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
       <Header />
       
       <main className="pt-24 pb-16">

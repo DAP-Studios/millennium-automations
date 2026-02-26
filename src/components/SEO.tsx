@@ -60,13 +60,8 @@ export const SEO = ({
       <meta name="twitter:image" content={pageOGImage} />
       <meta name="twitter:image:alt" content={pageTitle} />
       
-<<<<<<< HEAD
-      {/* Structured Data (JSON-LD) */}
-      {structuredData && (
-=======
       {/* Structured Data (JSON-LD) - single object or array of schemas */}
       {structuredData != null && (
->>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
