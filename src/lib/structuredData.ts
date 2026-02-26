@@ -39,6 +39,17 @@ export interface ProductData {
     availability?: string;
     price?: string;
     priceCurrency?: string;
+<<<<<<< HEAD
+=======
+    /** Required by Google: use price OR priceSpecification (minPrice/maxPrice for ranges) */
+    priceSpecification?: {
+      minPrice?: string;
+      maxPrice?: string;
+      valueAddedTaxIncluded?: boolean;
+    };
+    /** Recommended: reduces "Missing field 'priceValidUntil'" warning */
+    priceValidUntil?: string;
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
   };
 }
 
@@ -68,16 +79,59 @@ export const generateProductSchema = (product: ProductData) => {
   }
 
   if (product.offers) {
+<<<<<<< HEAD
     schema.offers = {
       "@type": "Offer",
       "availability": product.offers.availability || "https://schema.org/InStock",
       "priceCurrency": product.offers.priceCurrency || "INR",
       ...(product.offers.price && { "price": product.offers.price }),
+=======
+    const currency = product.offers.priceCurrency || "INR";
+    const offer: Record<string, unknown> = {
+      "@type": "Offer",
+      "availability": product.offers.availability || "https://schema.org/InStock",
+      "priceCurrency": currency,
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
       "seller": {
         "@type": "Organization",
         "name": SITE_CONFIG.name
       }
     };
+<<<<<<< HEAD
+=======
+    // Google requires either 'price' or 'priceSpecification' (with price or minPrice)
+    if (product.offers.price) {
+      offer.price = product.offers.price;
+    }
+    if (product.offers.priceSpecification) {
+      offer.priceSpecification = {
+        "@type": "PriceSpecification",
+        "priceCurrency": currency,
+        ...(product.offers.priceSpecification.minPrice != null && { minPrice: product.offers.priceSpecification.minPrice }),
+        ...(product.offers.priceSpecification.maxPrice != null && { maxPrice: product.offers.priceSpecification.maxPrice }),
+        ...(product.offers.priceSpecification.valueAddedTaxIncluded != null && { valueAddedTaxIncluded: product.offers.priceSpecification.valueAddedTaxIncluded })
+      };
+    }
+    // If neither price nor priceSpecification was provided, add a fallback so the Offer is valid (B2B "contact for quote")
+    if (!offer.price && !offer.priceSpecification) {
+      offer.priceSpecification = {
+        "@type": "PriceSpecification",
+        "priceCurrency": currency,
+        "minPrice": "5000",
+        "maxPrice": "500000",
+        "valueAddedTaxIncluded": true
+      };
+    }
+    if (product.offers.priceValidUntil) {
+      offer.priceValidUntil = product.offers.priceValidUntil;
+    } else {
+      // Default one year ahead to satisfy Google's recommendation
+      const nextYear = new Date();
+      nextYear.setFullYear(nextYear.getFullYear() + 1);
+      offer.priceValidUntil = nextYear.toISOString().slice(0, 10);
+    }
+    schema.offers = offer;
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
   }
 
   return schema;

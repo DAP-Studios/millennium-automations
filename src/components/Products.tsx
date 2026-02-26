@@ -243,10 +243,17 @@ const Products = () => {
         {/* Title and Description - Compact */}
         <div className="text-center md:text-left flex-shrink-0">
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white drop-shadow-md mb-1 xs:mb-1.5 sm:mb-2 md:mb-3 leading-tight">
+<<<<<<< HEAD
             Our Products
           </h1>
           <p className="text-[9px] xs:text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-gray-100 drop-shadow-sm leading-snug">
             Click any category to explore our Delta Electronics automation solutions
+=======
+          Our Products
+          </h1>
+          <p className="text-[9px] xs:text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg text-gray-100 drop-shadow-sm leading-snug">
+          Click any category to explore our Delta Electronics automation solutions
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
           </p>
         </div>
 

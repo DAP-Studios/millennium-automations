@@ -4,7 +4,12 @@ import { ArrowLeft, Search } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+<<<<<<< HEAD
 import { productCategorySEO } from "@/lib/seoConfig";
+=======
+import { productCategorySEO, SITE_CONFIG } from "@/lib/seoConfig";
+import { generateBreadcrumbSchema } from "@/lib/structuredData";
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
 import whatsappIcon from "@/assets/whatsapp.png";
 
 // Import product images
@@ -622,6 +627,15 @@ const ProductList = () => {
 
   // Get SEO configuration for current category
   const categorySEO = productCategorySEO[selectedCategory] || productCategorySEO.vfd;
+<<<<<<< HEAD
+=======
+  const categoryLabel = allProducts.find((c) => c.categoryId === selectedCategory)?.category ?? selectedCategory;
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: `${SITE_CONFIG.url}/` },
+    { name: "Products", url: `${SITE_CONFIG.url}/product-list` },
+    { name: categoryLabel, url: categorySEO.canonical ?? `${SITE_CONFIG.url}/product-list?category=${selectedCategory}` },
+  ]);
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
@@ -631,6 +645,10 @@ const ProductList = () => {
         keywords={categorySEO.keywords}
         canonical={categorySEO.canonical}
         ogType={categorySEO.ogType}
+<<<<<<< HEAD
+=======
+        structuredData={breadcrumbSchema}
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
       />
       <Header />
       

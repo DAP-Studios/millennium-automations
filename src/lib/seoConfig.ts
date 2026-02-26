@@ -7,12 +7,20 @@ export const SITE_CONFIG = {
   name: "Millennium Automation System",
   shortName: "MAS",
   url: "https://millenniumautomationsystem.com",
+<<<<<<< HEAD
   description: "Authorized Delta Electronics distributor in Vapi, Gujarat. Expert industrial automation solutions: VFD, PLC, HMI, Servo Systems, Control Panels. 24/7 support.",
+=======
+  description: "Delta authorized dealer in Vapi, Gujarat. Authorized Delta Electronics distributor and supplier in Vapi. VFD, PLC, HMI, Servo Systems, Control Panels. 24/7 support.",
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
   location: {
     city: "Vapi",
     state: "Gujarat",
     country: "India",
+<<<<<<< HEAD
     fullAddress: "6A, first floor, Globe Chamber, Via Char Rasta Rd, opp. Sardar bhiladwala bank, Phase 2, GIDC, Vapi, Gujarat 396195"
+=======
+    fullAddress: "6A, 1st Floor, Globe Chamber, Opp. Sardar Bhiladwala Bank, Near V.I.A Char Rasta, G.I.D.C., Vapi, Gujarat 396195"
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
   },
   contact: {
     phone: "+91-9904003445",
@@ -34,7 +42,11 @@ export interface SEOProps {
   ogImage?: string;
   ogType?: "website" | "article" | "product";
   noindex?: boolean;
+<<<<<<< HEAD
   structuredData?: object;
+=======
+  structuredData?: object | object[];
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
 }
 
 /**
@@ -72,6 +84,7 @@ export const generateOGImage = (imagePath?: string): string => {
  */
 export const getAllKeywords = (): string => {
   const baseKeywords = [
+<<<<<<< HEAD
     // Company & Location
     "Millennium Automation System",
     "MAS Vapi",
@@ -93,12 +106,40 @@ export const getAllKeywords = (): string => {
     "Delta Electronics supplier Vapi Gujarat",
     "Delta dealer in Vapi",
     "Delta dealers in Vapi",
+=======
+    // Exact search phrases first (people searching these should find us first)
+    "delta authorized dealer in vapi",
+    "Delta authorised dealer in Vapi",
+    "Delta authorized dealer Vapi",
+    "Delta dealer in Vapi",
+    "Delta dealers in Vapi",
+    "Authorized Delta Electronics distributor in Vapi",
+    "Delta Electronics authorized dealer Vapi",
+    "Delta Electronics dealer Vapi",
+    "Delta Electronics supplier Vapi Gujarat",
+    "Authorized Delta Electronics distributor in Gujarat",
+    "Authorized Delta Electronics distributor India",
+    "Delta Electronics channel partner Gujarat",
+    "Delta Electronics authorized distributor Vapi",
+    "Delta Electronics dealer in Vapi",
+    "Delta Electronics dealer in Gujarat",
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
     "Delta dealers near me",
     "Delta suppliers near me",
     "Delta authorized in Gujarat",
     "Delta authorised in Gujarat",
     "Delta authorized in Vapi",
     "Delta authorised in Vapi",
+<<<<<<< HEAD
+=======
+    "Authorized Delta Electronics distributor",
+    // Company & Location
+    "Millennium Automation System",
+    "MAS Vapi",
+    "industrial automation Vapi",
+    "automation company Vapi Gujarat",
+    "industrial automation solutions Vapi",
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
     
     // Product Categories
     "VFD drive supplier Vapi",
@@ -291,8 +332,13 @@ export const getAllKeywords = (): string => {
  * Default SEO metadata for homepage
  */
 export const defaultSEO: SEOProps = {
+<<<<<<< HEAD
   title: "Delta Dealer in Vapi | Authorized Delta Electronics Distributor | Industrial Automation Solutions",
   description: "Delta dealer in Vapi, Gujarat. Authorized Delta Electronics distributor and supplier. ME300, MS300, DVP-ES3, ASDA-H3, TP70P series. Expert industrial automation solutions: VFD Delta make, HMI Delta make, PLC Delta make, Servo Systems. 24/7 support. Get quote now.",
+=======
+  title: "Delta Authorized Dealer in Vapi | Delta Dealer Vapi | Authorized Delta Electronics Distributor",
+  description: "Delta authorized dealer in Vapi, Gujarat. Authorized Delta Electronics distributor and supplier in Vapi. ME300, MS300, DVP-ES3, ASDA-H3, TP70P. VFD, PLC, HMI, Servo. 24/7 support. Get quote now — millenniumautomationsystem.com",
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
   keywords: getAllKeywords(),
   canonical: SITE_CONFIG.url,
   ogImage: generateOGImage(),
@@ -366,7 +412,11 @@ export const generateProductSEO = (productModel: string, category: string): SEOP
     title: `${productModel} | Delta ${category.toUpperCase()} | Authorized Distributor Vapi`,
     description: `Buy ${productModel} from authorized Delta Electronics distributor in Vapi, Gujarat. ${categoryInfo.description} Competitive pricing, 24/7 support. Get quote now.`,
     keywords: `${productModel}, Delta ${productModel}, ${modelKeywords}, ${categoryInfo.keywords}, ${productModel} price, ${productModel} supplier Vapi, buy ${productModel} Gujarat, ${productModel} distributor`,
+<<<<<<< HEAD
     canonical: generateCanonical(`/product-detail?model=${encodeURIComponent(productModel)}&category=${category}`),
+=======
+    canonical: generateCanonical(`/product-detail?category=${category}&product=${encodeURIComponent(productModel)}`),
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
     ogType: "product"
   };
 };

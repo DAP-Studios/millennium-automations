@@ -202,13 +202,21 @@ const Contact = () => {
                 </div>
                 <div className="flex-1">
                   <a
+<<<<<<< HEAD
                     href="https://share.google/Nn7iV4TaW9cJoD2xw"
+=======
+                    href="https://www.google.com/maps/place/9W7F%2B3FR,+Silvasa+Rd,+near+Via+Char+Rasta+Road,+Phase+2,+GIDC,+Vapi,+Gujarat+396195/@21.1628125,72.8734375,17z"
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => trackContactClick("google_maps")}
                     className="text-white/90 text-xs sm:text-sm leading-relaxed hover:text-primary hover:underline block"
                   >
+<<<<<<< HEAD
                     6A, first, Globe Chamber, Via Char Rasta Rd, opp. Sardar bhiladwala bank, Phase 2, GIDC, Vapi, Gujarat 396195
+=======
+                    9W7F+3FR, Silvasa Rd, near Via Char Rasta Road, Phase 2, GIDC, Vapi, Gujarat 396195
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
                   </a>
                 </div>
               </div>

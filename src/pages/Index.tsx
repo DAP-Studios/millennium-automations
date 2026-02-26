@@ -10,6 +10,10 @@ import DeltaProductsInfo from "@/components/DeltaProductsInfo";
 import Header from "@/components/Header";
 import SEO from "@/components/SEO";
 import { defaultSEO } from "@/lib/seoConfig";
+<<<<<<< HEAD
+=======
+import { generateOrganizationSchema } from "@/lib/structuredData";
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
 
 const Index = () => {
   const mainRef = useRef<HTMLElement>(null);
@@ -30,6 +34,10 @@ const Index = () => {
         canonical={defaultSEO.canonical}
         ogImage={defaultSEO.ogImage}
         ogType={defaultSEO.ogType}
+<<<<<<< HEAD
+=======
+        structuredData={generateOrganizationSchema()}
+>>>>>>> 5d8b0611ac9b1143bf3b7f8ca3ea9a3addf6f00f
       />
       <Header />
       <main ref={mainRef} className="w-full">
