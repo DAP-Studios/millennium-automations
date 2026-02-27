@@ -243,10 +243,40 @@ export const generateLocalBusinessSchema = () => {
       "opens": "09:00",
       "closes": "18:00"
     },
-    "areaServed": {
-      "@type": "State",
-      "name": SITE_CONFIG.location.state
-    }
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Vapi"
+      },
+      {
+        "@type": "City",
+        "name": "Daman"
+      },
+      {
+        "@type": "City",
+        "name": "Silvasa"
+      },
+      {
+        "@type": "City",
+        "name": "Valsad"
+      },
+      {
+        "@type": "City",
+        "name": "Bhivandi"
+      },
+      {
+        "@type": "City",
+        "name": "Vasai"
+      },
+      {
+        "@type": "City",
+        "name": "Bhillad"
+      },
+      {
+        "@type": "State",
+        "name": SITE_CONFIG.location.state
+      }
+    ]
   };
 };
 

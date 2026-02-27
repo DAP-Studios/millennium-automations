@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: "Millennium Automation System",
   shortName: "MAS",
   url: "https://millenniumautomationsystem.com",
-  description: "Authorized Delta Electronics distributor in Vapi, Gujarat. Expert industrial automation solutions: VFD, PLC, HMI, Servo Systems, Control Panels. 24/7 support.",
+  description: "Authorized Delta Electronics distributor in Vapi, Daman, Silvasa, Valsad, Bhivandi, Vasai & Bhillad. Expert industrial automation solutions: VFD, PLC, HMI, Servo Systems, Control Panels. 24/7 support.",
   location: {
     city: "Vapi",
     state: "Gujarat",
@@ -73,6 +73,7 @@ export const generateOGImage = (imagePath?: string): string => {
 export const getAllKeywords = (): string => {
   const baseKeywords = [
     // Exact search phrases first (people searching these should find us first)
+    // Vapi
     "delta authorized dealer in vapi",
     "Delta authorised dealer in Vapi",
     "Delta authorized dealer Vapi",
@@ -82,6 +83,37 @@ export const getAllKeywords = (): string => {
     "Delta Electronics authorized dealer Vapi",
     "Delta Electronics dealer Vapi",
     "Delta Electronics supplier Vapi Gujarat",
+    // Daman
+    "delta authorized dealer in daman",
+    "Delta dealer in Daman",
+    "Delta Electronics dealer Daman",
+    "Authorized Delta Electronics distributor in Daman",
+    // Silvasa
+    "delta authorized dealer in silvasa",
+    "Delta dealer in Silvasa",
+    "Delta Electronics dealer Silvasa",
+    "Authorized Delta Electronics distributor in Silvasa",
+    // Valsad
+    "delta authorized dealer in valsad",
+    "Delta dealer in Valsad",
+    "Delta Electronics dealer Valsad",
+    "Authorized Delta Electronics distributor in Valsad",
+    // Bhivandi
+    "delta authorized dealer in bhivandi",
+    "Delta dealer in Bhivandi",
+    "Delta Electronics dealer Bhivandi",
+    "Authorized Delta Electronics distributor in Bhivandi",
+    // Vasai
+    "delta authorized dealer in vasai",
+    "Delta dealer in Vasai",
+    "Delta Electronics dealer Vasai",
+    "Authorized Delta Electronics distributor in Vasai",
+    // Bhillad
+    "delta authorized dealer in bhillad",
+    "Delta dealer in Bhillad",
+    "Delta Electronics dealer Bhillad",
+    "Authorized Delta Electronics distributor in Bhillad",
+    // Regional & National
     "Authorized Delta Electronics distributor in Gujarat",
     "Authorized Delta Electronics distributor India",
     "Delta Electronics channel partner Gujarat",
@@ -101,6 +133,12 @@ export const getAllKeywords = (): string => {
     "industrial automation Vapi",
     "automation company Vapi Gujarat",
     "industrial automation solutions Vapi",
+    "industrial automation Daman",
+    "industrial automation Silvasa",
+    "industrial automation Valsad",
+    "industrial automation Bhivandi",
+    "industrial automation Vasai",
+    "industrial automation Bhillad",
     
     // Product Categories
     "VFD drive supplier Vapi",
@@ -111,6 +149,13 @@ export const getAllKeywords = (): string => {
     "control panel manufacturer Vapi",
     "automation solutions Vapi",
     "industrial automation services Gujarat",
+    // Additional locations
+    "VFD supplier Daman",
+    "PLC supplier Silvasa",
+    "HMI supplier Valsad",
+    "automation solutions Bhivandi",
+    "industrial automation Vasai",
+    "automation services Bhillad",
     
     // Product Categories with Delta Brand - Vapi Location
     "Delta VFD drive Vapi",
@@ -254,9 +299,18 @@ export const getAllKeywords = (): string => {
     
     // Location Variations
     "Vapi industrial automation",
+    "Daman industrial automation",
+    "Silvasa industrial automation",
+    "Valsad industrial automation",
+    "Bhivandi industrial automation",
+    "Vasai industrial automation",
+    "Bhillad industrial automation",
     "Gujarat automation company",
     "Vapi GIDC automation",
     "automation near Vapi",
+    "automation near Daman",
+    "automation near Silvasa",
+    "automation near Valsad",
     "Delta Electronics near me",
     "VFD supplier near me",
     "PLC supplier near me",
@@ -293,8 +347,8 @@ export const getAllKeywords = (): string => {
  * Default SEO metadata for homepage
  */
 export const defaultSEO: SEOProps = {
-  title: "Delta Authorized Dealer in Vapi | Delta Dealer Vapi | Authorized Delta Electronics Distributor",
-  description: "Delta authorized dealer in Vapi, Gujarat. Authorized Delta Electronics distributor and supplier in Vapi. ME300, MS300, DVP-ES3, ASDA-H3, TP70P. VFD, PLC, HMI, Servo. 24/7 support. Get quote now — millenniumautomationsystem.com",
+  title: "Delta Authorized Dealer | Vapi, Daman, Silvasa, Valsad, Bhivandi, Vasai, Bhillad | Distributor",
+  description: "Delta authorized dealer in Vapi, Daman, Silvasa, Valsad, Bhivandi, Vasai & Bhillad, Gujarat. ME300, MS300, DVP-ES3, ASDA-H3, TP70P. VFD, PLC, HMI, Servo, SMPS. 24/7 support. Get quote now — millenniumautomationsystem.com",
   keywords: getAllKeywords(),
   canonical: SITE_CONFIG.url,
   ogImage: generateOGImage(),

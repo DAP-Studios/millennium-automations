@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ProductList from "./pages/ProductList";
 import ProductDetail from "./pages/ProductDetail";
+import DeltaBadge from "@/components/DeltaBadge";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <DeltaBadge />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product-list" element={<ProductList />} />

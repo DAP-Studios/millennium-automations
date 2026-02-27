@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Zap, Cog, Monitor, Cpu, Battery } from "lucide-react";
 import industrialBg from "@/assets/hero-1.jpg";
 import vfdImage from "@/assets/hero-1.jpg";
-import deltaLogo from "@/assets/delta.png";
 
 
 // Product data
@@ -364,12 +363,6 @@ const Products = () => {
 
       </div>
 
-      {/* Delta Electronics Badge - Enhanced Dynamic Badge */} 
-      <a href="https://www.deltaww.com" target="_blank" rel="noopener noreferrer" className="absolute bottom-3 left-4 md:bottom-3 md:left-4 z-20" >
-        <div className="backdrop-blur-xl bg-transparent px-3 sm:px-4 md:px-5 lg:px-6 xl:px-7 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-full border border-white/10 shadow-lg shadow-white/10 cursor-pointer hover:shadow-xl hover:bg-white/25 transition-all duration-300 flex flex-row items-center gap-3 backdrop-filter">
-          <img src={deltaLogo} alt="Delta" className="h-7 sm:h-9 md:h-10 lg:h-11 flex-shrink-0" />
-        </div>
-      </a>
     </section>
   );
 };

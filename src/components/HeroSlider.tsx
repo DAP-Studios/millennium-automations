@@ -155,7 +155,7 @@ const HeroSlider = () => {
                 opacity: 0,
               }}
             >
-              Delta Authorized Dealer in Vapi — Smart Systems, Better Solution
+              Delta Authorized Dealer in Vapi
             </p>
 
             {/* Buttons */}
