@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import ProductList from "./pages/ProductList";
 import ProductDetail from "./pages/ProductDetail";
 import DeltaBadge from "@/components/DeltaBadge";
+import DeltaVapi from "./pages/DeltaVapi";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
         <DeltaBadge />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/delta-dealer-vapi" element={<DeltaVapi />} />
           <Route path="/product-list" element={<ProductList />} />
           <Route path="/product-detail" element={<ProductDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

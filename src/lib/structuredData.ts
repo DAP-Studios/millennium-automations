@@ -280,3 +280,26 @@ export const generateLocalBusinessSchema = () => {
   };
 };
 
+/**
+ * Generate FAQPage structured data
+ */
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export const generateFAQSchema = (items: FAQItem[]) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": items.map((qa) => ({
+      "@type": "Question",
+      "name": qa.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": qa.answer
+      }
+    }))
+  };
+};
+
