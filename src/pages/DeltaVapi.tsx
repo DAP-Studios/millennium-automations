@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { SITE_CONFIG, generateCanonical, generateOGImage } from "@/lib/seoConfig";
-import { generateOrganizationSchema, generateFAQSchema } from "@/lib/structuredData";
+import { generateOrganizationSchema, generateFAQSchema, generateLocalBusinessSchema, generateServiceSchema } from "@/lib/structuredData";
 
 const PAGE = {
   path: "/delta-dealer-vapi",
@@ -27,6 +27,7 @@ const PAGE = {
     "vfd near me",
     "plc near me",
     "hmi near me",
+    "scada near me",
     "Vfd delta support near me",
     "Plc programming support near me",
     "Hmi programming support near me",
@@ -43,6 +44,7 @@ const PAGE = {
     "Delta supplier near Vapi GIDC",
     "mas vapi",
     "mas gujarat",
+    "mas gujrat",
   ].join(", "),
 };
 
@@ -70,7 +72,23 @@ const DeltaVapi = () => {
     },
   ]);
 
-  const structured = [generateOrganizationSchema(), faq];
+  const structured = [
+    generateOrganizationSchema(),
+    generateLocalBusinessSchema(),
+    generateServiceSchema({
+      name: "PLC/HMI/VFD Programming Support",
+      description: "On-site and remote programming support for Delta PLC, HMI, and VFD in and around Vapi GIDC.",
+      serviceType: "Industrial Automation Service",
+      areaServed: ["Vapi", "Daman", "Silvasa", "Valsad"]
+    }),
+    generateServiceSchema({
+      name: "SCADA Integration (Vapi)",
+      description: "SCADA integration, data logging, alarm management, and dashboards for Delta PLC systems in Vapi.",
+      serviceType: "Industrial Automation Service",
+      areaServed: ["Vapi"]
+    }),
+    faq
+  ];
 
   return (
     <div className="min-h-screen bg-white">

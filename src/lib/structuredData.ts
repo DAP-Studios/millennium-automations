@@ -177,7 +177,7 @@ export const generateServiceSchema = (service: ServiceData) => {
  * Generate Organization structured data
  */
 export const generateOrganizationSchema = () => {
-  return {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": SITE_CONFIG.name,
@@ -201,6 +201,15 @@ export const generateOrganizationSchema = () => {
       "longitude": "72.904167"
     }
   };
+  const sameAs = [
+    SITE_CONFIG.social.linkedin,
+    SITE_CONFIG.social.facebook,
+    SITE_CONFIG.social.twitter
+  ].filter(Boolean);
+  if (sameAs.length > 0) {
+    schema.sameAs = sameAs;
+  }
+  return schema;
 };
 
 /**
